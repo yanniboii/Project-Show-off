@@ -6,11 +6,11 @@ public class CameraMover : MonoBehaviour
 {
     [SerializeField] Camera cam;
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("CameraCollider"))
         {
             cam.transform
         }
-    }
+    }*/
 }
