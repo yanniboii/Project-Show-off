@@ -14,11 +14,11 @@ public class SpeedBuff : AbstractBuff
 
     public override void ApplyBuff()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     public override void RemoveBuff()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 }
