@@ -15,6 +15,9 @@ GameObject:
   - component: {fileID: 5671375754431518157}
   - component: {fileID: 2724164410817577437}
   - component: {fileID: 6406050106924856141}
+  - component: {fileID: 3072818315384586846}
+  - component: {fileID: 457291323221186241}
+  - component: {fileID: -5625464561249837148}
   m_Layer: 0
   m_Name: p1
   m_TagString: Untagged
@@ -209,9 +212,65 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7bb720e0-c41a-4b4e-b226-42cd0871f016
     m_ActionName: Gameplay/Jump[/XInputControllerWindows/buttonSouth,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 457291323221186241}
+        m_TargetAssemblyTypeName: AbstractMove, Assembly-CSharp
+        m_MethodName: ExecuteMove
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d54b414d-5b77-4dfd-930b-0ac91e4be15b
+    m_ActionName: Gameplay/ExecuteMove[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 4082741320023662279, guid: f85dfb64b32f6af4a81d2ba567608b6e,
     type: 3}
+--- !u!114 &3072818315384586846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825284992469677713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b707ecd2cca965f4c8880013746fe71e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+--- !u!114 &457291323221186241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825284992469677713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc2ed10ec0704f742b764873d8e2c8cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveType: 3
+--- !u!114 &-5625464561249837148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825284992469677713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8139513165e2814eb2e35635b8aa622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 3.01
+  onCooldown: 0

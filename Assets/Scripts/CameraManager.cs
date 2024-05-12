@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class CameraManager : MonoBehaviour
 {
     [SerializeField] Camera camera1;
@@ -58,5 +58,31 @@ public class CameraManager : MonoBehaviour
         camera2.rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
         camera3.rect = new Rect(0, 0, 0.5f, 0.5f);
         camera4.rect = new Rect(0.5f, 0, 0.5f, 0.5f);
+    }
+
+    public void AddCameraToPlayer(PlayerInput playerInput)
+    {
+        CameraMover cameraMover = playerInput.gameObject.GetComponent<CameraMover>();
+        int pi = playerInput.playerIndex;
+        if(pi == 0)
+        {
+            cameraMover.cam = camera1;
+            playerInput.camera = camera1;
+        }
+        if(pi == 1)
+        {
+            cameraMover.cam = camera2;
+            playerInput.camera = camera2;
+        }
+        if( pi == 2)
+        {
+            cameraMover.cam = camera3;
+            playerInput.camera = camera3;
+        }
+        if(pi == 3)
+        {
+            cameraMover.cam = camera4;
+            playerInput.camera = camera4;
+        }
     }
 }
