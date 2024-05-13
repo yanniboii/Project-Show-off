@@ -10,9 +10,15 @@ public class CameraManager : MonoBehaviour
     [SerializeField] Camera camera4;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-        OnePlayerCamera();
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 
     public void OnePlayerCamera()
@@ -20,7 +26,7 @@ public class CameraManager : MonoBehaviour
         camera2.gameObject.SetActive(false);
         camera3.gameObject.SetActive(false);
         camera4.gameObject.SetActive(false);
-        Debug.Log("Camera1");
+
         camera1.rect = new Rect(0,0,1,1);
     }
     public void TwoPlayerCamera()
@@ -28,7 +34,7 @@ public class CameraManager : MonoBehaviour
         camera2.gameObject.SetActive(true);
         camera3.gameObject.SetActive(false);
         camera4.gameObject.SetActive(false);
-        Debug.Log("Camera2");
+
         camera1.rect = new Rect(0.25f, 0, 0.5f, 0.5f);
         camera2.rect = new Rect(0.25f, 0.5f, 0.5f, 0.5f);
     }
@@ -37,7 +43,7 @@ public class CameraManager : MonoBehaviour
         camera2.gameObject.SetActive(true);
         camera3.gameObject.SetActive(true);
         camera4.gameObject.SetActive(false);
-        Debug.Log("Camera3");
+
         camera1.rect = new Rect(0, 0.5f, 0.5f, 0.5f);
         camera2.rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
         camera3.rect = new Rect(0.25f, 0, 0.5f, 0.5f);
@@ -47,7 +53,7 @@ public class CameraManager : MonoBehaviour
         camera2.gameObject.SetActive(true);
         camera3.gameObject.SetActive(true);
         camera4.gameObject.SetActive(true);
-        Debug.Log("Camera4");
+
         camera1.rect = new Rect(0, 0.5f, 0.5f, 0.5f);
         camera2.rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
         camera3.rect = new Rect(0, 0, 0.5f, 0.5f);
