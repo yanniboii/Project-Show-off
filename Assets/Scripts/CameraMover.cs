@@ -5,20 +5,29 @@ using UnityEngine;
 public class CameraMover : MonoBehaviour
 {
     public Camera cam;
+    Transform start;
+    Transform end;
+
+    private void Start()
+    {
+        end = cam.transform;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("CameraCollider"))
         {
-            Vector3 temppos = cam.transform.position;
-            Quaternion temprot = cam.transform.rotation;
+            start = other.transform.GetChild(0).transform;
 
-            cam.transform.position = other.transform.GetChild(0).transform.position;
-
+            moveCam(other);
             cam.transform.rotation = other.transform.GetChild(0).transform.rotation;
-
-            other.transform.GetChild(0).transform.position = temppos;
-            other.transform.GetChild(0).transform.rotation = temprot;
+        }
+    }
+    void moveCam(Collider other)
+    {
+        while(cam.transform.position != other.transform.GetChild(0).transform.position)
+        {
+            cam.transform.position = Vector3.Lerp(cam.transform.position, other.transform.GetChild(0).transform.position, 0.2f);
         }
     }
 }

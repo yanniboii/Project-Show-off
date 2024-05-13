@@ -10,7 +10,8 @@ public class BasicMovement : MonoBehaviour
     Rigidbody rb;
     Vector2 moveInput;
     float jumpInput;
-    
+    [SerializeField] bool grounded;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +21,14 @@ public class BasicMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.velocity = new Vector3(moveInput.x * monsterData.speed, jumpInput * monsterData.jumpHeight, moveInput.y * monsterData.speed);
-        
+        rb.velocity = new Vector3(moveInput.x * monsterData.speed, rb.velocity.y, moveInput.y * monsterData.speed);
+
+        if (grounded)
+        {
+            rb.AddForce(new Vector3(0,jumpInput*monsterData.jumpHeight,0),ForceMode.Impulse);
+            Debug.Log(jumpInput * monsterData.jumpHeight);
+            grounded = false;
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -31,6 +38,24 @@ public class BasicMovement : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
+
         jumpInput = context.ReadValue<float>();
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.CompareTag("Ground"))
+        {
+            grounded = true;
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.transform.CompareTag("Ground"))
+        {
+            grounded = true;
+        }
     }
 }
