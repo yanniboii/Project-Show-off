@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{9d05455a-d55d-4cd1-bdc6-6fae51e2b450}">
+		<property name="assetPath">
+			<value>32511__daveincamas__200703101950pacificchorusfrogs1.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>27.704458333333335</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a9605f13-9537-419e-b68b-0c961ae560ce}</destination>
+		</relationship>
+	</object>
+</objects>
