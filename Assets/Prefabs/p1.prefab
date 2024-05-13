@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 3072818315384586846}
   - component: {fileID: 457291323221186241}
   - component: {fileID: -5625464561249837148}
+  - component: {fileID: 448791580025752063}
   m_Layer: 0
   m_Name: p1
   m_TagString: Untagged
@@ -37,7 +38,8 @@ Transform:
   m_LocalPosition: {x: 0.1697322, y: 1, z: -0.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3682724926104649640}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1058155776873682280
@@ -126,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterData: {fileID: 11400000, guid: fc1cfd3178e655642979a8237a91832b, type: 2}
-  dir: {x: 0, y: 0, z: 0}
+  grounded: 0
 --- !u!54 &2724164410817577437
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -212,22 +214,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7bb720e0-c41a-4b4e-b226-42cd0871f016
     m_ActionName: Gameplay/Jump[/XInputControllerWindows/buttonSouth,/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 457291323221186241}
-        m_TargetAssemblyTypeName: AbstractMove, Assembly-CSharp
-        m_MethodName: ExecuteMove
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: d54b414d-5b77-4dfd-930b-0ac91e4be15b
-    m_ActionName: Gameplay/ExecuteMove[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -259,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2ed10ec0704f742b764873d8e2c8cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveType: 3
+  moveType: 0
 --- !u!114 &-5625464561249837148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,3 +260,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 3.01
   onCooldown: 0
+--- !u!114 &448791580025752063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825284992469677713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9efebf046d1f7b4abe48b01a71b23d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 5175757667294753623, guid: 6674fd550f9709e42b06f49e752f0610,
+    type: 3}
+  bulletSpawn: {fileID: 3682724926104649640}
+  bulletSpeed: 4.57
+  cooldown: 1.57
+--- !u!1 &7752884908244892074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3682724926104649640}
+  m_Layer: 0
+  m_Name: bulletSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3682724926104649640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7752884908244892074}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2953856351789558119}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

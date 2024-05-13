@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class BasicMovement : MonoBehaviour
 {
     public MonsterData monsterData;
-    [SerializeField] Vector3 dir;
     Rigidbody rb;
     Vector2 moveInput;
     float jumpInput;

@@ -922,6 +922,7 @@ GameObject:
   m_Component:
   - component: {fileID: 754931046}
   - component: {fileID: 754931045}
+  - component: {fileID: 754931044}
   - component: {fileID: 754931043}
   m_Layer: 0
   m_Name: Camera3
@@ -974,6 +975,14 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!81 &754931044
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754931042}
+  m_Enabled: 1
 --- !u!20 &754931045
 Camera:
   m_ObjectHideFlags: 0
@@ -1436,25 +1445,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NotificationBehavior: 2
+  m_NotificationBehavior: 0
   m_MaxPlayerCount: -1
   m_AllowJoining: 1
   m_JoinBehavior: 0
   m_PlayerJoinedEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1873951377}
-        m_TargetAssemblyTypeName: CameraManager, Assembly-CSharp
-        m_MethodName: AddCameraToPlayer
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_PlayerLeftEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1491,6 +1488,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1066299065}
   - component: {fileID: 1066299064}
+  - component: {fileID: 1066299063}
   - component: {fileID: 1066299062}
   m_Layer: 0
   m_Name: Camera2
@@ -1543,6 +1541,14 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!81 &1066299063
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066299061}
+  m_Enabled: 1
 --- !u!20 &1066299064
 Camera:
   m_ObjectHideFlags: 0
@@ -1619,6 +1625,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1274547900}
   - component: {fileID: 1274547899}
+  - component: {fileID: 1274547898}
   - component: {fileID: 1274547897}
   m_Layer: 0
   m_Name: Camera4
@@ -1671,6 +1678,14 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!81 &1274547898
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274547896}
+  m_Enabled: 1
 --- !u!20 &1274547899
 Camera:
   m_ObjectHideFlags: 0
@@ -2004,7 +2019,7 @@ GameObject:
   - component: {fileID: 1572876156}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2124,6 +2139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveType: 1
+  specialInput: 0
 --- !u!1 &1589796996
 GameObject:
   m_ObjectHideFlags: 0
@@ -2170,14 +2186,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1589796996}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.53, y: 1.4, z: 3.95}
-  m_LocalScale: {x: 1, y: 2.5208, z: 70.22803}
+  m_LocalRotation: {x: -0, y: 0.6302901, z: -0, w: 0.7763598}
+  m_LocalPosition: {x: -0.53, y: -4.95, z: 3.95}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1997080598}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 78.143, z: 0}
 --- !u!1 &1626700228
 GameObject:
   m_ObjectHideFlags: 0
@@ -2521,13 +2537,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997080597}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19171184, y: -0, z: -0.000000029802319, w: 0.9814513}
-  m_LocalPosition: {x: 0.00000047683716, y: 4.900013, z: -0.43}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1589796998}
-  m_LocalEulerAnglesHint: {x: 22.105, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

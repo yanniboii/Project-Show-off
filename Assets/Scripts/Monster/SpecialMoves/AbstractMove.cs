@@ -5,6 +5,7 @@ using UnityEngine;
 public class AbstractMove : MonoBehaviour
 {
     [SerializeField] MoveType moveType;
+    [SerializeField] float specialInput;
     //Implement Move 
     public void ExecuteMove()
     {
@@ -23,6 +24,15 @@ public class AbstractMove : MonoBehaviour
         if(moveType == MoveType.active)
         {
             gameObject.GetComponent<AbstractActive>().ExecuteActive();
+        }
+        if(moveType == MoveType.ShootAble)
+        {
+            Debug.Log("A");
+            if (gameObject.GetComponent<Shoot>().canShoot)
+            {
+                Debug.Log("B");
+                gameObject.GetComponent<Shoot>().ShootBullet();
+            }
         }
     }
 }
