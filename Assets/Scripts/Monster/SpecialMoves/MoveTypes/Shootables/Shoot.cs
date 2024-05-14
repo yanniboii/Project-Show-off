@@ -34,7 +34,8 @@ public class Shoot : MonoBehaviour
         StartCoroutine(ShootCooldown());
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
 
-        Vector3 forceDirection = transform.forward;
+        Vector3 forceDirection = transform.forward.normalized;
+        Debug.Log(transform.forward.normalized);
         bullet.GetComponent<Rigidbody>().AddForce(forceDirection * bulletSpeed, ForceMode.Impulse);
     }
 

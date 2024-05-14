@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class AbstractMove : MonoBehaviour
 {
     [SerializeField] MoveType moveType;
-    [SerializeField] float specialInput;
+
     //Implement Move 
-    public void ExecuteMove()
+    public void ExecuteMove(InputAction.CallbackContext context)
     {
         if(moveType == MoveType.buff)
         {
@@ -23,6 +24,7 @@ public class AbstractMove : MonoBehaviour
         }
         if(moveType == MoveType.active)
         {
+            Debug.Log("A");
             gameObject.GetComponent<AbstractActive>().ExecuteActive();
         }
         if(moveType == MoveType.ShootAble)

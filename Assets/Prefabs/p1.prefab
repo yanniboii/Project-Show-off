@@ -154,7 +154,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &6406050106924856141
 MonoBehaviour:
@@ -214,6 +214,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7bb720e0-c41a-4b4e-b226-42cd0871f016
     m_ActionName: Gameplay/Jump[/XInputControllerWindows/buttonSouth,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 457291323221186241}
+        m_TargetAssemblyTypeName: AbstractMove, Assembly-CSharp
+        m_MethodName: ExecuteMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 02d3a798-4b0f-4bab-b636-470360c499db
+    m_ActionName: Gameplay/Ability[/Keyboard/x]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -275,8 +291,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5175757667294753623, guid: 6674fd550f9709e42b06f49e752f0610,
     type: 3}
   bulletSpawn: {fileID: 3682724926104649640}
-  bulletSpeed: 4.57
+  bulletSpeed: 4.8
   cooldown: 1.57
+  canShoot: 1
 --- !u!1 &7752884908244892074
 GameObject:
   m_ObjectHideFlags: 0

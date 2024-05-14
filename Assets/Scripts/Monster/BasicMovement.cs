@@ -21,7 +21,7 @@ public class BasicMovement : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = new Vector3(moveInput.x * monsterData.speed, rb.velocity.y, moveInput.y * monsterData.speed);
-
+        //gameObject.transform.LookAt(new Vector3(moveInput.x, transform.position.y,moveInput.y));
         if (grounded)
         {
             rb.AddForce(new Vector3(0,jumpInput*monsterData.jumpHeight,0),ForceMode.Impulse);
