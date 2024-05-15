@@ -21,12 +21,22 @@ public class BasicMovement : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = new Vector3(moveInput.x * monsterData.speed, rb.velocity.y, moveInput.y * monsterData.speed);
-        //gameObject.transform.LookAt(new Vector3(moveInput.x, transform.position.y,moveInput.y));
+
         if (grounded)
         {
             rb.AddForce(new Vector3(0,jumpInput*monsterData.jumpHeight,0),ForceMode.Impulse);
             Debug.Log(jumpInput * monsterData.jumpHeight);
             grounded = false;
+        }
+    }
+
+    private void Update()
+    {
+        if (moveInput != Vector2.zero)
+        {
+            float angle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg;
+            Quaternion moveDir = Quaternion.Euler(0, angle, 0);
+            transform.rotation = moveDir;
         }
     }
 

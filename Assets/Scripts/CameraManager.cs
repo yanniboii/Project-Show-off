@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -67,21 +68,25 @@ public class CameraManager : MonoBehaviour
         if(pi == 0)
         {
             cameraMover.cam = camera1;
+            cameraMover.brain = CinemachineCore.Instance.GetActiveBrain(0);
             playerInput.camera = camera1;
         }
         if(pi == 1)
         {
             cameraMover.cam = camera2;
+            cameraMover.brain = CinemachineCore.Instance.GetActiveBrain(1);
             playerInput.camera = camera2;
         }
         if( pi == 2)
         {
             cameraMover.cam = camera3;
+            cameraMover.brain = CinemachineCore.Instance.GetActiveBrain(2);
             playerInput.camera = camera3;
         }
         if(pi == 3)
         {
             cameraMover.cam = camera4;
+            cameraMover.brain = CinemachineCore.Instance.GetActiveBrain(3);
             playerInput.camera = camera4;
         }
     }
