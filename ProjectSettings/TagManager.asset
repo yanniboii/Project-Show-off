@@ -5,9 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - CameraCollider
-  - Ground
-  - FireBall
-  - Lighting
   layers:
   - Default
   - TransparentFX
@@ -15,10 +12,10 @@ TagManager:
   - 
   - Water
   - UI
-  - FirstPlayer
-  - SecondPlayer
-  - rThirdPlayer
-  - FourthPlayer
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

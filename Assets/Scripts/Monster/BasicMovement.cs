@@ -5,16 +5,12 @@ using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 public class BasicMovement : MonoBehaviour
 {
-    public MonsterData monsterData;
-    [SerializeField] bool grounded;
-
-    [HideInInspector]
-    public CameraInfo cameraInfo;
-
+    [SerializeField] MonsterData monsterData;
+    [SerializeField] Vector3 dir;
     Rigidbody rb;
     Vector2 moveInput;
     float jumpInput;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,24 +20,8 @@ public class BasicMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.velocity = new Vector3(moveInput.x * monsterData.speed, rb.velocity.y, moveInput.y * monsterData.speed);
-
-        if (grounded)
-        {
-            rb.AddForce(new Vector3(0,jumpInput*monsterData.jumpHeight,0),ForceMode.Impulse);
-            Debug.Log(jumpInput * monsterData.jumpHeight);
-            grounded = false;
-        }
-    }
-
-    private void Update()
-    {
-        if (moveInput != Vector2.zero)
-        {
-            float angle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg;
-            Quaternion moveDir = Quaternion.Euler(0, angle, 0);
-            transform.rotation = moveDir;
-        }
+        rb.velocity = new Vector3(moveInput.x * monsterData.speed, jumpInput * monsterData.jumpHeight, moveInput.y * monsterData.speed);
+        
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -51,24 +31,32 @@ public class BasicMovement : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-
         jumpInput = context.ReadValue<float>();
-
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.transform.CompareTag("Ground"))
-        {
-            grounded = true;
-        }
-    }
 
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.transform.CompareTag("Ground"))
-        {
-            grounded = true;
-        }
-    }
+
+    //void Move()
+    //{
+    //    if (Input.GetKey(KeyCode.W))
+    //    {
+    //        rb.velocity = Vector3.forward * monsterData.speed;
+    //    }
+    //    if (Input.GetKey(KeyCode.S))
+    //    {
+    //        rb.velocity = Vector3.back * monsterData.speed;
+    //    }
+    //    if (Input.GetKey(KeyCode.A))
+    //    {
+    //        rb.velocity = Vector3.left * monsterData.speed;
+    //    }
+    //    if (Input.GetKey(KeyCode.D))
+    //    {
+    //        rb.velocity = Vector3.right * monsterData.speed;
+    //    }
+    //    if (Input.GetKey(KeyCode.Space))
+    //    {
+    //        rb.velocity = Vector3.up * monsterData.jumpHeight;
+    //    }
+    //}
 }

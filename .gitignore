@@ -12,6 +12,7 @@
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
+# Bro I do NOT understand this
 /[Mm]emoryCaptures/
 
 # Recordings can get excessive in size
