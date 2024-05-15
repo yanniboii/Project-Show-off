@@ -5,15 +5,26 @@ using UnityEngine;
 
 public class CameraMover : MonoBehaviour
 {
-    public Camera cam;
-    public CinemachineBrain brain;
+    [Tooltip("the camera that will be dissabled or enabled")]
+    [SerializeField] int index;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("CameraCollider"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            cam.enabled = false;
-            brain.ActiveVirtualCamera.VirtualCameraGameObject.SetActive(false);
+            CameraInfo cam = other.gameObject.GetComponent<BasicMovement>().cameraInfo;
+            if (index >= cam.virtualCameras.Count) return;
+            GameObject camGO = cam.virtualCameras[index].gameObject;
+            if (camGO.active)
+            {
+                camGO.SetActive(false);
+                cam.virtualCameraIndex++;
+            }
+            else
+            {
+                camGO.SetActive(true);
+                cam.virtualCameraIndex--;
+            }
         }
     }
 

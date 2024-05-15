@@ -6,10 +6,14 @@ using UnityEngine.InputSystem;
 public class BasicMovement : MonoBehaviour
 {
     public MonsterData monsterData;
+    [SerializeField] bool grounded;
+
+    [HideInInspector]
+    public CameraInfo cameraInfo;
+
     Rigidbody rb;
     Vector2 moveInput;
     float jumpInput;
-    [SerializeField] bool grounded;
 
     // Start is called before the first frame update
     void Start()

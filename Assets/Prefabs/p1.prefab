@@ -15,13 +15,12 @@ GameObject:
   - component: {fileID: 5671375754431518157}
   - component: {fileID: 2724164410817577437}
   - component: {fileID: 6406050106924856141}
-  - component: {fileID: 3072818315384586846}
   - component: {fileID: 457291323221186241}
   - component: {fileID: -5625464561249837148}
   - component: {fileID: 448791580025752063}
   m_Layer: 0
   m_Name: p1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,6 +129,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterData: {fileID: 11400000, guid: fc1cfd3178e655642979a8237a91832b, type: 2}
   grounded: 0
+  cameraInfo:
+    camera: {fileID: 0}
+    brain: {fileID: 0}
+    virtualCameraIndex: 0
+    virtualCameras: []
 --- !u!54 &2724164410817577437
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -237,20 +241,6 @@ MonoBehaviour:
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 4082741320023662279, guid: f85dfb64b32f6af4a81d2ba567608b6e,
     type: 3}
---- !u!114 &3072818315384586846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 825284992469677713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b707ecd2cca965f4c8880013746fe71e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  brain: {fileID: 0}
 --- !u!114 &457291323221186241
 MonoBehaviour:
   m_ObjectHideFlags: 0
