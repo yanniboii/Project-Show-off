@@ -29,7 +29,6 @@ public class BasicMovement : MonoBehaviour
         if (grounded)
         {
             rb.AddForce(new Vector3(0,jumpInput*monsterData.jumpHeight,0),ForceMode.Impulse);
-            Debug.Log(jumpInput * monsterData.jumpHeight);
             grounded = false;
         }
     }
