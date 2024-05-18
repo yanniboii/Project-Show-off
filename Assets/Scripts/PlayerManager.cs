@@ -23,7 +23,7 @@ public class PlayerManager : MonoBehaviour
 
     #region private vars
     private int joinIndex = 0;
-    [SerializeField]private List<PlayerInfo> playerInfos = new List<PlayerInfo>();
+    [SerializeField] private List<PlayerInfo> playerInfos = new List<PlayerInfo>();
     private List<GameObject> inactiveGO = new List<GameObject>();
     #endregion
 
@@ -35,13 +35,24 @@ public class PlayerManager : MonoBehaviour
         InstantiateAllPlayers();
     }
 
+    private void OnEnable()
+    {
+        Player.beforeSwapCharacter += SwapCharacter;
+    }
+
+    private void OnDisable()
+    {
+        Player.beforeSwapCharacter -= SwapCharacter;
+    }
+
     private void Update()
     {
         UpdateInactive();
     }
+
     #endregion
 
-    #region functions
+    #region private functions
     void InstantiateAllPlayers()
     {
         List<InputDevice> devices = InputSystem.devices.ToList();
@@ -66,7 +77,6 @@ public class PlayerManager : MonoBehaviour
             info.timeUntilInactive = timeUntilInactive;
 
             playerInfos.Add(info);
-            Debug.Log("D");
 
             joinIndex++;
         }
@@ -77,42 +87,91 @@ public class PlayerManager : MonoBehaviour
         for (int i = 0; i < playerInfos.Count; i++)
         {
             PlayerInfo playerInfo = playerInfos[i];
-            Debug.Log("A");
-            if(playerInfo.timeUntilInactive > 0)
+            if (playerInfo.timeUntilInactive > 0)
             {
-                Debug.Log("B");
                 playerInfo.timeUntilInactive -= Time.deltaTime;
             }
 
-            if (playerInfo.timeUntilInactive <= 0)
+            if (playerInfo.timeUntilInactive <= 0 && playerInfo.isActive)
             {
+                playerInfo.previousGameObject = playerInfo.gameObject;
                 playerInfo.isActive = false;
                 playerInfo.gameObject = null;
             }
 
             if (playerInfo.inputDevice.wasUpdatedThisFrame)
             {
-                Debug.Log("C");
                 playerInfo.timeUntilInactive = timeUntilInactive;
 
                 playerInfo.isActive = true;
-
-                for (int j = 0; j < playerInfos.Count; j++)
+                bool canUsePreviousGameObject = true;
+                if (playerInfo.gameObject == null)
                 {
-                    for(int k = 0; k < playerPrefab.Count; k++)
+                    for (int j = 0; j < playerInfos.Count; j++)
                     {
-                        if (!playerInfos[j].ContainsGameObject(playerPrefab[k]))
+                        if (playerInfos[j].ContainsGameObject(playerInfo.previousGameObject)) canUsePreviousGameObject = false;
+                    }
+                    if (canUsePreviousGameObject)
+                    {
+                        playerInfo.gameObject = playerInfo.previousGameObject;
+                    }
+                    else
+                    {
+                        for (int j = 0; j < playerInfos.Count; j++)
                         {
-                            playerInfo.gameObject = playerPrefab[k];
+                            for (int k = 0; k < playerPrefab.Count; k++)
+                            {
+                                if (!playerInfos[j].ContainsGameObject(playerPrefab[k]))
+                                {
+                                    playerInfo.gameObject = playerPrefab[k];
+                                    break;
+                                }
+                            }
+                            break;
                         }
                     }
-
                 }
 
             }
+            playerInfos[i] = playerInfo;
 
         }
     }
+    #endregion
+
+    #region public functions
+
+    public void SwapCharacter(GameObject gameObject)
+    {
+        PlayerInfo playerInfo = new PlayerInfo();
+        Debug.Log("B");
+
+        for (int j = 0; j < playerInfos.Count; j++)
+        {
+            Debug.Log("C");
+            if (playerInfos[j].ContainsGameObject(gameObject))
+            {
+                playerInfo = playerInfos[j];
+            }
+            Debug.Log("D");
+            for (int i = 0; i < playerInfos.Count; i++)
+            {
+                for (int k = 0; k < playerPrefab.Count; k++)
+                {
+                    if (!playerInfos[i].ContainsGameObject(playerPrefab[k]))
+                    {
+                        playerInfo.gameObject = playerPrefab[k];
+                        break;
+                    }
+                }
+                break;
+            }
+            playerInfos[j] = playerInfo;
+
+        }
+
+    }
+
     #endregion
 
     #region from Unity
@@ -159,6 +218,7 @@ public class PlayerManager : MonoBehaviour
 public struct PlayerInfo
 {
     public GameObject gameObject;
+    public GameObject previousGameObject;
     public InputDevice inputDevice;
 
     public bool isActive;
@@ -167,7 +227,7 @@ public struct PlayerInfo
 
     public bool ContainsGameObject(GameObject go)
     {
-        if(gameObject == go) return true;
+        if (gameObject == go) return true;
         else return false;
     }
 }

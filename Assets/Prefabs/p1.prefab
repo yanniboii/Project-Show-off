@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 457291323221186241}
   - component: {fileID: -5625464561249837148}
   - component: {fileID: 448791580025752063}
+  - component: {fileID: -4572652343394127542}
   m_Layer: 0
   m_Name: p1
   m_TagString: Player
@@ -235,6 +236,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 02d3a798-4b0f-4bab-b636-470360c499db
     m_ActionName: Gameplay/Ability[/Keyboard/x]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -4572652343394127542}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: SwapCharacter
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5590d586-2701-46a2-8c82-bc5d3be4c193
+    m_ActionName: Gameplay/SwapCharacter[/XInputControllerWindows/buttonNorth,/Keyboard/y]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -286,6 +303,19 @@ MonoBehaviour:
   bulletSpeed: 4.8
   cooldown: 1.57
   canShoot: 1
+--- !u!114 &-4572652343394127542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825284992469677713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20e867df18f5e794eb0dcd8922a04780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followObject: {fileID: 0}
 --- !u!1 &1118369783791469045
 GameObject:
   m_ObjectHideFlags: 0
