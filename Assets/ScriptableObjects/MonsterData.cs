@@ -7,6 +7,4 @@ public class MonsterData : ScriptableObject
 {
     public float jumpHeight;
     public float speed;
-    public float weight;
-
 }

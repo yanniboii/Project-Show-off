@@ -29,11 +29,10 @@ public class Shoot : MonoBehaviour
     }
     public void ShootBullet()
     {
-
-
         StartCoroutine(ShootCooldown());
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
 
+        Debug.Log("BUll");
         Vector3 forceDirection = transform.forward.normalized;
         Debug.Log(transform.forward.normalized);
         bullet.GetComponent<Rigidbody>().AddForce(forceDirection * bulletSpeed, ForceMode.Impulse);
