@@ -2571,7 +2571,7 @@
 											"font": "Arial;13;0",
 											"left": 256,
 											"top": 1088,
-											"width": 73.67724609375,
+											"width": 74.013671875,
 											"height": 13,
 											"text": "(from Ability)"
 										},
@@ -3650,8 +3650,8 @@
 								"$ref": "AAAAAAFF+qBtyKM79qY="
 							},
 							"font": "Arial;13;0",
-							"left": 1144,
-							"top": 1192,
+							"left": 760,
+							"top": 840,
 							"width": 296,
 							"height": 120,
 							"text": "BasicMovement and ability need reference to player. but player should be able to change so they can't be childeren they should also be able to move without a player using the nav mesh. player needs a reference to the monsterPrefab called the followObj"
