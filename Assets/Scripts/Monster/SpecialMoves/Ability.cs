@@ -1,33 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class AbstractMove : MonoBehaviour
+public class Ability : MonoBehaviour
 {
     [SerializeField] MoveType moveType;
+    public Player player;
 
-    //Implement Move 
-    public void ExecuteMove(InputAction.CallbackContext context)
+    public void BeforeSwap()
     {
-        if(moveType == MoveType.buff)
+        player.beforeAbility -= ExecuteAbility;
+    }
+
+    public void AfterSwap()
+    {
+        player.beforeAbility += ExecuteAbility;
+    }
+    //Implement Move 
+    public void ExecuteAbility()
+    {
+        if (moveType == MoveType.buff)
         {
             gameObject.GetComponent<AbstractBuff>().ApplyBuff();
         }
-        if(moveType == MoveType.passive)
+        if (moveType == MoveType.passive)
         {
             AbstractPassive pas = gameObject.GetComponent<AbstractPassive>();
-            if(!pas.enabled)
+            if (!pas.enabled)
             {
                 pas.enabled = true;
             }
         }
-        if(moveType == MoveType.active)
+        if (moveType == MoveType.active)
         {
             Debug.Log("A");
             gameObject.GetComponent<AbstractActive>().ExecuteActive();
         }
-        if(moveType == MoveType.ShootAble)
+        if (moveType == MoveType.ShootAble)
         {
             Debug.Log("A");
             if (gameObject.GetComponent<Shoot>().canShoot)

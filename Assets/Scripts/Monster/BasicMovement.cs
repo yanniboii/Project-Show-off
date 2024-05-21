@@ -11,6 +11,7 @@ public class BasicMovement : MonoBehaviour
     [HideInInspector]
     public CameraInfo cameraInfo;
 
+    public Player player;
     Rigidbody rb;
     Vector2 moveInput;
     float jumpInput;
@@ -28,8 +29,7 @@ public class BasicMovement : MonoBehaviour
 
         if (grounded)
         {
-            rb.AddForce(new Vector3(0,jumpInput*monsterData.jumpHeight,0),ForceMode.Impulse);
-            Debug.Log(jumpInput * monsterData.jumpHeight);
+            rb.AddForce(new Vector3(0, jumpInput * monsterData.jumpHeight, 0), ForceMode.Impulse);
             grounded = false;
         }
     }
@@ -44,16 +44,30 @@ public class BasicMovement : MonoBehaviour
         }
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    public void OnMove(Vector2 dir)
     {
-        moveInput = context.ReadValue<Vector2>();
+        moveInput = dir;
     }
 
-    public void OnJump(InputAction.CallbackContext context)
+    public void OnJump(float jump)
     {
 
-        jumpInput = context.ReadValue<float>();
+        jumpInput = jump;
 
+    }
+
+    public void BeforeSwap()
+    {
+        player.beforeMove -= OnMove;
+        player.beforeJump -= OnJump;
+        moveInput = Vector2.zero;
+        jumpInput = 0;
+    }
+
+    public void AfterSwap()
+    {
+        player.beforeMove += OnMove;
+        player.beforeJump += OnJump;
     }
 
     private void OnCollisionEnter(Collision collision)
