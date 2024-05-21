@@ -112,6 +112,9 @@ public class PlayerManager : MonoBehaviour
             {
                 playerInfo.previousMonsterGO = playerInfo.monsterGO;
                 playerInfo.previousPlayer = playerInfo.previousMonsterGO.GetComponent<BasicMovement>().player;
+
+                playerInfo.previousPlayer.followObject = null;
+
                 playerInfo.isActive = false;
                 playerInfo.monsterGO = null;
 
@@ -154,7 +157,6 @@ public class PlayerManager : MonoBehaviour
                             {
                                 playerInfo.monsterGO = monsterPrefab[k];
 
-
                                 playerInfo.monsterGO.GetComponent<BasicMovement>().player = playerInfo.previousPlayer;
                                 playerInfo.monsterGO.GetComponent<Ability>().player = playerInfo.previousPlayer;
 
@@ -162,7 +164,8 @@ public class PlayerManager : MonoBehaviour
 
                                 playerInfo.monsterGO.GetComponent<BasicMovement>().AfterSwap();
                                 playerInfo.monsterGO.GetComponent<Ability>().AfterSwap();
-                                break;
+                                playerInfos[i] = playerInfo;
+                                return;
                             }
                         }
                         break;
@@ -183,19 +186,14 @@ public class PlayerManager : MonoBehaviour
     {
         stopUpdatingInactive = true;
         PlayerInfo playerInfo = new PlayerInfo();
-        Debug.Log("B");
 
         for (int j = 0; j < playerInfos.Count; j++)
         {
-            Debug.Log("C");
             if (!playerInfos[j].ContainsGameObject(gameObject))
             {
-                Debug.Log("E");
                 continue;
             }
             playerInfo = playerInfos[j];
-            Debug.Log(playerInfos[j].monsterGO + " : " + gameObject + " : " + playerInfo.monsterGO);
-            Debug.Log("D");
             for (int i = 0; i < monsterPrefab.Count; i++)
             {
                 int index = playerInfo.index + i;
@@ -204,7 +202,6 @@ public class PlayerManager : MonoBehaviour
                 {
                     index = 0;
                 }
-                Debug.Log(index + " before check");
                 if (monsterPrefab[index].GetComponent<BasicMovement>().player == null)
                 {
                     Debug.Log(index);
@@ -233,7 +230,6 @@ public class PlayerManager : MonoBehaviour
                     playerInfos[j] = playerInfo;
 
                     stopUpdatingInactive = false;
-                    Debug.Log(monsterPrefab[index] + "F");
                     return monsterPrefab[index];
                 }
                 else if (index == 0)
@@ -267,7 +263,6 @@ public class PlayerManager : MonoBehaviour
                         playerInfos[j] = playerInfo;
 
                         stopUpdatingInactive = false;
-                        Debug.Log(monsterPrefab[index] + "F");
                         return monsterPrefab[index];
                     }
                 }

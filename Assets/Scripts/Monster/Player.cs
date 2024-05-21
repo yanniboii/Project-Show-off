@@ -47,7 +47,6 @@ public class Player : MonoBehaviour
         if (canSwap)
         {
             StartCoroutine(WaitFor());
-            Debug.Log("A");
             followObject = beforeSwapCharacter?.Invoke(followObject);
         }
     }
