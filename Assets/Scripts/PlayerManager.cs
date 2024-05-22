@@ -191,6 +191,25 @@ public class PlayerManager : MonoBehaviour
             {
                 AllInactive = false;
             }
+            else
+            {
+                List<GameObject> activeGO = new List<GameObject>();
+                for(int j = 0; j < playerInfos.Count; j++)
+                {
+                    if (playerInfos[i].isActive)
+                    {
+                        activeGO.Add(playerInfos[i].monsterGO);
+                    }
+                    for(int k = 0; k < monsterPrefab.Count; k++)
+                    {
+                        if (!playerInfos[i].ContainsGameObject(monsterPrefab[k]) && activeGO.Contains(monsterPrefab[k])) 
+                        {
+                            activeGO.Add(monsterPrefab[k]);
+                        }
+                    }
+                }
+                playerInfos[i].monsterGO.GetComponent<InactiveMovement>().MoveToClosestPlayer(activeGO);
+            }
         }
         if(AllInactive)
         {
