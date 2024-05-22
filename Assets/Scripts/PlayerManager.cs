@@ -21,6 +21,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private List<GameObject> monsterPrefab;
     [SerializeField] private float timeUntilInactive;
     [SerializeField] private List<PlayerInfo> playerInfos = new List<PlayerInfo>();
+
+    [SerializeField] private BoolValue AllCharactersInactive;
     #endregion
 
     #region private vars
@@ -50,6 +52,7 @@ public class PlayerManager : MonoBehaviour
     private void Update()
     {
         UpdateInactive();
+        CheckIfAllInactive();
     }
 
     #endregion
@@ -176,6 +179,26 @@ public class PlayerManager : MonoBehaviour
             }
             playerInfos[i] = playerInfo;
 
+        }
+    }
+
+    void CheckIfAllInactive()
+    {
+        bool AllInactive = true;
+        for (int i = 0; i < playerInfos.Count; i++)
+        {
+            if (playerInfos[i].isActive)
+            {
+                AllInactive = false;
+            }
+        }
+        if(AllInactive)
+        {
+            AllCharactersInactive.value = true;
+        }
+        else
+        {
+            AllCharactersInactive.value = false;
         }
     }
     #endregion
