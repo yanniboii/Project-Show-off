@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TestData
   m_EditorClassIdentifier: 
   jumpHeight: 21.2
-  speed: 5
+  speed: 10.12

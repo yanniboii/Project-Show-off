@@ -185,33 +185,30 @@ public class PlayerManager : MonoBehaviour
     void CheckIfAllInactive()
     {
         bool AllInactive = true;
+        List<GameObject> activeGO = new List<GameObject>();
         for (int i = 0; i < playerInfos.Count; i++)
         {
             if (playerInfos[i].isActive)
             {
                 AllInactive = false;
+                activeGO.Add(playerInfos[i].monsterGO);
+                Debug.Log("Added " + playerInfos[i].monsterGO);
             }
-            else
+
+        }
+        for (int k = 0; k < monsterPrefab.Count; k++)
+        {
+            if (!activeGO.Contains(monsterPrefab[k]))
             {
-                List<GameObject> activeGO = new List<GameObject>();
-                for(int j = 0; j < playerInfos.Count; j++)
+                if(!AllInactive)
                 {
-                    if (playerInfos[i].isActive)
-                    {
-                        activeGO.Add(playerInfos[i].monsterGO);
-                    }
-                    for(int k = 0; k < monsterPrefab.Count; k++)
-                    {
-                        if (!playerInfos[i].ContainsGameObject(monsterPrefab[k]) && activeGO.Contains(monsterPrefab[k])) 
-                        {
-                            activeGO.Add(monsterPrefab[k]);
-                        }
-                    }
+                    monsterPrefab[k].GetComponent<InactiveMovement>().MoveToClosestPlayer(activeGO);
+                    Debug.Log("Moving " + monsterPrefab[k]);
                 }
-                playerInfos[i].monsterGO.GetComponent<InactiveMovement>().MoveToClosestPlayer(activeGO);
+
             }
         }
-        if(AllInactive)
+        if (AllInactive)
         {
             AllCharactersInactive.value = true;
         }
