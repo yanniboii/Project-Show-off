@@ -9,6 +9,7 @@ TagManager:
   - FireBall
   - Lighting
   - Wood
+  - Grass
   layers:
   - Default
   - TransparentFX

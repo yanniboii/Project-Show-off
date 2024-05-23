@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        StartCoroutine(WaitToDie());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator WaitToDie()
     {
-        
+        yield return new WaitForSeconds(3);
+        Destroy(this);
+        Debug.Log("I should be dead");
     }
-
 
 }
