@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Layouts;
 using UnityEngine.InputSystem.LowLevel;
@@ -191,6 +192,7 @@ public class PlayerManager : MonoBehaviour
             if (playerInfos[i].isActive)
             {
                 AllInactive = false;
+                playerInfos[i].monsterGO.GetComponent<NavMeshAgent>().enabled = false;
                 activeGO.Add(playerInfos[i].monsterGO);
                 Debug.Log("Added " + playerInfos[i].monsterGO);
             }
@@ -202,6 +204,7 @@ public class PlayerManager : MonoBehaviour
             {
                 if(!AllInactive)
                 {
+                    monsterPrefab[k].GetComponent<NavMeshAgent>().enabled = true;
                     monsterPrefab[k].GetComponent<InactiveMovement>().MoveToClosestPlayer(activeGO);
                     Debug.Log("Moving " + monsterPrefab[k]);
                 }
@@ -305,9 +308,7 @@ public class PlayerManager : MonoBehaviour
                         return monsterPrefab[index];
                     }
                 }
-
             }
-
         }
         stopUpdatingInactive = false;
         Debug.Log("No Available Character");

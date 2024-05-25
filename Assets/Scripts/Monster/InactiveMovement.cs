@@ -21,7 +21,7 @@ public class InactiveMovement : MonoBehaviour
     public void MoveToClosestPlayer(List<GameObject> players)
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
-        agent.destination = transform.position;
+        agent.ResetPath();
 
         Debug.Log("Starting to look ");
         if (players.Count >= 0)
@@ -35,8 +35,11 @@ public class InactiveMovement : MonoBehaviour
                 }
                 Debug.Log("Closest player" + closestPlayer);
             }
-            agent.destination = closestPlayer;
-            destination = closestPlayer;
+            if(closestPlayer.magnitude > 7)
+            {
+                agent.destination = closestPlayer;
+                destination = closestPlayer;
+            }
         }
         else
         {
