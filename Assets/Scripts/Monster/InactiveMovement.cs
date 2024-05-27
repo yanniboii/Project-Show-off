@@ -9,13 +9,13 @@ public class InactiveMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void MoveToClosestPlayer(List<GameObject> players)
@@ -23,27 +23,47 @@ public class InactiveMovement : MonoBehaviour
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.ResetPath();
 
-        Debug.Log("Starting to look ");
-        if (players.Count >= 0)
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 20, 10);
+        
+        if (colliders.Length > 0)
         {
-            Vector3 closestPlayer = Vector3.positiveInfinity;
-            for (int i = 0; i < players.Count; i++)
+            Vector3 closestMonster = Vector3.positiveInfinity;
+            for (int i = 0; i < colliders.Length; i++)
             {
-                if(Mathf.Min(closestPlayer.magnitude, players[i].transform.position.magnitude) != closestPlayer.magnitude)
+                if (Mathf.Min(closestMonster.magnitude, colliders[i].transform.position.magnitude) != closestMonster.magnitude)
                 {
-                    closestPlayer = players[i].transform.position;
+                    closestMonster = colliders[i].transform.position;
                 }
-                Debug.Log("Closest player" + closestPlayer);
-            }
-            if(closestPlayer.magnitude > 7)
-            {
-                agent.destination = closestPlayer;
-                destination = closestPlayer;
+                Vector3 reverseDir = new Vector3(-closestMonster.x, closestMonster.y, -closestMonster.z);
+                agent.destination = reverseDir;
+                destination = reverseDir;
             }
         }
         else
         {
-            Debug.Log("empty target");
+            Debug.Log("Starting to look ");
+            if (players.Count > 0)
+            {
+                Vector3 closestPlayer = Vector3.positiveInfinity;
+                for (int i = 0; i < players.Count; i++)
+                {
+                    if (Mathf.Min(closestPlayer.magnitude, players[i].transform.position.magnitude) != closestPlayer.magnitude)
+                    {
+                        closestPlayer = players[i].transform.position;
+                    }
+                    Debug.Log("Closest player" + closestPlayer);
+                }
+                if (closestPlayer.magnitude > 7)
+                {
+                    agent.destination = closestPlayer;
+                    destination = closestPlayer;
+                }
+            }
+            else
+            {
+                Debug.Log("empty target");
+            }
         }
+
     }
 }
