@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681beee1b704dfb4c90bcb13225deee0, type: 3}
   m_Name: TestData
   m_EditorClassIdentifier: 
-  jumpHeight: 40
-  speed: 17.9
+  jumpHeight: 15
+  speed: 10
