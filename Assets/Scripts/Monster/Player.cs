@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
 
     public void OnBeforeSwapCharacter(InputAction.CallbackContext context)
     {
-        if (canSwap)
+        if (canSwap && followObject != null)
         {
             StartCoroutine(WaitFor());
             followObject = beforeSwapCharacter?.Invoke(followObject);
