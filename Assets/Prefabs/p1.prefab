@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 457291323221186241}
   - component: {fileID: -5625464561249837148}
   - component: {fileID: 448791580025752063}
+  - component: {fileID: 1189755529927364837}
+  - component: {fileID: -4950480015065640103}
   m_Layer: 0
   m_Name: p1
   m_TagString: Player
@@ -133,6 +135,7 @@ MonoBehaviour:
     brain: {fileID: 0}
     virtualCameraIndex: 0
     virtualCameras: []
+  player: {fileID: 0}
 --- !u!54 &2724164410817577437
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -173,6 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveType: 0
+  player: {fileID: 0}
 --- !u!114 &-5625464561249837148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +209,30 @@ MonoBehaviour:
   bulletSpeed: 4.8
   cooldown: 1.57
   canShoot: 1
+--- !u!114 &1189755529927364837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825284992469677713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5984830a57afc6e4e8d9ed89a9d3f6d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4950480015065640103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825284992469677713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5984830a57afc6e4e8d9ed89a9d3f6d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1118369783791469045
 GameObject:
   m_ObjectHideFlags: 0

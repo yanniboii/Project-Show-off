@@ -9,7 +9,7 @@ TagManager:
   - FireBall
   - Lighting
   - Wood
-  - Grass
+  - keycollectable
   layers:
   - Default
   - TransparentFX
