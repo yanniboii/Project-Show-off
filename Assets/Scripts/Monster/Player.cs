@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public CameraInfo cameraInfo;
 
-
+    #region events
     public delegate GameObject BeforeSwapCharacter(GameObject go);
     public static BeforeSwapCharacter beforeSwapCharacter;
 
@@ -24,15 +24,9 @@ public class Player : MonoBehaviour
 
     public delegate void BeforeAbility();
     public BeforeAbility beforeAbility;
-
+    #endregion
 
     bool canSwap = true;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
     // Update is called once per frame
     void Update()
     {

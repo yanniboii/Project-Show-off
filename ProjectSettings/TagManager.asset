@@ -17,11 +17,11 @@ TagManager:
   - 
   - Water
   - UI
-  - FirstPlayer
-  - SecondPlayer
-  - rThirdPlayer
-  - FourthPlayer
-  - 
+  - FirstPlayerCamera
+  - SecondPlayerCamera
+  - ThirdPlayerCamera
+  - FourthPlayerCamera
+  - Player
   - 
   - 
   - 

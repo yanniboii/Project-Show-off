@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Layouts;
 using UnityEngine.InputSystem.LowLevel;
@@ -21,6 +22,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private List<GameObject> monsterPrefab;
     [SerializeField] private float timeUntilInactive;
     [SerializeField] private List<PlayerInfo> playerInfos = new List<PlayerInfo>();
+
+    [SerializeField] private BoolValue AllCharactersInactive;
     #endregion
 
     #region private vars
@@ -50,6 +53,7 @@ public class PlayerManager : MonoBehaviour
     private void Update()
     {
         UpdateInactive();
+        CheckIfAllInactive();
     }
 
     #endregion
@@ -178,6 +182,44 @@ public class PlayerManager : MonoBehaviour
 
         }
     }
+
+    void CheckIfAllInactive()
+    {
+        bool AllInactive = true;
+        List<GameObject> activeGO = new List<GameObject>();
+        for (int i = 0; i < playerInfos.Count; i++)
+        {
+            if (playerInfos[i].isActive)
+            {
+                AllInactive = false;
+                playerInfos[i].monsterGO.GetComponent<NavMeshAgent>().enabled = false;
+                activeGO.Add(playerInfos[i].monsterGO);
+                Debug.Log("Added " + playerInfos[i].monsterGO);
+            }
+
+        }
+        for (int k = 0; k < monsterPrefab.Count; k++)
+        {
+            if (!activeGO.Contains(monsterPrefab[k]))
+            {
+                if(!AllInactive)
+                {
+                    monsterPrefab[k].GetComponent<NavMeshAgent>().enabled = true;
+                    monsterPrefab[k].GetComponent<InactiveMovement>().MoveToClosestPlayer(activeGO);
+                    Debug.Log("Moving " + monsterPrefab[k]);
+                }
+
+            }
+        }
+        if (AllInactive)
+        {
+            AllCharactersInactive.value = true;
+        }
+        else
+        {
+            AllCharactersInactive.value = false;
+        }
+    }
     #endregion
 
     #region public functions
@@ -266,9 +308,7 @@ public class PlayerManager : MonoBehaviour
                         return monsterPrefab[index];
                     }
                 }
-
             }
-
         }
         stopUpdatingInactive = false;
         Debug.Log("No Available Character");
