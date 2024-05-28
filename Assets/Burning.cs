@@ -7,10 +7,14 @@ public class Burning : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Wood") || collision.gameObject.CompareTag("Grass"))
+        if (collision.gameObject.GetComponent<Renderer>() != null && collision.gameObject.GetComponent<Renderer>().material.name == "Woody (Instance)")
         {
             Destroy(collision.gameObject);
-            if(this.name == "fireball(Clone)")
+        }
+        else if (collision.gameObject.GetComponentInChildren<Renderer>(true).material.name == "Woody (Instance)")
+        {
+            Destroy(collision.gameObject);
+            if (this.name == "fireball(Clone)")
             {
                 Destroy(this.gameObject);
             }
