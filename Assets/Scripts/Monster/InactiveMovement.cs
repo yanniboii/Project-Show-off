@@ -51,7 +51,6 @@ public class InactiveMovement : MonoBehaviour
                     {
                         closestPlayer = players[i].transform.position;
                     }
-                    Debug.Log("Closest player" + closestPlayer);
                 }
                 if (closestPlayer.magnitude > 7)
                 {
@@ -66,4 +65,16 @@ public class InactiveMovement : MonoBehaviour
         }
 
     }
+    public void DisableAgent()
+    {
+        
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        if(agent.hasPath && agent.isOnNavMesh)
+        {
+            agent.ResetPath();
+        }
+        agent.enabled = false;
+
+    }
+
 }

@@ -27,6 +27,7 @@ public class BasicMovement : MonoBehaviour
     {
         rb.velocity = new Vector3(moveInput.x * monsterData.speed, rb.velocity.y, moveInput.y * monsterData.speed);
 
+
         if (grounded)
         {
             if(jumpInput>0){
@@ -34,6 +35,7 @@ public class BasicMovement : MonoBehaviour
                 grounded = false;
             }
         }
+
     }
 
     private void Update()

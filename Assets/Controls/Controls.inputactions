@@ -20,7 +20,7 @@
                     "id": "7bb720e0-c41a-4b4e-b226-42cd0871f016",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Tap",
+                    "interactions": "Hold",
                     "initialStateCheck": true
                 },
                 {
