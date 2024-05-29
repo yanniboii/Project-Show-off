@@ -112,3 +112,5 @@ MonoBehaviour:
   - {fileID: 0}
   timeUntilInactive: 5
   playerInfos: []
+  AllCharactersInactive: {fileID: 11400000, guid: eb0de8f5bba14114f9bd71c4fd16f6fc,
+    type: 2}

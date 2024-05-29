@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         Destroy(this);
-        Debug.Log("I should be dead");
+       // Debug.Log("I should be dead");
     }
 
 }

@@ -21,27 +21,9 @@ public class InactiveMovement : MonoBehaviour
     public void MoveToClosestPlayer(List<GameObject> players)
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
-        agent.ResetPath();
-
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 20, 10);
-        
-        if (colliders.Length > 0)
+        if (agent.isOnNavMesh)
         {
-            Vector3 closestMonster = Vector3.positiveInfinity;
-            for (int i = 0; i < colliders.Length; i++)
-            {
-                if (Mathf.Min(closestMonster.magnitude, colliders[i].transform.position.magnitude) != closestMonster.magnitude)
-                {
-                    closestMonster = colliders[i].transform.position;
-                }
-                Vector3 reverseDir = new Vector3(-closestMonster.x, closestMonster.y, -closestMonster.z);
-                agent.destination = reverseDir;
-                destination = reverseDir;
-            }
-        }
-        else
-        {
-            Debug.Log("Starting to look ");
+            agent.ResetPath();
             if (players.Count > 0)
             {
                 Vector3 closestPlayer = Vector3.positiveInfinity;
@@ -78,3 +60,26 @@ public class InactiveMovement : MonoBehaviour
     }
 
 }
+
+
+
+
+
+
+
+//Collider[] colliders = Physics.OverlapSphere(transform.position, 20, 10);
+
+//if (colliders.Length > 0)
+//{
+//    Vector3 closestMonster = Vector3.positiveInfinity;
+//    for (int i = 0; i < colliders.Length; i++)
+//    {
+//        if (Mathf.Min(closestMonster.magnitude, colliders[i].transform.position.magnitude) != closestMonster.magnitude)
+//        {
+//            closestMonster = colliders[i].transform.position;
+//        }
+//        Vector3 reverseDir = new Vector3(-closestMonster.x, closestMonster.y, -closestMonster.z);
+//        agent.destination = reverseDir;
+//        destination = reverseDir;
+//    }
+//}
