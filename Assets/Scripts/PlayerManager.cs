@@ -192,7 +192,7 @@ public class PlayerManager : MonoBehaviour
             if (playerInfos[i].isActive)
             {
                 AllInactive = false;
-                playerInfos[i].monsterGO.GetComponent<NavMeshAgent>().enabled = false;
+                playerInfos[i].monsterGO.GetComponent<InactiveMovement>().DisableAgent();
                 activeGO.Add(playerInfos[i].monsterGO);
                 Debug.Log("Added " + playerInfos[i].monsterGO);
             }
@@ -295,6 +295,9 @@ public class PlayerManager : MonoBehaviour
 
                         //new monsterGO
                         playerInfo.monsterGO = monsterPrefab[index];
+                        playerInfo.monsterGO.GetComponent<InactiveMovement>().DisableAgent();
+
+                        Time.timeScale = 0;
 
                         playerInfo.monsterGO.GetComponent<BasicMovement>().player = player;
                         playerInfo.monsterGO.GetComponent<Ability>().player = player;
