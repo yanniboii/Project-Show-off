@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3871960022772179545}
+  - component: {fileID: 6041287633122268289}
+  - component: {fileID: 6648102274435533074}
   m_Layer: 0
   m_Name: Smallpuzzle
   m_TagString: Untagged
@@ -36,8 +38,75 @@ Transform:
   - {fileID: 6715858701197707641}
   - {fileID: 7035285253001800124}
   - {fileID: 4680036242898253326}
+  - {fileID: 6229678127119120523}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6041287633122268289
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7119802485215691186}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 28.408684, y: 20.461052, z: 32.35889}
+  m_Center: {x: 8.997154, y: 9.730526, z: 8.994768}
+--- !u!114 &6648102274435533074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7119802485215691186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a3d74f650fb8f24d8e49152fb4f273f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraLocation: {fileID: 7667234737330157705}
+  playerCamera: 
+--- !u!1 &7667234737330157705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6229678127119120523}
+  m_Layer: 0
+  m_Name: CameraPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6229678127119120523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7667234737330157705}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.12224281, y: 0.83138806, z: -0.20204177, w: 0.50302064}
+  m_LocalPosition: {x: -7.87, y: 18.89, z: 17.34}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3871960022772179545}
+  m_LocalEulerAnglesHint: {x: 27.318, y: 117.649, z: 0}
 --- !u!1001 &2804207640085048385
 PrefabInstance:
   m_ObjectHideFlags: 0
