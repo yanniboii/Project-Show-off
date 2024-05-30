@@ -5,9 +5,26 @@ using UnityEngine;
 public class computer : MonoBehaviour
 {
     public GameObject computered;
+    bool yeeting = false;
     private void OnTriggerStay(Collider other)
     {
-        if(other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
+        if(other.CompareTag("Player"))
+        {
+            yeeting = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            yeeting = false;
+        }
+    }
+
+    private void Update()
+    {
+        if (yeeting && Input.GetKey(KeyCode.E))
         {
             StartCoroutine(Yeet());
         }
@@ -15,10 +32,18 @@ public class computer : MonoBehaviour
 
     IEnumerator Yeet()
     {
-        for (int i = 0; i < 50; i++)
+        //Cheers my brothers
+        float speed = 0.3f;
+        for (int i = 0; i < 5; i++)
         {
-            computered.transform.position += new Vector3(5, 5, 5);
-            yield return new WaitForSeconds(0.1f);
+            speed *= 0.95f;
+            computered.transform.position += new Vector3(computered.transform.position.x, 5, computered.transform.position.z);
+            yield return new WaitForSeconds(speed);
+        }
+        for (int i = 0; i < 45; i++)
+        {
+            computered.transform.position += new Vector3(computered.transform.position.x, 5, computered.transform.position.z);
+            yield return new WaitForSeconds(speed);
         }
         Destroy(computered);
     }
