@@ -48,7 +48,19 @@ public class Player : MonoBehaviour
     public void OnBeforeMove(InputAction.CallbackContext context)
     {
         Vector2 dir = context.ReadValue<Vector2>();
-        beforeMove?.Invoke(dir);
+
+        Vector3 forward = cameraInfo.brain.gameObject.transform.forward;
+        Vector3 right = cameraInfo.brain.gameObject.transform.right;
+
+        forward.y = 0;
+        right.y = 0;
+
+        forward.Normalize();
+        right.Normalize();
+        Debug.Log("Called");
+        Vector3 combinedMovement = forward * dir.y +right * dir.x;
+
+        beforeMove?.Invoke(new Vector2(combinedMovement.x,combinedMovement.z));
     }
 
     public void OnBeforeJump(InputAction.CallbackContext context)
