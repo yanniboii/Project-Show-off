@@ -5,7 +5,9 @@ using UnityEngine;
 public class EngineMachine : MonoBehaviour
 {
     Vector3 OriginalSize;
-    float randomamount = 0.2f;
+    float randomamount = 0.15f;
+    float changetime = 0;
+    float changemoment = 0.06f;
     public bool on = true;
     Light lightComp;
     float lightIntensity;
@@ -22,10 +24,10 @@ public class EngineMachine : MonoBehaviour
     void FixedUpdate()
     {
         if(on){
-            if(OriginalSize==transform.localScale){
+            changetime += Time.deltaTime;
+            if(changetime>changemoment){
             transform.localScale = new Vector3(OriginalSize.x+Random.Range(-randomamount,randomamount),OriginalSize.y+Random.Range(-randomamount,randomamount),OriginalSize.z+Random.Range(-randomamount,randomamount));
-            }else{
-            transform.localScale = OriginalSize;
+            changetime = 0;
             }
 
             lightComp.intensity = lightIntensity;

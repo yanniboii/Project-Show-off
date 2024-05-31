@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9f9ad477d889e44e8f67dae05fc3ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changemoment: 0.06
   on: 1
 --- !u!108 &1596752772249576280
 Light:
