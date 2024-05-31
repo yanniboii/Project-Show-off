@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 5671375754431518157}
   - component: {fileID: 2724164410817577437}
   - component: {fileID: 457291323221186241}
+  - component: {fileID: -5625464561249837148}
+  - component: {fileID: 448791580025752063}
   - component: {fileID: -8451754562253464669}
   - component: {fileID: -4157517006525866526}
   m_Layer: 0
@@ -175,6 +177,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveType: 0
   player: {fileID: 0}
+--- !u!114 &-5625464561249837148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825284992469677713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8139513165e2814eb2e35635b8aa622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 3.01
+  onCooldown: 0
+--- !u!114 &448791580025752063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825284992469677713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9efebf046d1f7b4abe48b01a71b23d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 5175757667294753623, guid: 6674fd550f9709e42b06f49e752f0610,
+    type: 3}
+  bulletSpawn: {fileID: 3682724926104649640}
+  bulletSpeed: 4.8
+  cooldown: 1.57
+  canShoot: 1
 --- !u!195 &-8451754562253464669
 NavMeshAgent:
   m_ObjectHideFlags: 0
