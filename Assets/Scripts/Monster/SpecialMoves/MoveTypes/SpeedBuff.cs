@@ -6,8 +6,6 @@ public class SpeedBuff : AbstractBuff
 {
     [SerializeField] float speedIncrease;
 
-    bool increased = false;
-
     // Update is called once per frame
     void Update()
     {
@@ -16,21 +14,11 @@ public class SpeedBuff : AbstractBuff
 
     public override void ApplyBuff()
     {
-        //GetComponent<BasicMovement>().monsterData.speed *= speedIncrease;
-        //increased = true;
+        //throw new System.NotImplementedException();
     }
 
     public override void RemoveBuff()
     {
-        //GetComponent<BasicMovement>().monsterData.speed /= speedIncrease;
-        //increased = false;
-    }
-
-    private void OnDisable()
-    {
-        if (increased)
-        {
-            //GetComponent<BasicMovement>().monsterData.speed /= speedIncrease;
-        }
+        //throw new System.NotImplementedException();
     }
 }
