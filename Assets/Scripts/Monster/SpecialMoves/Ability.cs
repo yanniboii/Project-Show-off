@@ -24,6 +24,7 @@ public class Ability : MonoBehaviour
         {
             gameObject.GetComponent<AbstractBuff>().ApplyBuff();
         }
+<<<<<<< HEAD
         //if (moveType == MoveType.passive)
         //{
         //    AbstractPassive pas = gameObject.GetComponent<AbstractPassive>();
@@ -37,6 +38,21 @@ public class Ability : MonoBehaviour
         //    Debug.Log("A");
         //    gameObject.GetComponent<AbstractActive>().ExecuteActive();
         //}
+=======
+        if (moveType == MoveType.passive)
+        {
+            AbstractPassive pas = gameObject.GetComponent<AbstractPassive>();
+            if (!pas.enabled)
+            {
+                pas.enabled = true;
+            }
+        }
+        if (moveType == MoveType.active)
+        {
+            Debug.Log("A");
+            gameObject.GetComponent<AbstractActive>().ExecuteActive();
+        }
+>>>>>>> parent of e05445b (Revert "Merge branch 'designing-branch'")
         if (moveType == MoveType.ShootAble)
         {
             Debug.Log("A");

@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/Monster/InputManager.cs.meta
+<<<<<<< HEAD:Assets/Scripts/Monster/InputManager.cs.meta
+guid: 66c8d9e29d690a74d8cf4b436bf7dc73
+=======
+guid: 636afe75c9b52e145b19219c9c9b783f
+>>>>>>> parent of dd1e95a (Revert "fixed the stuff that the merge destroyed i think"):Assets/Scripts/PlayerManager.cs.meta
+=======
+guid: 8f3dbeae002fafc41b12f8318fc2918c
+>>>>>>> parent of e05445b (Revert "Merge branch 'designing-branch'"):Assets/Burning.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

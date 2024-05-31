@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 5cee73a1b3490dd4fb041b86c866b2f9
+=======
+guid: 1b3017901b71c4642823588a2867571c
+>>>>>>> parent of e05445b (Revert "Merge branch 'designing-branch'")
 DefaultImporter:
   externalObjects: {}
   userData: 
