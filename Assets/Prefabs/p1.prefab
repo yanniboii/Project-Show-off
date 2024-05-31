@@ -137,6 +137,7 @@ MonoBehaviour:
     virtualCameraIndex: 0
     virtualCameras: []
   player: {fileID: 0}
+  extraGravity: 50
 --- !u!54 &2724164410817577437
 Rigidbody:
   m_ObjectHideFlags: 0

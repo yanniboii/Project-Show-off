@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Monster/SpecialMoves/MoveTypes/Shootables/Bullet.cs.meta
 guid: 42e6e3c658fd2634798a31c6ec6a83aa
+========
+guid: 79bf1e56cfe728f428ffb4e963c36509
+>>>>>>>> 2e905a6141fba4560bfaf6e5506134ae92d644bf:Assets/Scripts/CameraFollow.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
