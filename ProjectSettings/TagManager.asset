@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - CameraCollider
+  - Ground
+  - FireBall
+  - Lighting
+  - Wood
+  - keycollectable
   layers:
   - Default
   - TransparentFX
@@ -12,11 +17,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - FirstPlayerCamera
+  - SecondPlayerCamera
+  - ThirdPlayerCamera
+  - FourthPlayerCamera
+  - Player
   - 
   - 
   - 
