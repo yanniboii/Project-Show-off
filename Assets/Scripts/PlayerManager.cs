@@ -122,9 +122,8 @@ public class PlayerManager : MonoBehaviour
                 playerInfo.previousPlayer.followObject = null;
 
                 playerInfo.isActive = false;
-                playerInfo.monsterGO = null;
-
                 UnsubscribeMonster(playerInfo);
+                playerInfo.monsterGO = null;
             }
 
             if (playerInfo.inputDevice.wasUpdatedThisFrame)
@@ -141,7 +140,7 @@ public class PlayerManager : MonoBehaviour
                     if (canUsePreviousGameObject)
                     {
                         playerInfo.monsterGO = playerInfo.previousMonsterGO;
-                        playerInfo.previousMonsterGO.GetBasicMovement().player.followObject = playerInfo.previousMonsterGO.gameObject;
+                        playerInfo.previousPlayer.followObject = playerInfo.previousMonsterGO.gameObject;
 
                         SubscribeMonster(playerInfo,playerInfo.previousPlayer);
                     }

@@ -66,6 +66,7 @@ public class BasicMovement : MonoBehaviour
 
     public void BeforeSwap()
     {
+        Debug.Log("jo");
         player.beforeMove -= OnMove;
         player.beforeJump -= OnJump;
         moveInput = Vector2.zero;
