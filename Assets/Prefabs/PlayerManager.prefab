@@ -105,11 +105,7 @@ MonoBehaviour:
   input: {fileID: 5846996292513673014}
   playerPrefab: {fileID: 3830732165239174504, guid: 3e05ccd93d351134480cd47575db9dc7,
     type: 3}
-  monsterPrefab:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  monsterPrefab: []
   timeUntilInactive: 5
   playerInfos: []
   AllCharactersInactive: {fileID: 11400000, guid: eb0de8f5bba14114f9bd71c4fd16f6fc,
