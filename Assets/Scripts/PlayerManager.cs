@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ public class PlayerManager : MonoBehaviour
 
     #region Serialized vars
     [SerializeField] private GameObject playerPrefab;
-    [SerializeField] private List<GameObject> monsterPrefab;
+    [SerializeField] private List<Monster> monsterPrefab;
     [SerializeField] private float timeUntilInactive;
     [SerializeField] private List<PlayerInfo> playerInfos = new List<PlayerInfo>();
 
@@ -71,18 +72,19 @@ public class PlayerManager : MonoBehaviour
                 Debug.Log("empty");
                 return;
             }
-            Debug.Log(device.ToString());
+            //Debug.Log(device.ToString());
 
             PlayerInput playerInput = PlayerInput.Instantiate(playerPrefab, joinIndex, null, -1, device);
 
             GameObject go = playerInput.gameObject;
 
-            go.GetComponent<Player>().followObject = monsterPrefab[joinIndex];
+            Player player = go.GetComponent<Player>();
+            player.followObject = monsterPrefab[joinIndex].gameObject;
 
-            monsterPrefab[joinIndex].GetComponent<BasicMovement>().player = go.GetComponent<Player>();
-            monsterPrefab[joinIndex].GetComponent<Ability>().player = go.GetComponent<Player>();
-            monsterPrefab[joinIndex].GetComponent<BasicMovement>().AfterSwap();
-            monsterPrefab[joinIndex].GetComponent<Ability>().AfterSwap();
+            monsterPrefab[joinIndex].GetBasicMovement().player = player;
+            monsterPrefab[joinIndex].GetAbility().player = player;
+            monsterPrefab[joinIndex].GetBasicMovement().AfterSwap();
+            monsterPrefab[joinIndex].GetAbility().AfterSwap();
 
 
             players.Add(go);
@@ -115,18 +117,14 @@ public class PlayerManager : MonoBehaviour
             if (playerInfo.timeUntilInactive <= 0 && playerInfo.isActive)
             {
                 playerInfo.previousMonsterGO = playerInfo.monsterGO;
-                playerInfo.previousPlayer = playerInfo.previousMonsterGO.GetComponent<BasicMovement>().player;
+                playerInfo.previousPlayer = playerInfo.previousMonsterGO.GetBasicMovement().player;
 
                 playerInfo.previousPlayer.followObject = null;
 
                 playerInfo.isActive = false;
                 playerInfo.monsterGO = null;
 
-                playerInfo.previousMonsterGO.GetComponent<BasicMovement>().BeforeSwap();
-                playerInfo.previousMonsterGO.GetComponent<Ability>().BeforeSwap();
-
-                playerInfo.previousMonsterGO.GetComponent<BasicMovement>().player = null;
-                playerInfo.previousMonsterGO.GetComponent<Ability>().player = null;
+                UnsubscribeMonster(playerInfo);
             }
 
             if (playerInfo.inputDevice.wasUpdatedThisFrame)
@@ -138,36 +136,25 @@ public class PlayerManager : MonoBehaviour
                 if (playerInfo.monsterGO == null)
                 {
 
-                    if (playerInfo.previousMonsterGO.GetComponent<BasicMovement>().player != null) canUsePreviousGameObject = false;
+                    if (playerInfo.previousMonsterGO.GetBasicMovement().player != null) canUsePreviousGameObject = false;
 
                     if (canUsePreviousGameObject)
                     {
                         playerInfo.monsterGO = playerInfo.previousMonsterGO;
+                        playerInfo.previousMonsterGO.GetBasicMovement().player.followObject = playerInfo.previousMonsterGO.gameObject;
 
-
-                        playerInfo.previousMonsterGO.GetComponent<BasicMovement>().player = playerInfo.previousPlayer;
-                        playerInfo.previousMonsterGO.GetComponent<Ability>().player = playerInfo.previousPlayer;
-
-                        playerInfo.previousMonsterGO.GetComponent<BasicMovement>().player.followObject = playerInfo.previousMonsterGO;
-
-                        playerInfo.previousMonsterGO.GetComponent<BasicMovement>().AfterSwap();
-                        playerInfo.previousMonsterGO.GetComponent<Ability>().AfterSwap();
+                        SubscribeMonster(playerInfo,playerInfo.previousPlayer);
                     }
                     else
                     {
                         for (int k = 0; k < monsterPrefab.Count; k++)
                         {
-                            if (monsterPrefab[k].GetComponent<BasicMovement>().player == null)
+                            if (monsterPrefab[k].GetBasicMovement().player == null)
                             {
                                 playerInfo.monsterGO = monsterPrefab[k];
+                                playerInfo.monsterGO.GetBasicMovement().player.followObject = playerInfo.monsterGO.gameObject;
 
-                                playerInfo.monsterGO.GetComponent<BasicMovement>().player = playerInfo.previousPlayer;
-                                playerInfo.monsterGO.GetComponent<Ability>().player = playerInfo.previousPlayer;
-
-                                playerInfo.monsterGO.GetComponent<BasicMovement>().player.followObject = playerInfo.monsterGO;
-
-                                playerInfo.monsterGO.GetComponent<BasicMovement>().AfterSwap();
-                                playerInfo.monsterGO.GetComponent<Ability>().AfterSwap();
+                                SubscribeMonster(playerInfo, playerInfo.previousPlayer);
                                 playerInfos[i] = playerInfo;
                                 return;
                             }
@@ -185,41 +172,61 @@ public class PlayerManager : MonoBehaviour
 
     void CheckIfAllInactive()
     {
-        bool AllInactive = true;
-        List<GameObject> activeGO = new List<GameObject>();
-        for (int i = 0; i < playerInfos.Count; i++)
-        {
-            if (playerInfos[i].isActive)
-            {
-                AllInactive = false;
-                playerInfos[i].monsterGO.GetComponent<NavMeshAgent>().enabled = false;
-                activeGO.Add(playerInfos[i].monsterGO);
-                Debug.Log("Added " + playerInfos[i].monsterGO);
-            }
+        bool AllInactive = playerInfos.All(info => !info.isActive);
+        List<GameObject> activeGO = playerInfos.Where(info => info.isActive).Select(info => info.monsterGO.gameObject).ToList();
 
-        }
         for (int k = 0; k < monsterPrefab.Count; k++)
         {
-            if (!activeGO.Contains(monsterPrefab[k]))
+            if (!activeGO.Contains(monsterPrefab[k].gameObject))
             {
                 if(!AllInactive)
                 {
-                    monsterPrefab[k].GetComponent<NavMeshAgent>().enabled = true;
-                    monsterPrefab[k].GetComponent<InactiveMovement>().MoveToClosestPlayer(activeGO);
-                    Debug.Log("Moving " + monsterPrefab[k]);
+                    monsterPrefab[k].GetInactiveMovement().MoveToClosestPlayer(activeGO);
                 }
 
             }
         }
-        if (AllInactive)
-        {
-            AllCharactersInactive.value = true;
-        }
-        else
-        {
-            AllCharactersInactive.value = false;
-        }
+        AllCharactersInactive.value = AllInactive;
     }
+
+    void UnsubscribeMonster(PlayerInfo playerInfo)
+    {
+        playerInfo.monsterGO.GetBasicMovement().BeforeSwap();
+        playerInfo.monsterGO.GetAbility().BeforeSwap();
+
+        playerInfo.monsterGO.GetBasicMovement().player = null;
+        playerInfo.monsterGO.GetAbility().player = null;
+    }
+
+    void SubscribeMonster(PlayerInfo playerInfo, Player player)
+    {
+        playerInfo.monsterGO.GetBasicMovement().player = player;
+        playerInfo.monsterGO.GetAbility().player = player;
+
+        playerInfo.monsterGO.GetBasicMovement().AfterSwap();
+        playerInfo.monsterGO.GetAbility().AfterSwap();
+    }
+
+    void UpdateCharacter(PlayerInfo playerInfo, int index, int j)
+    {
+        //set new index in playerinfo
+        playerInfo.index = index;
+
+        Player player = playerInfo.monsterGO.GetBasicMovement().player;
+        player.followObject = monsterPrefab[index].gameObject;
+
+        //old monsterGO
+        UnsubscribeMonster(playerInfo);
+
+        //new monsterGO
+        playerInfo.monsterGO = monsterPrefab[index];
+        SubscribeMonster(playerInfo, player);
+
+        playerInfos[j] = playerInfo;
+
+        stopUpdatingInactive = false;
+    }
+
     #endregion
 
     #region public functions
@@ -239,73 +246,22 @@ public class PlayerManager : MonoBehaviour
             for (int i = 0; i < monsterPrefab.Count; i++)
             {
                 int index = playerInfo.index + i;
-
                 if (index >= 4)
                 {
                     index = 0;
                 }
-                if (monsterPrefab[index].GetComponent<BasicMovement>().player == null)
+                if (monsterPrefab[index].GetBasicMovement().player == null)
                 {
-                    Debug.Log(index);
-                    //set new index in playerinfo
-                    playerInfo.index = index;
-
-                    Player player = playerInfo.monsterGO.GetComponent<BasicMovement>().player;
-                    player.followObject = monsterPrefab[index];
-
-                    //old monsterGO
-                    playerInfo.monsterGO.GetComponent<BasicMovement>().BeforeSwap();
-                    playerInfo.monsterGO.GetComponent<Ability>().BeforeSwap();
-
-                    playerInfo.monsterGO.GetComponent<BasicMovement>().player = null;
-                    playerInfo.monsterGO.GetComponent<Ability>().player = null;
-
-                    //new monsterGO
-                    playerInfo.monsterGO = monsterPrefab[index];
-
-                    playerInfo.monsterGO.GetComponent<BasicMovement>().player = player;
-                    playerInfo.monsterGO.GetComponent<Ability>().player = player;
-
-                    playerInfo.monsterGO.GetComponent<BasicMovement>().AfterSwap();
-                    playerInfo.monsterGO.GetComponent<Ability>().AfterSwap();
-
-                    playerInfos[j] = playerInfo;
-
-                    stopUpdatingInactive = false;
-                    return monsterPrefab[index];
+                    UpdateCharacter(playerInfo, index, j);
+                    return monsterPrefab[index].gameObject;
                 }
                 else if (index == 0)
                 {
                     index++;
-                    if (monsterPrefab[index].GetComponent<BasicMovement>().player == null)
+                    if (monsterPrefab[index].GetBasicMovement().player == null)
                     {
-                        Debug.Log(index);
-                        //set new index in playerinfo
-                        playerInfo.index = index;
-
-                        Player player = playerInfo.monsterGO.GetComponent<BasicMovement>().player;
-                        player.followObject = monsterPrefab[index];
-
-                        //old monsterGO
-                        playerInfo.monsterGO.GetComponent<BasicMovement>().BeforeSwap();
-                        playerInfo.monsterGO.GetComponent<Ability>().BeforeSwap();
-
-                        playerInfo.monsterGO.GetComponent<BasicMovement>().player = null;
-                        playerInfo.monsterGO.GetComponent<Ability>().player = null;
-
-                        //new monsterGO
-                        playerInfo.monsterGO = monsterPrefab[index];
-
-                        playerInfo.monsterGO.GetComponent<BasicMovement>().player = player;
-                        playerInfo.monsterGO.GetComponent<Ability>().player = player;
-
-                        playerInfo.monsterGO.GetComponent<BasicMovement>().AfterSwap();
-                        playerInfo.monsterGO.GetComponent<Ability>().AfterSwap();
-
-                        playerInfos[j] = playerInfo;
-
-                        stopUpdatingInactive = false;
-                        return monsterPrefab[index];
+                        UpdateCharacter(playerInfo, index, j);
+                        return monsterPrefab[index].gameObject;
                     }
                 }
             }
@@ -360,10 +316,10 @@ public class PlayerManager : MonoBehaviour
 [System.Serializable]
 public struct PlayerInfo
 {
-    public GameObject monsterGO;
-    public GameObject previousMonsterGO;
-    public InputDevice inputDevice;
-    public Player previousPlayer;
+    public Monster? monsterGO;
+    public Monster? previousMonsterGO;
+    public InputDevice? inputDevice;
+    public Player? previousPlayer;
 
     public int index;
 
@@ -373,7 +329,6 @@ public struct PlayerInfo
 
     public bool ContainsGameObject(GameObject go)
     {
-        if (monsterGO == go) return true;
-        else return false;
+        return monsterGO?.gameObject == go;
     }
 }
