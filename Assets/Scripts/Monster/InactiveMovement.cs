@@ -49,14 +49,12 @@ public class InactiveMovement : MonoBehaviour
     }
     public void DisableAgent()
     {
-        
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
-        if(agent.hasPath && agent.isOnNavMesh)
+        if(agent.isOnNavMesh)
         {
             agent.ResetPath();
+            agent.isStopped = true;
         }
-        agent.enabled = false;
-
     }
 
 }
