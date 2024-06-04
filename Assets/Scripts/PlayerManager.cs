@@ -171,17 +171,9 @@ public class PlayerManager : MonoBehaviour
 
     void CheckIfAllInactive()
     {
-        bool AllInactive = true;
-        List<GameObject> activeGO = new List<GameObject>();
-        for (int i = 0; i < playerInfos.Count; i++)
-        {
-            if (playerInfos[i].isActive)
-            {
-                AllInactive = false;
-                activeGO.Add(playerInfos[i].monsterGO.gameObject);
-            }
+        bool AllInactive = playerInfos.All(info => !info.isActive);
+        List<GameObject> activeGO = playerInfos.Where(info => info.isActive).Select(info => info.monsterGO.gameObject).ToList();
 
-        }
         for (int k = 0; k < monsterPrefab.Count; k++)
         {
             if (!activeGO.Contains(monsterPrefab[k].gameObject))
@@ -193,14 +185,7 @@ public class PlayerManager : MonoBehaviour
 
             }
         }
-        if (AllInactive)
-        {
-            AllCharactersInactive.value = true;
-        }
-        else
-        {
-            AllCharactersInactive.value = false;
-        }
+        AllCharactersInactive.value = AllInactive;
     }
 
     void UnsubscribeMonster(PlayerInfo playerInfo)
@@ -219,6 +204,7 @@ public class PlayerManager : MonoBehaviour
 
         playerInfo.monsterGO.GetBasicMovement().AfterSwap();
         playerInfo.monsterGO.GetAbility().AfterSwap();
+        playerInfo.monsterGO.GetInactiveMovement().DisableAgent();
     }
 
     void UpdateCharacter(PlayerInfo playerInfo, int index, int j)
@@ -330,10 +316,10 @@ public class PlayerManager : MonoBehaviour
 [System.Serializable]
 public struct PlayerInfo
 {
-    public Monster monsterGO;
-    public Monster previousMonsterGO;
-    public InputDevice inputDevice;
-    public Player previousPlayer;
+    public Monster? monsterGO;
+    public Monster? previousMonsterGO;
+    public InputDevice? inputDevice;
+    public Player? previousPlayer;
 
     public int index;
 
@@ -343,7 +329,6 @@ public struct PlayerInfo
 
     public bool ContainsGameObject(GameObject go)
     {
-        if (monsterGO.gameObject == go) return true;
-        else return false;
+        return monsterGO?.gameObject == go;
     }
 }
