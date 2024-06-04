@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FindTarget();   
+        FindTarget();
     }
     #endregion
 
@@ -32,25 +32,23 @@ public class Enemy : MonoBehaviour
     void FindTarget()
     {
         float previousClosest = Mathf.Infinity;
-        Collider[] colliders = Physics.OverlapSphere(transform.position, detectionRange, LayerMask.NameToLayer("Player"));
+        
+        Collider[] colliders = Physics.OverlapSphere(transform.position, detectionRange, LayerMask.GetMask("Player"));
         
         Vector3 dest = Vector3.zero;
-        Debug.Log(colliders.Length + " : "+ LayerMask.NameToLayer("Player"));
+        
         foreach (Collider collider in colliders)
         {
-            previousClosest = Mathf.Min(previousClosest, Vector3.Distance(transform.position, collider.transform.position));
+            float dist = Vector3.Distance(transform.position, collider.transform.position);
+            previousClosest = Mathf.Min(previousClosest, dist);
 
-            Debug.Log(Vector3.Distance(transform.position, collider.transform.position));
-
-            if (previousClosest == Vector3.Distance(transform.position, collider.transform.position))
+            if (previousClosest == dist)
             {
                 target = collider.gameObject;
                 dest = collider.transform.position;
-                Debug.Log("SA");
             }
         }
         agent.destination = dest;
-        Debug.Log("WA "+dest + " : "+previousClosest);
     }
     #endregion
 }
