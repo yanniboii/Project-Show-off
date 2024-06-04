@@ -205,6 +205,7 @@ public class PlayerManager : MonoBehaviour
 
         playerInfo.monsterGO.GetBasicMovement().AfterSwap();
         playerInfo.monsterGO.GetAbility().AfterSwap();
+        playerInfo.monsterGO.GetInactiveMovement().DisableAgent();
     }
 
     void UpdateCharacter(PlayerInfo playerInfo, int index, int j)
