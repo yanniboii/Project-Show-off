@@ -1,4 +1,5 @@
 using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,10 @@ public class CameraManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetCameraPriority(camera1);
+        SetCameraPriority(camera2);
+        SetCameraPriority(camera3);
+        SetCameraPriority(camera4);
     }
 
     // Update is called once per frame
@@ -61,6 +65,23 @@ public class CameraManager : MonoBehaviour
         camera4.camera.rect = new Rect(0.5f, 0, 0.5f, 0.5f);
     }
 
+    public CameraInfo GetCameraInfo(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                return camera1;
+
+            case 1:
+                return camera2;
+            case 2:
+                return camera3;
+            case 3:
+                return camera4;
+        }
+        return camera1;
+    }
+
     public void AddCameraToPlayer(PlayerInput playerInput)
     {
         Player player = playerInput.gameObject.GetComponent<Player>();
@@ -91,6 +112,13 @@ public class CameraManager : MonoBehaviour
             playerInput.camera = camera4.camera;
         }
     }
+    void SetCameraPriority(CameraInfo cameraInfo)
+    {
+        for (int i = 0; i < cameraInfo.virtualCameras.Count; i++)
+        {
+            cameraInfo.virtualCameras[i].Priority = 100 - i;
+        }
+    }
 }
 
 [System.Serializable]
@@ -110,3 +138,4 @@ public struct CameraInfo
         }
     }
 }
+
