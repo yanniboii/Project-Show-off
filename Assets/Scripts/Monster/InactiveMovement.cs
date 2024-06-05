@@ -26,20 +26,20 @@ public class InactiveMovement : MonoBehaviour
             agent.ResetPath();
             if (players.Count > 0)
             {
-                Vector3 closestPlayer = Vector3.positiveInfinity;
+                float closestPlayer = Mathf.Infinity;
+                Vector3 dest = Vector3.zero;
                 for (int i = 0; i < players.Count; i++)
                 {
-                    if (Mathf.Min(closestPlayer.magnitude, players[i].transform.position.magnitude) != closestPlayer.magnitude)
+                    float dist = Vector3.Distance(transform.position, players[i].transform.position);
+                    closestPlayer = Mathf.Min(closestPlayer, dist);
+                    if (closestPlayer == dist)
                     {
-                        closestPlayer = players[i].transform.position;
+                        dest = players[i].transform.position;
                     }
                 }
-                if (closestPlayer.magnitude > 7)
-                {
-                    agent.destination = closestPlayer;
-                    destination = closestPlayer;
-                }
-            }
+                    agent.destination = dest;
+                    destination = dest;
+                            }
             else
             {
                 Debug.Log("empty target");
