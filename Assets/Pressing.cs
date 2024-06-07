@@ -32,20 +32,23 @@ public class Pressing : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            this.GetComponentInParent<Togetherness>().pressCount++;
+            this.GetComponentInParent<Togetherness>().ResetTime();
+            this.GetComponentInParent<Togetherness>().pressCount+=1;
             this.transform.localScale -= scaleChange;
-            colour.material = Down;
             this.transform.position += positionChange;
+            colour.material = Down;
         }
     }
+    
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            this.GetComponentInParent<Togetherness>().pressCount--;
+            this.GetComponentInParent<Togetherness>().ResetTime();
+            this.GetComponentInParent<Togetherness>().pressCount -= 1;
             this.transform.localScale += scaleChange;
-            colour.material = Up;
             this.transform.position -= positionChange;
+            colour.material = Up;
         }
     }
 }

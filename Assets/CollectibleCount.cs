@@ -18,6 +18,10 @@ public class CollectibleCount : MonoBehaviour
     [SerializeField] List<GameObject> levels = new List<GameObject>();
     bool openingWorld;
     public Image lowTaperFade;
+    [SerializeField] List<GameObject> portals = new List<GameObject>();
+    public List<GameObject> bridges = new List<GameObject>();
+    float bridgeCount = 0;
+    float unlockCount = 0;
     private void Awake()
     {
         DontDestroyOnLoad(this);
@@ -27,6 +31,10 @@ public class CollectibleCount : MonoBehaviour
             if (gameObj.name == "KeyCollectable" && !EditorUtility.IsPersistent(gameObj.transform.root.gameObject))
             {
                 allCollectibles.Add(gameObj);
+            }
+            else if (gameObj.name == "Portal" && !EditorUtility.IsPersistent(gameObj.transform.root.gameObject))
+            {
+                portals.Add(gameObj);
             }
         }
         foreach(var i in allCollectibles)
@@ -55,7 +63,7 @@ public class CollectibleCount : MonoBehaviour
     {
         if (openingWorld)
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 2; i++)
             {
                 Debug.Log(levels[i].ToString());
                 openingWorld = false;
@@ -65,37 +73,66 @@ public class CollectibleCount : MonoBehaviour
 
     void CheckDestroyed()
     {
-        //Jinkies! That's a lot of lists Fred! We can't stay here! The for loops will keep us here FOREVER!
-        //Jeepers Velma! Why didn't you think of that BEFORE you turned us into ones and zeroes?
-        //Well it's not entirely my fault. I thought that Fred was a pro at these things.
-        //Velma. We were hired to enter someone's code to sort out a ghost,
-        //we have a talking dog that lives on the largest sandwiches ever made and apparently shares around 90% of his braincells with a person who's constantly high,
-        //and I don't have a catchphrase.
-        //Never make any assumptions on what I can do.
-        //Now that's not my fault. You're the plans guy.
-        //That's your mistake. I'm not the plans guy, I'm the TRAPS guy. As you should've realised, I am a moron when it comes to coding C#.
-        //So how are you going to get us out of this then Fred?
-        //Daphne, I'd love to get us out. As I said, I can't code. Also, there's apparently a specter in the code.
-        //Like, zoinks guys! Scoob is being chased by a man holding the line of binary 01100001 01111000 01100101!
-        //Jinkies once again! Fred, break us out of these for loops now!
-        //Raggy! Re's rafter me! I rooked it up ronrine. Re's rolding a raxe!
-        foreach (var i in levels)
-        {
-            if (i == null)
-            {
-                levels.RemoveAt(levels.IndexOf(i));
-            }
-        }
         foreach (var gameObj in allCollectibles)
         {
             if (gameObj == null)
             {
                 allCollectibles.RemoveAt(allCollectibles.IndexOf(gameObj));
+                if(collected <= 0)
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+                        levels[0].gameObject.SetActive(true);
+                        levels.RemoveAt(0);
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < 1; i++)
+                    {
+                        levels[0].gameObject.SetActive(true);
+                        levels.RemoveAt(0);
+                    }
+                }
                 collected++;
                 score.text = new string($"{collected} / {totalCollectible}");
                 StartCoroutine(DisplayCollectibles());
                 fadeSpeed = 1;
+                if(unlockCount < 2)
+                {
+                    levels[0].SetActive(true);
+                    levels.RemoveAt(0);
+                    unlockCount++;
+                }
+                else
+                {
+                    StartCoroutine(UnlockBig());
+                }
+                if(bridgeCount < 4)
+                {
+                    bridgeCount++;
+                }
+                else
+                {
+                    StartCoroutine(RaiseBridge());
+                }
             }
+        }
+    }
+    
+    IEnumerator UnlockBig()
+    {
+        Debug.Log("Unlocking");
+        if (portals[0] != null)
+        {
+            GameObject nextBigLevel = portals[0];
+            for (int i = 0; i < 200; i++)
+            {
+                nextBigLevel.transform.position += new Vector3(0, 0.06f, 0);
+                yield return new WaitForSecondsRealtime(0.01f);
+            }
+            portals.RemoveAt(0);
+            unlockCount = 0;
         }
     }
 
@@ -103,10 +140,10 @@ public class CollectibleCount : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         fading = true;
-        if (collected >= 5)
+        /*if (collected >= 5)
         {
             moveOn();
-        }
+        }*/
     }
 
     IEnumerator fadeIn()
@@ -119,4 +156,31 @@ public class CollectibleCount : MonoBehaviour
             yield return new WaitForSeconds(frameRate);
         }
     }
+
+    IEnumerator RaiseBridge()
+    {
+        GameObject nextBridge = bridges[0];
+        for (int i = 0; i < 115; i++)
+        {
+            nextBridge.transform.position += new Vector3(0, 0.06f, 0);
+            yield return new WaitForSecondsRealtime(0.01f);
+        }
+        bridges.RemoveAt(0);
+        bridgeCount = 0;
+    }
 }
+
+//Jinkies! That's a lot of lists Fred! We can't stay here! The for loops will keep us here FOREVER!
+//Jeepers Velma! Why didn't you think of that BEFORE you turned us into ones and zeroes?
+//Well it's not entirely my fault. I thought that Fred was a pro at these things.
+//Velma. We were hired to enter someone's code to sort out a ghost,
+//we have a talking dog that lives on the largest sandwiches ever made and apparently shares around 90% of his braincells with a person who's constantly high,
+//and I don't have a catchphrase.
+//Never make any assumptions on what I can do.
+//Now that's not my fault. You're the plans guy.
+//That's your mistake. I'm not the plans guy, I'm the TRAPS guy. As you should've realised, I am a moron when it comes to coding C#.
+//So how are you going to get us out of this then Fred?
+//Daphne, I'd love to get us out. As I said, I can't code. Also, there's apparently a specter in the code.
+//Like, zoinks guys! Scoob is being chased by a man holding the line of binary 01100001 01111000 01100101!
+//Jinkies once again! Fred, break us out of these for loops now!
+//Raggy! Re's rafter me! I rooked it up ronrine. Re's rolding a raxe!

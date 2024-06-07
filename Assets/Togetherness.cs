@@ -8,22 +8,34 @@ public class Togetherness : MonoBehaviour
     public float pressCount;
     public GameObject movingThing;
     [SerializeField] Vector3 movedLocation;
-
+    float t = 0;
+    public float moveSpeed;
+    Vector3 origin;
     private void Awake()
     {
         foreach(Transform child in transform)
         {
             buttons.Add(child.gameObject);
         }
+        origin = movingThing.transform.position;
     }
 
     private void Update()
     {
         if (pressCount == buttons.Count)
         {
-            //TODO Idk man like..... it's gone! Just not to the right place
-            movingThing.transform.position = movedLocation;
-            //movingThing.transform.position = new Vector3(Mathf.Lerp(movingThing.transform.position.x, movedLocation.x, t), Mathf.Lerp(movingThing.transform.position.y, movedLocation.x, t), Mathf.Lerp(movingThing.transform.position.z, movedLocation.x, t));
+            t += moveSpeed * Time.deltaTime;
+            movingThing.transform.position = new Vector3(Mathf.Lerp(movingThing.transform.position.x, movedLocation.x, t), Mathf.Lerp(movingThing.transform.position.y, movedLocation.y, t), Mathf.Lerp(movingThing.transform.position.z, movedLocation.z, t));
         }
+        else
+        {
+            t += moveSpeed * Time.deltaTime;
+            movingThing.transform.position = new Vector3(Mathf.Lerp(movingThing.transform.position.x, origin.x, t), Mathf.Lerp(movingThing.transform.position.y, origin.y, t), Mathf.Lerp(movingThing.transform.position.z, origin.z, t));
+        }
+    }
+
+    public void ResetTime()
+    {
+        t = 0;
     }
 }

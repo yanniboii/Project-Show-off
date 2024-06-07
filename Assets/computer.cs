@@ -6,6 +6,9 @@ public class computer : MonoBehaviour
 {
     public GameObject computered;
     bool yeeting = false;
+    public GameObject leavingPortal;
+    bool oneTimeTrigger = true;
+
     private void OnTriggerStay(Collider other)
     {
         if(other.CompareTag("Player"))
@@ -24,27 +27,26 @@ public class computer : MonoBehaviour
 
     private void Update()
     {
-        if (yeeting && Input.GetKey(KeyCode.E))
+
+        if (yeeting && Input.GetKey(KeyCode.E) && oneTimeTrigger)
         {
+            oneTimeTrigger = false;
             StartCoroutine(Yeet());
         }
+    }
+
+    public void RemovePuzzle()
+    {
+        Destroy(computered);
     }
 
     IEnumerator Yeet()
     {
         //Cheers my brothers
-        float speed = 0.3f;
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 95; i++)
         {
-            speed *= 0.95f;
-            computered.transform.position += new Vector3(computered.transform.position.x, 5, computered.transform.position.z);
-            yield return new WaitForSeconds(speed);
+            leavingPortal.transform.position += new Vector3(0, 0.06f, 0);
+            yield return new WaitForSecondsRealtime(0.01f);
         }
-        for (int i = 0; i < 45; i++)
-        {
-            computered.transform.position += new Vector3(computered.transform.position.x, 5, computered.transform.position.z);
-            yield return new WaitForSeconds(speed);
-        }
-        Destroy(computered);
     }
 }
