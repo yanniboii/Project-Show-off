@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cb42807044090e84a9ad065d40a458f8, type: 2}
+  - {fileID: 2100000, guid: 43de95173efc06842bb7c1d3e4ed96bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -167,7 +167,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cb42807044090e84a9ad065d40a458f8, type: 2}
+  - {fileID: 2100000, guid: 43de95173efc06842bb7c1d3e4ed96bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -272,7 +272,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cb42807044090e84a9ad065d40a458f8, type: 2}
+  - {fileID: 2100000, guid: 43de95173efc06842bb7c1d3e4ed96bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -377,7 +377,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cb42807044090e84a9ad065d40a458f8, type: 2}
+  - {fileID: 2100000, guid: 43de95173efc06842bb7c1d3e4ed96bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -482,7 +482,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cb42807044090e84a9ad065d40a458f8, type: 2}
+  - {fileID: 2100000, guid: 43de95173efc06842bb7c1d3e4ed96bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -587,7 +587,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cb42807044090e84a9ad065d40a458f8, type: 2}
+  - {fileID: 2100000, guid: 43de95173efc06842bb7c1d3e4ed96bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -692,7 +692,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cb42807044090e84a9ad065d40a458f8, type: 2}
+  - {fileID: 2100000, guid: 43de95173efc06842bb7c1d3e4ed96bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -746,7 +746,7 @@ GameObject:
   - component: {fileID: 4689562594001362227}
   m_Layer: 0
   m_Name: Vines
-  m_TagString: Ground
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

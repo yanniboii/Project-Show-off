@@ -3,16 +3,27 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< HEAD
 using UnityEngine.InputSystem;
+using Cinemachine;
 public class CameraManager : MonoBehaviour
 {
     [SerializeField] CameraInfo camera1;
     [SerializeField] CameraInfo camera2;
     [SerializeField] CameraInfo camera3;
     [SerializeField] CameraInfo camera4;
+=======
+
+public class CameraManager : MonoBehaviour
+{
+    [SerializeField] Camera camera1;
+    [SerializeField] Camera camera2;
+    [SerializeField] Camera camera3;
+    [SerializeField] Camera camera4;
+>>>>>>> parent of e05445b (Revert "Merge branch 'designing-branch'")
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         SetCameraPriority(camera1);
         SetCameraPriority(camera2);
@@ -20,18 +31,12 @@ public class CameraManager : MonoBehaviour
         SetCameraPriority(camera4);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnePlayerCamera()
     {
+<<<<<<< HEAD
         camera2.camera.gameObject.SetActive(false);
         camera3.camera.gameObject.SetActive(false);
         camera4.camera.gameObject.SetActive(false);
-
         camera1.camera.rect = new Rect(0,0,1,1);
     }
     public void TwoPlayerCamera()
@@ -39,7 +44,6 @@ public class CameraManager : MonoBehaviour
         camera2.camera.gameObject.SetActive(true);
         camera3.camera.gameObject.SetActive(false);
         camera4.camera.gameObject.SetActive(false);
-
         camera1.camera.rect = new Rect(0.25f, 0, 0.5f, 0.5f);
         camera2.camera.rect = new Rect(0.25f, 0.5f, 0.5f, 0.5f);
     }
@@ -48,10 +52,32 @@ public class CameraManager : MonoBehaviour
         camera2.camera.gameObject.SetActive(true);
         camera3.camera.gameObject.SetActive(true);
         camera4.camera.gameObject.SetActive(false);
-
         camera1.camera.rect = new Rect(0, 0.5f, 0.5f, 0.5f);
         camera2.camera.rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
         camera3.camera.rect = new Rect(0.25f, 0, 0.5f, 0.5f);
+=======
+        camera2.gameObject.SetActive(false);
+        camera3.gameObject.SetActive(false);
+        camera4.gameObject.SetActive(false);
+        camera1.rect = new Rect(0,0,1,1);
+    }
+    public void TwoPlayerCamera()
+    {
+        camera2.gameObject.SetActive(true);
+        camera3.gameObject.SetActive(false);
+        camera4.gameObject.SetActive(false);
+        camera1.rect = new Rect(0.25f, 0, 0.5f, 0.5f);
+        camera2.rect = new Rect(0.25f, 0.5f, 0.5f, 0.5f);
+    }
+    public void ThirdPlayerCamera()
+    {
+        camera2.gameObject.SetActive(true);
+        camera3.gameObject.SetActive(true);
+        camera4.gameObject.SetActive(false);
+        camera1.rect = new Rect(0, 0.5f, 0.5f, 0.5f);
+        camera2.rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
+        camera3.rect = new Rect(0.25f, 0, 0.5f, 0.5f);
+>>>>>>> parent of e05445b (Revert "Merge branch 'designing-branch'")
     }
     public void FourPlayerCamera()
     {

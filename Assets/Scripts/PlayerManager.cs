@@ -122,6 +122,8 @@ public class PlayerManager : MonoBehaviour
                 playerInfo.previousPlayer.followObject = null;
 
                 playerInfo.isActive = false;
+                playerInfo.monsterGO = null;
+
                 UnsubscribeMonster(playerInfo);
                 playerInfo.monster = null;
             }

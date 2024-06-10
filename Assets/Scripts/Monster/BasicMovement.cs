@@ -15,8 +15,7 @@ public class BasicMovement : MonoBehaviour
     Rigidbody rb;
     Vector2 moveInput;
     float jumpInput;
-    [SerializeField] float extraGravity;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -32,12 +31,7 @@ public class BasicMovement : MonoBehaviour
         {
             if(jumpInput>0){
                 rb.AddForce(new Vector3(0, jumpInput * monsterData.jumpHeight, 0), ForceMode.Impulse);
-                grounded = false; 
-            }
-        }else{
-            if(jumpInput<1){
-                rb.AddForce(new Vector3(0, -extraGravity, 0));
-
+                grounded = false;
             }
         }
     }

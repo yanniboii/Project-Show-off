@@ -10,8 +10,6 @@ TagManager:
   - Lighting
   - Wood
   - keycollectable
-  - Grass
-  - Engine
   layers:
   - Default
   - TransparentFX

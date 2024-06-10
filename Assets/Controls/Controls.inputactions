@@ -16,20 +16,11 @@
                 },
                 {
                     "name": "Jump",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "7bb720e0-c41a-4b4e-b226-42cd0871f016",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Ability",
-                    "type": "Button",
-                    "id": "02d3a798-4b0f-4bab-b636-470360c499db",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
+                    "interactions": "Tap",
                     "initialStateCheck": false
                 },
                 {
