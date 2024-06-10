@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8082247841736766620}
   - component: {fileID: 5673577660176088162}
   - component: {fileID: 8904880997907815619}
+  - component: {fileID: 4845590729909844066}
   m_Layer: 0
   m_Name: Magical Ruinblock
   m_TagString: Ground
@@ -4904,3 +4905,15 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &4845590729909844066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4859267082663623664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b03b3d23052f5f4ab269a2d29a0e3d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
