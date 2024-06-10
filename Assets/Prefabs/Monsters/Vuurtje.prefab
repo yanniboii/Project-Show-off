@@ -8,10 +8,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 448791580025752063, guid: a9a849816eaa8ff419851ef429eb5a09,
+        type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 3095732998671184278, guid: bdba20eb4e1ec624c85ae9720982ae14,
+        type: 3}
     - target: {fileID: 825284992469677713, guid: a9a849816eaa8ff419851ef429eb5a09,
         type: 3}
       propertyPath: m_Name
-      value: p1 Variant
+      value: Vuurtje
       objectReference: {fileID: 0}
     - target: {fileID: 2953856351789558119, guid: a9a849816eaa8ff419851ef429eb5a09,
         type: 3}

@@ -16,8 +16,14 @@ PrefabInstance:
     - target: {fileID: 4762280677693418107, guid: f24f83897e4531a4da822f85f3250e8a,
         type: 3}
       propertyPath: m_Name
-      value: p1 Variant 3
+      value: Zoe
       objectReference: {fileID: 0}
+    - target: {fileID: 5717716414381282581, guid: f24f83897e4531a4da822f85f3250e8a,
+        type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 7249556888544060717, guid: 0087ce6b48536e045b2276d5b0b442f5,
+        type: 3}
     - target: {fileID: 7033833079113282957, guid: f24f83897e4531a4da822f85f3250e8a,
         type: 3}
       propertyPath: m_LocalPosition.x
