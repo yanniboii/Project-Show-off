@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class UnlockGO : MonoBehaviour
+public class EventOnCollision : MonoBehaviour
 {
-    [SerializeField] Unlock unlock;
+    [SerializeField] OnCollision onCollision;
     [SerializeField] List<GameObject> triggerObjects = new List<GameObject>();
     bool called =false;
     // Start is called before the first frame update
@@ -21,7 +21,7 @@ public class UnlockGO : MonoBehaviour
         {
             if(other.gameObject == triggerObjects[i])
             {
-                unlock?.Invoke();
+                onCollision?.Invoke();
             }
         }
     }
@@ -34,7 +34,7 @@ public class UnlockGO : MonoBehaviour
 }
 
 [Serializable]
-public class Unlock : UnityEvent
+public class OnCollision : UnityEvent
 {
 
 }
