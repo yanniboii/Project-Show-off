@@ -36,4 +36,8 @@ public class EngineMachine : MonoBehaviour
             transform.localScale = OriginalSize;
         }
     }
+
+    public void SwitchOn(){
+        on = !on;
+    }
 }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1596752772249576280}
   - component: {fileID: 2960296090513946226}
   - component: {fileID: 8756788548966413313}
+  - component: {fileID: 762166325001082764}
   m_Layer: 0
   m_Name: Engine
   m_TagString: Engine
@@ -99,7 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9f9ad477d889e44e8f67dae05fc3ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changemoment: 0.06
   on: 1
 --- !u!108 &1596752772249576280
 Light:
@@ -207,6 +207,48 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &762166325001082764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2320357208816200813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9318f7c592423a840809b882b478c924, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onCollision:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 960281770819402864}
+        m_TargetAssemblyTypeName: EngineMachine, Assembly-CSharp
+        m_MethodName: SwitchOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5609145319275647304, guid: 0e0850e9c058a0347902469c7783fecf,
+          type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  triggerObjects:
+  - {fileID: 5609145319275647304, guid: 0e0850e9c058a0347902469c7783fecf, type: 3}
 --- !u!1 &7917097500261240438
 GameObject:
   m_ObjectHideFlags: 0
