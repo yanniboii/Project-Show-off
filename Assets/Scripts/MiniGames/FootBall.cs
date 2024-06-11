@@ -21,5 +21,9 @@ public class FootBall : MonoBehaviour
     {
         transform.position = respawnPoint.position;
         transform.rotation = respawnPoint.rotation;
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
+        rb.freezeRotation = false;
+        rb.velocity = Vector3.zero;
     }
 }
