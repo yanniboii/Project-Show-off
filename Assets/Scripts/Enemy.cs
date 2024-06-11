@@ -8,8 +8,9 @@ public class Enemy : MonoBehaviour
     #region vars
 
     [SerializeField] NavMeshAgent agent;
+    [SerializeField] float detectionRange;
 
-    private GameObject target;
+    [SerializeField] GameObject target;
 
     #endregion
 
@@ -23,7 +24,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        FindTarget();
     }
     #endregion
 
@@ -31,11 +32,23 @@ public class Enemy : MonoBehaviour
     void FindTarget()
     {
         float previousClosest = Mathf.Infinity;
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 20, 10);
+        
+        Collider[] colliders = Physics.OverlapSphere(transform.position, detectionRange, LayerMask.GetMask("Player"));
+        
+        Vector3 dest = Vector3.zero;
+        
         foreach (Collider collider in colliders)
         {
-            previousClosest = Mathf.Min(previousClosest, Vector3.Distance(transform.position, collider.transform.position));
+            float dist = Vector3.Distance(transform.position, collider.transform.position);
+            previousClosest = Mathf.Min(previousClosest, dist);
+
+            if (previousClosest == dist)
+            {
+                target = collider.gameObject;
+                dest = collider.transform.position;
+            }
         }
+        agent.destination = dest;
     }
     #endregion
 }
