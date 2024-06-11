@@ -22,9 +22,16 @@ public class Togetherness : MonoBehaviour
     {
         if (pressCount == buttons.Count)
         {
-            t += 0.01f;
-            //movingThing.transform.position = new Vector3(Mathf.Lerp(movingThing.transform.position.x, movedLocation.x, t), Mathf.Lerp(movingThing.transform.position.y, movedLocation.x, t), Mathf.Lerp(movingThing.transform.position.z, movedLocation.x, t));
+            if (t < 1)
+            {
+                t += 0.01f;
+            }
+            if (movingThing.activeSelf == false)
+            {
+                movedLocation = movingThing.transform.position;
+            }
             movingThing.SetActive(true);
+            movingThing.transform.position = new Vector3(Mathf.Lerp(movingThing.transform.position.x, movedLocation.x, t), Mathf.Lerp(movingThing.transform.position.y, movedLocation.y, t), Mathf.Lerp(movingThing.transform.position.z, movedLocation.z, t));
         }
     }
 }
