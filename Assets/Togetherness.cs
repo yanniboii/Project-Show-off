@@ -8,6 +8,7 @@ public class Togetherness : MonoBehaviour
     public float pressCount;
     public GameObject movingThing;
     [SerializeField] Vector3 movedLocation;
+    float t = 0;
 
     private void Awake()
     {
@@ -21,9 +22,9 @@ public class Togetherness : MonoBehaviour
     {
         if (pressCount == buttons.Count)
         {
-            //TODO Idk man like..... it's gone! Just not to the right place
-            movingThing.transform.position = movedLocation;
+            t += 0.01f;
             //movingThing.transform.position = new Vector3(Mathf.Lerp(movingThing.transform.position.x, movedLocation.x, t), Mathf.Lerp(movingThing.transform.position.y, movedLocation.x, t), Mathf.Lerp(movingThing.transform.position.z, movedLocation.x, t));
+            movingThing.SetActive(true);
         }
     }
 }
