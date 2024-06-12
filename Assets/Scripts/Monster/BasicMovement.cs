@@ -32,13 +32,12 @@ public class BasicMovement : MonoBehaviour
 
         if (grounded)
         {
-            if(jumpInput>0){
-                Debug.Log("j");
+            if (jumpInput > 0) {
                 rb.AddForce(new Vector3(0, jumpInput * monsterData.jumpHeight, 0), ForceMode.Impulse);
-                grounded = false; 
+                grounded = false;
             }
-        }else{
-            if(jumpInput<1){
+        } else {
+            if (jumpInput < 1) {
                 rb.AddForce(new Vector3(0, -extraGravity, 0));
 
             }
@@ -62,7 +61,6 @@ public class BasicMovement : MonoBehaviour
 
     public void OnJump(float jump)
     {
-        Debug.Log("A");
         jumpInput = jump;
 
     }
@@ -85,28 +83,29 @@ public class BasicMovement : MonoBehaviour
     {
         // Origin of the raycast is at the position of the GameObject this script is attached to
         Vector3 origin = transform.position;
-        
+
         // Direction of the raycast is downward (negative y direction)
         Vector3 direction = Vector3.down;
 
         // For visual debugging, draw the ray in the scene view
         Debug.DrawRay(origin, direction * rayLength, Color.red);
-
+        Debug.Log("A");
         // Perform the raycast
         if (Physics.Raycast(origin, direction, out RaycastHit hit, rayLength))
         {
             Debug.Log("B");
-            grounded = true;
+            return true;
         }
-        return(false);
+        return (false);
 
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.transform.CompareTag("Ground"))
-        {
-            Debug.Log("c");
-            grounded = true;
-        }
     }
 
+    //void OnCollisionStay(Collision collision)
+    //{
+    //    if (collision.transform.CompareTag("Ground"))
+    //    {
+    //        Debug.Log("c");
+    //        grounded = true;
+    //    }
+    //}
 }
