@@ -74,6 +74,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5609145319275647304, guid: 0e0850e9c058a0347902469c7783fecf,
         type: 3}
+    - target: {fileID: 8475176340811309955, guid: 558a75c9ec5d96f47886ee5bced38315,
+        type: 3}
+      propertyPath: monsterData
+      value: 
+      objectReference: {fileID: 11400000, guid: c41bfeddec9a9e64b88bea4e0ec7713f,
+        type: 2}
     - target: {fileID: 9204979458831005679, guid: 558a75c9ec5d96f47886ee5bced38315,
         type: 3}
       propertyPath: m_Enabled
