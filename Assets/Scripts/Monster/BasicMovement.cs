@@ -31,6 +31,7 @@ public class BasicMovement : MonoBehaviour
         if (grounded)
         {
             if(jumpInput>0){
+                Debug.Log("j");
                 rb.AddForce(new Vector3(0, jumpInput * monsterData.jumpHeight, 0), ForceMode.Impulse);
                 grounded = false; 
             }
@@ -59,7 +60,7 @@ public class BasicMovement : MonoBehaviour
 
     public void OnJump(float jump)
     {
-
+        Debug.Log("A");
         jumpInput = jump;
 
     }
@@ -82,6 +83,7 @@ public class BasicMovement : MonoBehaviour
     {
         if (collision.transform.CompareTag("Ground"))
         {
+            Debug.Log("B");
             grounded = true;
         }
     }
@@ -90,6 +92,7 @@ public class BasicMovement : MonoBehaviour
     {
         if (collision.transform.CompareTag("Ground"))
         {
+            Debug.Log("c");
             grounded = true;
         }
     }
