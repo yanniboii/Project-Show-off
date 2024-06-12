@@ -21,7 +21,8 @@ public class LevelLoader : MonoBehaviour
         {
             oneTimeTrigger = false;
             collidedPlayer = collision.gameObject;
-            StartCoroutine(FadeOut());
+            collidedPlayer.transform.position = nextLevel;
+            //StartCoroutine(FadeOut());
         } 
     }
 
