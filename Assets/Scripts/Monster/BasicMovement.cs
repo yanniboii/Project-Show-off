@@ -7,6 +7,7 @@ public class BasicMovement : MonoBehaviour
 {
     public MonsterData monsterData;
     [SerializeField] bool grounded;
+    [SerializeField] float rayLength = 1.0f;
 
     [HideInInspector]
     public CameraInfo cameraInfo;
@@ -44,6 +45,7 @@ public class BasicMovement : MonoBehaviour
 
     private void Update()
     {
+        grounded = CheckGround();
         if (moveInput != Vector2.zero)
         {
             float angle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg;
@@ -78,27 +80,29 @@ public class BasicMovement : MonoBehaviour
         player.beforeJump += OnJump;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private bool CheckGround()
     {
-        if (collision.transform.CompareTag("Ground"))
+        // Origin of the raycast is at the position of the GameObject this script is attached to
+        Vector3 origin = transform.position;
+        
+        // Direction of the raycast is downward (negative y direction)
+        Vector3 direction = Vector3.down;
+
+        // For visual debugging, draw the ray in the scene view
+        Debug.DrawRay(origin, direction * rayLength, Color.red);
+
+        // Perform the raycast
+        if (Physics.Raycast(origin, direction, out RaycastHit hit, rayLength))
         {
-            grounded = true;
+            // Check if the object hit by the raycast is tagged with "Ground"
+            if (hit.collider.CompareTag("Ground"))
+            {
+                // If the raycast hits a ground object, log the name of the object
+                return(true);
+            }
         }
+        return(false);
+
     }
 
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.transform.CompareTag("Ground"))
-        {
-            grounded = true;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.transform.CompareTag("Ground"))
-        {
-            grounded = false;
-        }
-    }
 }
