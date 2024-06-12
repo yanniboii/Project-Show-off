@@ -21,6 +21,9 @@ public class InactiveMovement : MonoBehaviour
     public void MoveToClosestPlayer(List<GameObject> players)
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
+        agent.updatePosition = true;
+        agent.updateRotation = true;
         if (agent.isOnNavMesh)
         {
             agent.ResetPath();
@@ -54,6 +57,9 @@ public class InactiveMovement : MonoBehaviour
         {
             agent.ResetPath();
             agent.isStopped = true;
+            agent.updatePosition = false;
+            agent.updateRotation = false;
+            agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
         }
     }
 
