@@ -81,12 +81,6 @@ public class PlayerManager : MonoBehaviour
             Player player = go.GetComponent<Player>();
             player.followObject = monsterPrefab[joinIndex].gameObject;
 
-            monsterPrefab[joinIndex].GetBasicMovement().player = player;
-            monsterPrefab[joinIndex].GetAbility().player = player;
-            monsterPrefab[joinIndex].GetBasicMovement().AfterSwap();
-            monsterPrefab[joinIndex].GetAbility().AfterSwap();
-
-
             players.Add(go);
 
             PlayerInfo info = new PlayerInfo();
@@ -98,6 +92,7 @@ public class PlayerManager : MonoBehaviour
             info.timeUntilInactive = timeUntilInactive;
 
             playerInfos.Add(info);
+            SubscribeMonster(playerInfos[playerInfos.Count-1], player);
 
             joinIndex++;
         }
