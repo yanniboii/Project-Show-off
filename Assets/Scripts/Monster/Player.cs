@@ -57,7 +57,6 @@ public class Player : MonoBehaviour
 
         forward.Normalize();
         right.Normalize();
-        Debug.Log("Called");
         Vector3 combinedMovement = forward * dir.y +right * dir.x;
 
         beforeMove?.Invoke(new Vector2(combinedMovement.x,combinedMovement.z));

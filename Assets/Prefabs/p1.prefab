@@ -132,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterData: {fileID: 11400000, guid: fc1cfd3178e655642979a8237a91832b, type: 2}
   grounded: 0
+  rayLength: 1.5
   cameraInfo:
     camera: {fileID: 0}
     brain: {fileID: 0}

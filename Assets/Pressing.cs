@@ -8,6 +8,8 @@ public class Pressing : MonoBehaviour
     Renderer colour;
     Material Up;
     Material Down;
+    public bool oneTimeTrigger;
+    bool notTriggered = true;
     private void Awake()
     {
         colour = this.GetComponent<Renderer>();
@@ -30,25 +32,29 @@ public class Pressing : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && notTriggered)
         {
-            this.GetComponentInParent<Togetherness>().ResetTime();
-            this.GetComponentInParent<Togetherness>().pressCount+=1;
+            this.GetComponentInParent<Togetherness>().pressCount++;
             this.transform.localScale -= scaleChange;
-            this.transform.position += positionChange;
             colour.material = Down;
+            this.transform.position += positionChange;
+            if(oneTimeTrigger)
+            {
+                notTriggered = false;
+            }
         }
     }
-    
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            this.GetComponentInParent<Togetherness>().ResetTime();
-            this.GetComponentInParent<Togetherness>().pressCount -= 1;
+            if (!oneTimeTrigger)
+            {
+                this.GetComponentInParent<Togetherness>().pressCount--;
+            }
             this.transform.localScale += scaleChange;
-            this.transform.position -= positionChange;
             colour.material = Up;
+            this.transform.position -= positionChange;
         }
     }
 }
