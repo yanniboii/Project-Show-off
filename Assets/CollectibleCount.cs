@@ -10,18 +10,17 @@ public class CollectibleCount : MonoBehaviour
     public float totalCollectible;
     //This doesn't need to be serialized, I just do it to check everything's working
     [SerializeField] List<GameObject> allCollectibles = new List<GameObject>();
-    float collected = 0;
+    [SerializeField] float collected;
     [SerializeField] TMP_Text score;
-    bool fading;
     public float fadeSpeed = 0;
     //This one is seralized because we have specific amounts of levels and allat
     [SerializeField] List<GameObject> levels = new List<GameObject>();
-    bool openingWorld;
     public Image lowTaperFade;
     [SerializeField] List<GameObject> portals = new List<GameObject>();
     public List<GameObject> bridges = new List<GameObject>();
     float bridgeCount = 0;
     float unlockCount = 0;
+    int currentLevel;
     private void Awake()
     {
         DontDestroyOnLoad(this);
@@ -43,32 +42,15 @@ public class CollectibleCount : MonoBehaviour
         }
         totalCollectible = allCollectibles.Count;
         StartCoroutine(fadeIn());
+        currentLevel = 0;
     }
 
     private void Update()
     {
         score.color = new Color(1, 1, 1, fadeSpeed);
-        if (fading)
-        {
-            fadeSpeed -= 0.01f;
-        }
-        if (fadeSpeed <= 0)
-        {
-            fading = false;
-        }
+        collected = totalCollectible - allCollectibles.Count;
+        score.text = new string($"{collected} / {totalCollectible}");
         CheckDestroyed();
-    }
-
-    void moveOn()
-    {
-        if (openingWorld)
-        {
-            for (int i = 0; i < 2; i++)
-            {
-                Debug.Log(levels[i].ToString());
-                openingWorld = false;
-            }
-        }
     }
 
     void CheckDestroyed()
@@ -77,42 +59,24 @@ public class CollectibleCount : MonoBehaviour
         {
             if (gameObj == null)
             {
+                unlockCount++;
+                bridgeCount++;
                 allCollectibles.RemoveAt(allCollectibles.IndexOf(gameObj));
-                if(collected <= 0)
+                if (currentLevel < levels.Count)
                 {
                     for (int i = 0; i < 2; i++)
                     {
-                        levels[0].gameObject.SetActive(true);
-                        levels.RemoveAt(0);
+                        levels[currentLevel].gameObject.SetActive(true);
+                        currentLevel++;
                     }
                 }
-                else
-                {
-                    for (int i = 0; i < 1; i++)
-                    {
-                        levels[0].gameObject.SetActive(true);
-                        levels.RemoveAt(0);
-                    }
-                }
-                collected++;
-                score.text = new string($"{collected} / {totalCollectible}");
-                StartCoroutine(DisplayCollectibles());
                 fadeSpeed = 1;
-                if(unlockCount < 2)
-                {
-                    levels[0].SetActive(true);
-                    levels.RemoveAt(0);
-                    unlockCount++;
-                }
-                else
+                StartCoroutine(DisplayCollectibles());
+                if (unlockCount == 2f)
                 {
                     StartCoroutine(UnlockBig());
                 }
-                if(bridgeCount < 4)
-                {
-                    bridgeCount++;
-                }
-                else
+                if (bridgeCount == 4f)
                 {
                     StartCoroutine(RaiseBridge());
                 }
@@ -134,16 +98,20 @@ public class CollectibleCount : MonoBehaviour
             portals.RemoveAt(0);
             unlockCount = 0;
         }
+        else
+        {
+            yield return new WaitForSeconds(0f);
+        }
     }
 
     IEnumerator DisplayCollectibles()
     {
         yield return new WaitForSeconds(0.5f);
-        fading = true;
-        /*if (collected >= 5)
+        for (int i = 100; i > 0; i--)
         {
-            moveOn();
-        }*/
+            fadeSpeed -= 0.01f;
+            yield return new WaitForEndOfFrame();
+        }
     }
 
     IEnumerator fadeIn()

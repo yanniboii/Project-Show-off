@@ -7,7 +7,7 @@ public class changeView : MonoBehaviour
     public GameObject cameraLocation;
     public string playerCamera;
     GameObject myCamera;
-    private void OnTriggerStay(Collider other)
+    /*private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -15,5 +15,5 @@ public class changeView : MonoBehaviour
             myCamera.transform.position = cameraLocation.transform.position;
             myCamera.transform.rotation = cameraLocation.transform.rotation;
         }
-    }
+    }*/
 }
