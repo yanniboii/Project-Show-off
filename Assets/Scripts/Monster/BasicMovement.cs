@@ -27,6 +27,7 @@ public class BasicMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        grounded = CheckGround();
         rb.velocity = new Vector3(moveInput.x * monsterData.speed, rb.velocity.y, moveInput.y * monsterData.speed);
 
         if (grounded)
@@ -45,7 +46,6 @@ public class BasicMovement : MonoBehaviour
 
     private void Update()
     {
-        grounded = CheckGround();
         if (moveInput != Vector2.zero)
         {
             float angle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg;
