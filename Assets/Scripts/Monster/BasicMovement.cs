@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 public class BasicMovement : MonoBehaviour
 {
     public MonsterData monsterData;
-    [SerializeField] bool grounded;
+    [SerializeField] float grounded;
+    [SerializeField] bool bouncing;
     [SerializeField] float rayLength = 1.0f;
 
     [HideInInspector]
@@ -22,22 +23,26 @@ public class BasicMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        bouncing = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        grounded = CheckGround();
+        float g = CheckGround();
+        if(g>grounded){grounded = g;}else{grounded = Mathf.Max(grounded - 0.5f, g);}
         rb.velocity = new Vector3(moveInput.x * monsterData.speed, rb.velocity.y, moveInput.y * monsterData.speed);
 
-        if (grounded)
+        if (grounded>0)
         {
-            if (jumpInput > 0) {
-                rb.AddForce(new Vector3(0, jumpInput * monsterData.jumpHeight, 0), ForceMode.Impulse);
-                grounded = false;
+            if (jumpInput > 0 || bouncing) {
+                float b = 0; if(bouncing){b = 0.5f;}
+                float mx = Mathf.Max(jumpInput,b);
+                rb.AddForce(new Vector3(0, mx * monsterData.jumpHeight, 0), ForceMode.Impulse);
+                grounded = 0f;
             }
         } else {
-            if (jumpInput < 1) {
+            if (jumpInput <= 0) {
                 rb.AddForce(new Vector3(0, -extraGravity, 0));
 
             }
@@ -79,7 +84,7 @@ public class BasicMovement : MonoBehaviour
         player.beforeJump += OnJump;
     }
 
-    private bool CheckGround()
+    private float CheckGround()
     {
         // Origin of the raycast is at the position of the GameObject this script is attached to
         Vector3 origin = transform.position;
@@ -89,23 +94,21 @@ public class BasicMovement : MonoBehaviour
 
         // For visual debugging, draw the ray in the scene view
         Debug.DrawRay(origin, direction * rayLength, Color.red);
-        Debug.Log("A");
         // Perform the raycast
         if (Physics.Raycast(origin, direction, out RaycastHit hit, rayLength))
         {
-            Debug.Log("B");
-            return true;
+            if (hit.collider.CompareTag("Ground")){
+                bouncing = false;
+                return 1f;
+            }else
+            if (hit.collider.CompareTag("Bouncy")){
+                bouncing = true;
+                return 1f;
+            }
         }
-        return (false);
+        bouncing = false;
+        return (0f);
 
     }
 
-    //void OnCollisionStay(Collision collision)
-    //{
-    //    if (collision.transform.CompareTag("Ground"))
-    //    {
-    //        Debug.Log("c");
-    //        grounded = true;
-    //    }
-    //}
 }
