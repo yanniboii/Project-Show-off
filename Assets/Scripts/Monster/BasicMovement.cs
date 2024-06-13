@@ -6,10 +6,10 @@ using UnityEngine.InputSystem;
 public class BasicMovement : MonoBehaviour
 {
     public MonsterData monsterData;
-    [SerializeField] bool grounded;
+    [SerializeField] bool glide = false;
+    bool grounded;
     [SerializeField] float rayLength = 1.0f;
 
-    [HideInInspector]
     public CameraInfo cameraInfo;
 
     public Player player;
@@ -35,11 +35,18 @@ public class BasicMovement : MonoBehaviour
             if (jumpInput > 0) {
                 rb.AddForce(new Vector3(0, jumpInput * monsterData.jumpHeight, 0), ForceMode.Impulse);
                 grounded = false;
+                rb.useGravity = true;
+
             }
         } else {
             if (jumpInput < 1) {
                 rb.AddForce(new Vector3(0, -extraGravity, 0));
-
+                rb.useGravity = true;
+            }
+            else if(glide)
+            {
+                rb.useGravity = false;
+                rb.AddForce((Physics.gravity * rb.mass)/20f);
             }
         }
     }
@@ -89,11 +96,9 @@ public class BasicMovement : MonoBehaviour
 
         // For visual debugging, draw the ray in the scene view
         Debug.DrawRay(origin, direction * rayLength, Color.red);
-        Debug.Log("A");
         // Perform the raycast
         if (Physics.Raycast(origin, direction, out RaycastHit hit, rayLength))
         {
-            Debug.Log("B");
             return true;
         }
         return (false);
