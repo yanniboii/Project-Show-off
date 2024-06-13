@@ -19,13 +19,10 @@ public class EventOnCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("yo");
         for(int i = 0; i < triggerObjects.Count; i++)
         {
-            Debug.Log("oy");
             if (other.gameObject.name == triggerObjects[i].name || other.gameObject.name == triggerObjects[i].name + "(Clone)")
             {
-                Debug.Log("yoy");
                 onCollision.Invoke();
                 if(destroyTriggerObjects)
                 {
@@ -37,13 +34,10 @@ public class EventOnCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("yo");
         for (int i = 0; i < triggerObjects.Count; i++)
         {
-            Debug.Log("oy");
             if (other.gameObject.name == triggerObjects[i].name || other.gameObject.name == triggerObjects[i].name + "(Clone)")
             {
-                Debug.Log("yoy");
                 onTrigger.Invoke();
                 if (destroyTriggerObjects)
                 {
