@@ -36,8 +36,9 @@ public class BasicMovement : MonoBehaviour
         if (grounded>0)
         {
             if (jumpInput > 0 || bouncing) {
-                float b = 0; if(bouncing){b = 0.5f;}
-                float mx = Mathf.Max(jumpInput,b);
+                float b = 0f; if(bouncing){b = 0.6f;}
+                float i = 0f; if(jumpInput>0){i = 1f;}
+                float mx = Mathf.Max(i,b);
                 rb.AddForce(new Vector3(0, mx * monsterData.jumpHeight, 0), ForceMode.Impulse);
                 grounded = 0f;
             }
