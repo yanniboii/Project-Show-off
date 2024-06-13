@@ -8,6 +8,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62324662210936981, guid: a9a849816eaa8ff419851ef429eb5a09,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.949356
+      objectReference: {fileID: 0}
+    - target: {fileID: 62324662210936981, guid: a9a849816eaa8ff419851ef429eb5a09,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.7117996
+      objectReference: {fileID: 0}
+    - target: {fileID: 62324662210936981, guid: a9a849816eaa8ff419851ef429eb5a09,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 62324662210936981, guid: a9a849816eaa8ff419851ef429eb5a09,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.37348747
+      objectReference: {fileID: 0}
     - target: {fileID: 448791580025752063, guid: a9a849816eaa8ff419851ef429eb5a09,
         type: 3}
       propertyPath: bulletPrefab

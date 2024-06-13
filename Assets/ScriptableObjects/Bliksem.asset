@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681beee1b704dfb4c90bcb13225deee0, type: 3}
   m_Name: Bliksem
   m_EditorClassIdentifier: 
-  jumpHeight: 20
-  speed: 8
+  jumpHeight: 13
+  speed: 15
   extraGravity: 1
