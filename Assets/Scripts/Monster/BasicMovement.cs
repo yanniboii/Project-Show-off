@@ -8,6 +8,8 @@ public class BasicMovement : MonoBehaviour
     public MonsterData monsterData;
     [SerializeField] float grounded;
     [SerializeField] bool bouncing;
+
+    [SerializeField] float coyoteTime;
     [SerializeField] float rayLength = 1.0f;
 
     [HideInInspector]
@@ -30,7 +32,7 @@ public class BasicMovement : MonoBehaviour
     void FixedUpdate()
     {
         float g = CheckGround();
-        if(g>grounded){grounded = g;}else{grounded = Mathf.Max(grounded - 0.5f, g);}
+        if(g>grounded){grounded = g;}else{grounded = Mathf.Max(grounded - coyoteTime*Time.fixedDeltaTime, g);}
         rb.velocity = new Vector3(moveInput.x * monsterData.speed, rb.velocity.y, moveInput.y * monsterData.speed);
 
         if (grounded>0)
@@ -39,8 +41,15 @@ public class BasicMovement : MonoBehaviour
                 float b = 0f; if(bouncing){b = 0.6f;}
                 float i = 0f; if(jumpInput>0){i = 1f;}
                 float mx = Mathf.Max(i,b);
+                
+                    Vector3 velocity = rb.velocity;
+                    velocity.y = 0f;
+                    rb.velocity = velocity;
+                
                 rb.AddForce(new Vector3(0, mx * monsterData.jumpHeight, 0), ForceMode.Impulse);
+                
                 grounded = 0f;
+
             }
         } else {
             if (jumpInput <= 0) {
