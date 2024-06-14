@@ -21,9 +21,13 @@ public class InactiveMovement : MonoBehaviour
     public void MoveToClosestPlayer(List<GameObject> players)
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
-        agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
-        agent.updatePosition = true;
-        agent.updateRotation = true;
+        if (!agent.updatePosition)
+        {
+            agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
+            agent.updatePosition = true;
+            agent.updateRotation = true;
+        }
+
         if (agent.isOnNavMesh)
         {
             agent.ResetPath();
@@ -48,6 +52,7 @@ public class InactiveMovement : MonoBehaviour
                 Debug.Log("empty target");
             }
         }
+        //Debug.LogError("AASDASD");
 
     }
     public void DisableAgent()
@@ -62,7 +67,15 @@ public class InactiveMovement : MonoBehaviour
             agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
         }
     }
-
+    public void EnableAgent()
+    {
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        Vector3 pos = transform.position;
+        agent.updatePosition = true;
+        agent.updateRotation = true;
+        agent.nextPosition = pos;
+        Debug.LogError("AASDASD");
+    }
 }
 
 

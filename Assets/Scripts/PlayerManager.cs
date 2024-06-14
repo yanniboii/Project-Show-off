@@ -225,6 +225,7 @@ public class PlayerManager : MonoBehaviour
         //new monsterGO
         playerInfo.monster = monsterPrefab[index];
         SubscribeMonster(playerInfo, player);
+        playerInfo.monster.GetInactiveMovement().EnableAgent();
 
         playerInfos[j] = playerInfo;
 

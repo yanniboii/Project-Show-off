@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
     }
     public void OnBeforeCameraRotation(InputAction.CallbackContext context)
     {
-        Debug.Log("A");
+        Debug.Log("A"+ cameraInfo.virtualCameraIndex) ;
         float rotspeed = context.ReadValue<Vector2>().x;
         cameraInfo.virtualCameras[cameraInfo.virtualCameraIndex]?.GetComponent<SetCinemachineValue>()?.SetRotationSpeed(rotspeed);
     }
