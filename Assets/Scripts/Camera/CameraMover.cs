@@ -16,13 +16,10 @@ public class CameraMover : MonoBehaviour
             BasicMovement basicMovement = other.gameObject.GetComponent<BasicMovement>();
             //if (basicMovement.player == null) { return; }
             CameraInfo cam = basicMovement.cameraInfo;
-
-            Debug.Log(cam.virtualCameras.Count);
             if (index >= cam.virtualCameras.Count) return;
             GameObject camGO = cam.virtualCameras[index].gameObject;
-            if (enable)
+            if (!enable)
             {
-
                 camGO.SetActive(false);
                 cam.virtualCameraIndex++;
             }
