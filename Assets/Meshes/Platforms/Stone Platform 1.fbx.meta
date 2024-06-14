@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 98690cb0a5b33e34f920ef3240f29792
+guid: 1d6e837594188334ea3401108590ebdb
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,25 +7,10 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Limbs
-    second: {fileID: 2100000, guid: 9bc72863fd8c3474e82d3df03263e7c1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wings
-    second: {fileID: 2100000, guid: 3e86eb93339ab494c8770696a7a27f4f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: body
-    second: {fileID: 2100000, guid: cb349bd6107548649a7d11487e3ebc4c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ears
-    second: {fileID: 2100000, guid: bf19f7a8f00f6fe45a48aff8bc40d380, type: 2}
+      name: No Name
+    second: {fileID: 2100000, guid: 99cf984d3c3f9984bab9f509b62eb0eb, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
