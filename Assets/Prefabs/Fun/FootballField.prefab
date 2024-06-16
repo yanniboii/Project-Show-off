@@ -162,8 +162,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls: []
   triggerObjects:
   - {fileID: 0}
+  destroyTriggerObjects: 0
 --- !u!114 &6860126110949674165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +258,7 @@ GameObject:
   - component: {fileID: 4881286894388669401}
   m_Layer: 0
   m_Name: Grass
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -527,8 +531,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls: []
   triggerObjects:
   - {fileID: 66323432388896006}
+  destroyTriggerObjects: 0
 --- !u!1 &8458544603861271591
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,8 +718,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls: []
   triggerObjects:
   - {fileID: 66323432388896006}
+  destroyTriggerObjects: 0
 --- !u!1001 &1708990566522508306
 PrefabInstance:
   m_ObjectHideFlags: 0
