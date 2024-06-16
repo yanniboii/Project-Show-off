@@ -50,6 +50,14 @@ public class InactiveMovement : MonoBehaviour
         }
 
     }
+
+    public void updatePostion()
+    {
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.autoTraverseOffMeshLink = true;
+        agent.Warp(transform.position);
+        agent.nextPosition = transform.position;
+    }
     public void DisableAgent()
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
