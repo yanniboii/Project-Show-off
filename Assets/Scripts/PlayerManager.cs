@@ -220,6 +220,7 @@ public class PlayerManager : MonoBehaviour
         player.followObject = monsterPrefab[index].gameObject;
 
         //old monsterGO
+        playerInfo.monster.GetInactiveMovement().updatePostion();
         UnsubscribeMonster(playerInfo);
 
         //new monsterGO

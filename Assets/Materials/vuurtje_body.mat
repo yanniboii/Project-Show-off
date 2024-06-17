@@ -20,14 +20,14 @@ Material:
   stringTagMap:
     RenderType: Opaque
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: _Metallic _MetallicGlossMap
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 594a8a942295a8b42b6434172b3e4142, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: -0.008, y: 0}
+        m_Texture: {fileID: 2800000, guid: b67c71eb7b2d7344d830ab936dcf25a1, type: 3}
+        m_Scale: {x: 0.36, y: 0.17}
+        m_Offset: {x: 1.58, y: 0.46}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -49,9 +49,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 594a8a942295a8b42b6434172b3e4142, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: -0.008, y: 0}
+        m_Texture: {fileID: 2800000, guid: b67c71eb7b2d7344d830ab936dcf25a1, type: 3}
+        m_Scale: {x: 0.36, y: 0.17}
+        m_Offset: {x: 1.58, y: 0.46}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
