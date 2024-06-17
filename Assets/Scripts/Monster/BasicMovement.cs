@@ -6,8 +6,11 @@ using UnityEngine.InputSystem;
 public class BasicMovement : MonoBehaviour
 {
     public MonsterData monsterData;
+    [SerializeField] float grounded;
+    [SerializeField] bool bouncing;
+
+    [SerializeField] float coyoteTime;
     [SerializeField] bool glide = false;
-    bool grounded;
     [SerializeField] float rayLength = 1.0f;
 
     public CameraInfo cameraInfo;
@@ -22,24 +25,34 @@ public class BasicMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        bouncing = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        grounded = CheckGround();
+        float g = CheckGround();
+        if(g>grounded){grounded = g;}else{grounded = Mathf.Max(grounded - coyoteTime*Time.fixedDeltaTime, g);}
         rb.velocity = new Vector3(moveInput.x * monsterData.speed, rb.velocity.y, moveInput.y * monsterData.speed);
 
-        if (grounded)
+        if (grounded>0)
         {
-            if (jumpInput > 0) {
-                rb.AddForce(new Vector3(0, jumpInput * monsterData.jumpHeight, 0), ForceMode.Impulse);
-                grounded = false;
-                rb.useGravity = true;
+            if (jumpInput > 0 || bouncing) {
+                float b = 0f; if(bouncing){b = 0.6f;}
+                float i = 0f; if(jumpInput>0){i = 1f;}
+                float mx = Mathf.Max(i,b);
+                
+                    Vector3 velocity = rb.velocity;
+                    velocity.y = 0f;
+                    rb.velocity = velocity;
+                
+                rb.AddForce(new Vector3(0, mx * monsterData.jumpHeight, 0), ForceMode.Impulse);
+                
+                grounded = 0f;
 
             }
         } else {
-            if (jumpInput < 1) {
+            if (jumpInput <= 0) {
                 rb.AddForce(new Vector3(0, -extraGravity, 0));
                 rb.useGravity = true;
             }
@@ -86,7 +99,7 @@ public class BasicMovement : MonoBehaviour
         player.beforeJump += OnJump;
     }
 
-    private bool CheckGround()
+    private float CheckGround()
     {
         // Origin of the raycast is at the position of the GameObject this script is attached to
         Vector3 origin = transform.position;
@@ -99,18 +112,18 @@ public class BasicMovement : MonoBehaviour
         // Perform the raycast
         if (Physics.Raycast(origin, direction, out RaycastHit hit, rayLength))
         {
-            return true;
+            if (hit.collider.CompareTag("Ground")){
+                bouncing = false;
+                return 1f;
+            }else
+            if (hit.collider.CompareTag("Bouncy")){
+                bouncing = true;
+                return 1f;
+            }
         }
-        return (false);
+        bouncing = false;
+        return (0f);
 
     }
 
-    //void OnCollisionStay(Collision collision)
-    //{
-    //    if (collision.transform.CompareTag("Ground"))
-    //    {
-    //        Debug.Log("c");
-    //        grounded = true;
-    //    }
-    //}
 }

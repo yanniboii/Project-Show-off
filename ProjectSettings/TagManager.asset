@@ -12,6 +12,7 @@ TagManager:
   - keycollectable
   - Grass
   - Engine
+  - Bouncy
   layers:
   - Default
   - TransparentFX
