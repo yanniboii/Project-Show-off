@@ -5123,7 +5123,7 @@ PrefabInstance:
     - target: {fileID: 2525100204201719604, guid: 3fe3695f117546a4b9eaed1978156dc3,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2900641336166575502, guid: 3fe3695f117546a4b9eaed1978156dc3,
         type: 3}
@@ -6045,7 +6045,7 @@ PrefabInstance:
     - target: {fileID: 2525100204201719604, guid: 3fe3695f117546a4b9eaed1978156dc3,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2900641336166575502, guid: 3fe3695f117546a4b9eaed1978156dc3,
         type: 3}
@@ -7762,6 +7762,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Football field
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798143109632957419, guid: cd317bcde1761674fa8b74a720c48d90,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5338956503635715170, guid: cd317bcde1761674fa8b74a720c48d90,
         type: 3}
