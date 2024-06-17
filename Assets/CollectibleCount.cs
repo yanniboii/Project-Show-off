@@ -47,8 +47,8 @@ public class CollectibleCount : MonoBehaviour
 
     private void Update()
     {
-        score.color = new Color(1, 1, 1, fadeSpeed);
         collected = totalCollectible - allCollectibles.Count;
+        score.color = new Color(1, 1, 1, fadeSpeed);
         score.text = new string($"{collected} / {totalCollectible}");
         CheckDestroyed();
     }
@@ -59,8 +59,10 @@ public class CollectibleCount : MonoBehaviour
         {
             if (gameObj == null)
             {
+                fadeSpeed = 1;
                 unlockCount++;
                 bridgeCount++;
+                StartCoroutine(DisplayCollectibles());
                 allCollectibles.RemoveAt(allCollectibles.IndexOf(gameObj));
                 if (currentLevel < levels.Count)
                 {
@@ -70,8 +72,6 @@ public class CollectibleCount : MonoBehaviour
                         currentLevel++;
                     }
                 }
-                fadeSpeed = 1;
-                StartCoroutine(DisplayCollectibles());
                 if (unlockCount == 2f)
                 {
                     StartCoroutine(UnlockBig());
@@ -107,6 +107,7 @@ public class CollectibleCount : MonoBehaviour
     IEnumerator DisplayCollectibles()
     {
         yield return new WaitForSeconds(0.5f);
+        score.color = new Color(1, 1, 1, 1);
         for (int i = 100; i > 0; i--)
         {
             fadeSpeed -= 0.01f;
