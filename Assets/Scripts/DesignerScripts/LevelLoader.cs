@@ -22,21 +22,21 @@ public class LevelLoader : MonoBehaviour
             oneTimeTrigger = false;
             collidedPlayer = collision.gameObject;
             collidedPlayer.transform.position = nextLevel;
-            //StartCoroutine(FadeOut());
+            StartCoroutine(FadeIn());
         } 
     }
 
     IEnumerator FadeIn()
     {
-        collidedPlayer.transform.position = nextLevel;
-        float transparency = 1;
+        yield return new WaitForSecondsRealtime(0.5f);
+        //collidedPlayer.transform.position = nextLevel;
         oneTimeTrigger = true;
-        for (int i = 0; i < 50; i++)
+        /*for (int i = 0; i < 50; i++)
         {
             transparency -= 0.02f;
             blackOut.color = new Color(0, 0, 0, transparency);
             yield return new WaitForSecondsRealtime(0.01f);
-        }
+        }*/
     }
 
     IEnumerator FadeOut()
