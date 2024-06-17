@@ -20,9 +20,9 @@ MonoBehaviour:
   bladeForwardAmount: 0.38
   bladeCurveAmount: 2
   bottomWidth: 0.783
-  MinWidth: 0.435
+  MinWidth: 0.055
   MinHeight: 0.01
-  MaxWidth: 1
+  MaxWidth: 0.998
   MaxHeight: 1
   windSpeed: 2
   windStrength: 0.05
