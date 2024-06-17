@@ -10,9 +10,9 @@ public class BasicMovement : MonoBehaviour
     [SerializeField] bool bouncing;
 
     [SerializeField] float coyoteTime;
+    [SerializeField] bool glide = false;
     [SerializeField] float rayLength = 1.0f;
 
-    [HideInInspector]
     public CameraInfo cameraInfo;
 
     public Player player;
@@ -54,7 +54,12 @@ public class BasicMovement : MonoBehaviour
         } else {
             if (jumpInput <= 0) {
                 rb.AddForce(new Vector3(0, -extraGravity, 0));
-
+                rb.useGravity = true;
+            }
+            else if(glide)
+            {
+                rb.useGravity = false;
+                rb.AddForce((Physics.gravity * rb.mass)/20f);
             }
         }
     }

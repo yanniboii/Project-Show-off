@@ -85,31 +85,36 @@ public class CameraManager : MonoBehaviour
     public void AddCameraToPlayer(PlayerInput playerInput)
     {
         Player player = playerInput.gameObject.GetComponent<Player>();
+        BasicMovement basicMovement = player.followObject.GetComponent<BasicMovement>();
         int pi = playerInput.playerIndex;
         if(pi == 0)
         {
             camera1.SetFollowObj(playerInput.gameObject.transform);
             player.cameraInfo = camera1;
             playerInput.camera = camera1.camera;
+            basicMovement.cameraInfo = camera1;
         }
         if(pi == 1)
         {
             camera2.SetFollowObj(playerInput.gameObject.transform);
             player.cameraInfo = camera2;
             playerInput.camera = camera2.camera;
+            basicMovement.cameraInfo = camera2;
         }
-        if( pi == 2)
+        if ( pi == 2)
         {
 
             camera3.SetFollowObj(playerInput.gameObject.transform);
             player.cameraInfo = camera3;
             playerInput.camera = camera3.camera;
+            basicMovement.cameraInfo = camera3;
         }
-        if(pi == 3)
+        if (pi == 3)
         {
             camera4.SetFollowObj(playerInput.gameObject.transform);
             player.cameraInfo = camera4;
             playerInput.camera = camera4.camera;
+            basicMovement.cameraInfo = camera4;
         }
     }
     void SetCameraPriority(CameraInfo cameraInfo)

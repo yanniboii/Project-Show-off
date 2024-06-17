@@ -7,16 +7,22 @@ public class CameraMover : MonoBehaviour
 {
     [Tooltip("the camera that will be dissabled or enabled")]
     [SerializeField] int index;
-
+    [SerializeField] bool enable;
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            CameraInfo cam = other.gameObject.GetComponent<BasicMovement>().cameraInfo;
+            BasicMovement basicMovement = other.gameObject.GetComponent<BasicMovement>();
+            //if (basicMovement.player == null) { return; }
+            CameraInfo cam = basicMovement.cameraInfo;
+
+            Debug.Log(cam.virtualCameras.Count);
             if (index >= cam.virtualCameras.Count) return;
             GameObject camGO = cam.virtualCameras[index].gameObject;
-            if (camGO.active)
+            if (enable)
             {
+
                 camGO.SetActive(false);
                 cam.virtualCameraIndex++;
             }
