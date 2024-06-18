@@ -28,6 +28,9 @@ public class BasicMovement : MonoBehaviour
     Vector2 moveInput;
     float jumpInput;
     [SerializeField] float extraGravity;
+    [SerializeField] PlayerAudio mysounds;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -60,7 +63,8 @@ public class BasicMovement : MonoBehaviour
                 
                 animatedObject.localScale = new Vector3(0.6f,1.5f*mx*(monsterData.jumpHeight/30),0.6f);
                 grounded = 0f;
-
+                
+                mysounds.PlayJump();
             }
         } else {
             if (jumpInput <= 0) {
@@ -165,10 +169,12 @@ public class BasicMovement : MonoBehaviour
     }
 
     void GoDead () {
+        mysounds.PlayDeath();
         transform.position = lastSafeSpot;
     }
 
     public void Shoot(){
+        mysounds.PlayShoot();
         animatedObject.localScale = new Vector3(1.1f,0.8f,1.1f);
     }
 
