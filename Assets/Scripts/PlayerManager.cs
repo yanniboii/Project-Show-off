@@ -124,16 +124,20 @@ public class PlayerManager : MonoBehaviour
             if (playerInfo.inputDevice.wasUpdatedThisFrame)
             {
                 playerInfo.timeUntilInactive = timeUntilInactive;
-
+                Debug.Log("A-2");
                 playerInfo.isActive = true;
                 bool canUsePreviousGameObject = true;
                 if (playerInfo.monster == null)
                 {
+                    Debug.Log("B-2");
 
                     if (playerInfo.previousMonster.GetBasicMovement().player != null) canUsePreviousGameObject = false;
+                    Debug.Log("C-2");
 
                     if (canUsePreviousGameObject)
                     {
+                        Debug.Log("D-2");
+
                         playerInfo.monster = playerInfo.previousMonster;
                         playerInfo.previousPlayer.followObject = playerInfo.previousMonster.gameObject;
 
@@ -141,16 +145,23 @@ public class PlayerManager : MonoBehaviour
                     }
                     else
                     {
-                       var available =  monsterPrefab.Find(x => x.GetBasicMovement().player == null);
+                        Debug.Log("E-2");
+                        var available =  monsterPrefab.Find(x => x.GetBasicMovement().player == null);
 
                         for (int k = 0; k < monsterPrefab.Count; k++)
                         {
+                            Debug.Log("F-2");
+
                             if (monsterPrefab[k].GetBasicMovement().player == null)
                             {
+                                Debug.Log("G-2");
+
                                 playerInfo.monster = monsterPrefab[k];
-                                playerInfo.monster.GetBasicMovement().player.followObject = playerInfo.monster.gameObject;
 
                                 SubscribeMonster(playerInfo, playerInfo.previousPlayer);
+                                playerInfo.monster.GetBasicMovement().player.followObject = playerInfo.monster.gameObject;
+
+                                Debug.Log(playerInfo.monster);
                                 playerInfos[i] = playerInfo;
                                 return;
                             }

@@ -85,7 +85,7 @@ public class CameraManager : MonoBehaviour
     public void AddCameraToPlayer(PlayerInput playerInput)
     {
         Player player = playerInput.gameObject.GetComponent<Player>();
-        BasicMovement basicMovement = player.followObject.GetComponent<BasicMovement>();
+        BasicMovement basicMovement = player?.followObject.GetComponent<BasicMovement>();
         int pi = playerInput.playerIndex;
         if(pi == 0)
         {
