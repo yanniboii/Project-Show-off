@@ -63,6 +63,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2226806612959836051, guid: 558a75c9ec5d96f47886ee5bced38315,
+        type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 3484969836723863775, guid: 558a75c9ec5d96f47886ee5bced38315,
         type: 3}
       propertyPath: m_Name
@@ -80,6 +85,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: c41bfeddec9a9e64b88bea4e0ec7713f,
         type: 2}
+    - target: {fileID: 8475176340811309955, guid: 558a75c9ec5d96f47886ee5bced38315,
+        type: 3}
+      propertyPath: canWaterWalk
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8475176340811309955, guid: 558a75c9ec5d96f47886ee5bced38315,
+        type: 3}
+      propertyPath: animatedObject
+      value: 
+      objectReference: {fileID: 3542817676249470248}
     - target: {fileID: 9204979458831005679, guid: 558a75c9ec5d96f47886ee5bced38315,
         type: 3}
       propertyPath: m_Enabled
