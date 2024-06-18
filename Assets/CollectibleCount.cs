@@ -63,7 +63,7 @@ public class CollectibleCount : MonoBehaviour
                 unlockCount++;
                 bridgeCount++;
                 StartCoroutine(DisplayCollectibles());
-                allCollectibles.RemoveAt(allCollectibles.IndexOf(gameObj));
+                //allCollectibles.RemoveAt(allCollectibles.IndexOf(gameObj));
                 if (currentLevel < levels.Count)
                 {
                     for (int i = 0; i < 2; i++)
