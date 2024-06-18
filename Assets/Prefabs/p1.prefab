@@ -138,6 +138,7 @@ MonoBehaviour:
   glide: 0
   rayLength: 1.5
   canWaterWalk: 0
+  animatedObject: {fileID: 0}
   cameraInfo:
     camera: {fileID: 0}
     brain: {fileID: 0}
@@ -215,8 +216,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5175757667294753623, guid: 6674fd550f9709e42b06f49e752f0610,
     type: 3}
   bulletSpawn: {fileID: 3682724926104649640}
-  bulletSpeed: 4.8
-  cooldown: 1.57
+  bulletSpeed: 15
+  cooldown: 0.5
   canShoot: 1
 --- !u!195 &-8451754562253464669
 NavMeshAgent:
