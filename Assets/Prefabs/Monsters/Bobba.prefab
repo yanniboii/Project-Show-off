@@ -189,6 +189,11 @@ PrefabInstance:
       propertyPath: audioJump
       value: 
       objectReference: {fileID: 8300000, guid: 9368054ee230380458d4a8fb4543693a, type: 3}
+    - target: {fileID: 6174575195979356507, guid: 6f806ddca78993e43b6a3d2ababa6d63,
+        type: 3}
+      propertyPath: audioShoot
+      value: 
+      objectReference: {fileID: 8300000, guid: a647d494c557d364d8748d9852e991e4, type: 3}
     m_RemovedComponents:
     - {fileID: 5350680399381028510, guid: 6f806ddca78993e43b6a3d2ababa6d63, type: 3}
     - {fileID: 8424912188960696886, guid: 6f806ddca78993e43b6a3d2ababa6d63, type: 3}

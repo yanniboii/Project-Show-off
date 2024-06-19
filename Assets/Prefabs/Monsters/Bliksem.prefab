@@ -84,6 +84,11 @@ PrefabInstance:
       propertyPath: audioJump
       value: 
       objectReference: {fileID: 8300000, guid: 18ffe11832d4d4745833e2f41ca17997, type: 3}
+    - target: {fileID: 6968367579803955653, guid: 558a75c9ec5d96f47886ee5bced38315,
+        type: 3}
+      propertyPath: audioShoot
+      value: 
+      objectReference: {fileID: 8300000, guid: 5c4eed6fdc6214a4cb923e7cb9662dc1, type: 3}
     - target: {fileID: 8475176340811309955, guid: 558a75c9ec5d96f47886ee5bced38315,
         type: 3}
       propertyPath: monsterData
@@ -134,6 +139,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7033833079113282957}
     m_Modifications:
+    - target: {fileID: 1844166978397877149, guid: f036cb228dae5044794753baf215bd38,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034857758074706408, guid: f036cb228dae5044794753baf215bd38,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4731318262346647250, guid: f036cb228dae5044794753baf215bd38,
         type: 3}
       propertyPath: m_Name

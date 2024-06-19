@@ -113,6 +113,11 @@ PrefabInstance:
       propertyPath: audioJump
       value: 
       objectReference: {fileID: 8300000, guid: 3749b5c52a7651d4484ace87698dbd6f, type: 3}
+    - target: {fileID: 1368674228499372897, guid: f24f83897e4531a4da822f85f3250e8a,
+        type: 3}
+      propertyPath: audioShoot
+      value: 
+      objectReference: {fileID: 8300000, guid: 3c7ca0d1defe367448a07f6e5562f33d, type: 3}
     - target: {fileID: 4762280677693418107, guid: f24f83897e4531a4da822f85f3250e8a,
         type: 3}
       propertyPath: m_Name
