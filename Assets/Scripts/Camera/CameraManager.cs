@@ -85,7 +85,7 @@ public class CameraManager : MonoBehaviour
     public void AddCameraToPlayer(PlayerInput playerInput)
     {
         Player player = playerInput.gameObject.GetComponent<Player>();
-        BasicMovement basicMovement = player.followObject.GetComponent<BasicMovement>();
+        BasicMovement basicMovement = player?.followObject.GetComponent<BasicMovement>();
         int pi = playerInput.playerIndex;
         if(pi == 0)
         {
@@ -140,6 +140,10 @@ public struct CameraInfo
         {
             virtualCameras[i].LookAt = transform;
             virtualCameras[i].Follow = transform;
+            if (virtualCameras[i].gameObject.GetComponent<CamToRotatorPos>() != null)
+            {
+                virtualCameras[i].gameObject.GetComponent<CamToRotatorPos>().target = transform.GetChild(0);
+            }
         }
     }
 }
