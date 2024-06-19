@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565930213007453700}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.35693738, y: -0.026644887, z: 0.010185961, w: 0.9336927}
-  m_LocalPosition: {x: -4.987684, y: 12.714599, z: -13.179005}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 28.35, y: -6.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -67,7 +67,7 @@ Camera:
     height: 0.5
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 40.61
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
@@ -190,8 +190,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1711841993687056988}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.36412475, y: -0, z: -0, w: 0.93135023}
-  m_LocalPosition: {x: -9.01, y: 5.6829996, z: -2.9615977}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 28.35, y: -6.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -230,7 +230,7 @@ Camera:
     height: 0.5
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 40.61
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
@@ -354,8 +354,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1747968763245895784}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.35693738, y: -0.026644887, z: 0.010185961, w: 0.9336927}
-  m_LocalPosition: {x: -4.987684, y: 12.714599, z: -13.179005}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 28.35, y: -6.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -428,7 +428,7 @@ Camera:
     height: 0.5
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 40.61
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -525,8 +525,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080039159418962589}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.35693747, y: -0.02664493, z: 0.010185978, w: 0.93369263}
-  m_LocalPosition: {x: -4.987684, y: 12.714599, z: -13.179005}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 28.35, y: -6.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -565,7 +565,7 @@ Camera:
     height: 0.5
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 40.61
   orthographic: 0
   orthographic size: 10
   m_Depth: 0

@@ -6,33 +6,50 @@ using UnityEngine.UI;
 
 public class LevelLoader : MonoBehaviour
 {
-    public string nextLevel;
+    public Vector3 nextLevel;
     public Image blackOut;
-    bool dimming;
-    float i;
+    GameObject collidedPlayer;
+    bool oneTimeTrigger = true;
     private void Awake()
     {
-        dimming = false;
         blackOut.color = new Color(0f, 0f, 0f, 0f);
-        i = 0;
-    }
-
-    private void Update()
-    {
-        if (dimming)
-        {
-            i += 0.015f;
-            blackOut.color = new Color(0, 0, 0, i);
-        }
     }
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (nextLevel != null && collision.gameObject.tag == "Player")
+        if (nextLevel != null && collision.gameObject.tag == "Player" && oneTimeTrigger)
         {
-            Debug.Log(nextLevel);
-            dimming = true;
-            i = 0;
+            oneTimeTrigger = false;
+            collidedPlayer = collision.gameObject;
+            collidedPlayer.transform.position = nextLevel;
+            StartCoroutine(FadeIn());
         } 
+    }
+
+    IEnumerator FadeIn()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        //collidedPlayer.transform.position = nextLevel;
+        oneTimeTrigger = true;
+        /*for (int i = 0; i < 50; i++)
+        {
+            transparency -= 0.02f;
+            blackOut.color = new Color(0, 0, 0, transparency);
+            yield return new WaitForSecondsRealtime(0.01f);
+        }*/
+    }
+
+    IEnumerator FadeOut()
+    {
+        Debug.Log("FadingOut");
+        float transparency = 0;
+        for (int i = 0; i < 50; i ++)
+        {
+            transparency += 0.02f;
+            blackOut.color = new Color(0, 0, 0, transparency);
+            yield return new WaitForSecondsRealtime(0.01f);
+        }
+        yield return new WaitForSecondsRealtime(1f);
+        StartCoroutine(FadeIn());
     }
 }

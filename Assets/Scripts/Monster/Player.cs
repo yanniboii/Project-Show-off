@@ -24,6 +24,9 @@ public class Player : MonoBehaviour
 
     public delegate void BeforeAbility();
     public BeforeAbility beforeAbility;
+
+    public delegate void BeforeRotate(Vector2 dir);
+    public BeforeRotate beforeRotate;
     #endregion
 
     bool canSwap = true;
@@ -70,6 +73,11 @@ public class Player : MonoBehaviour
     public void OnBeforeAbility(InputAction.CallbackContext context)
     {
         beforeAbility?.Invoke();
+    }
+
+    public void OnRotateCamera(InputAction.CallbackContext context)
+    {
+        beforeRotate?.Invoke(context.ReadValue<Vector2>());
     }
 
     public IEnumerator WaitFor()

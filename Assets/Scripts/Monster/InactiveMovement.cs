@@ -21,6 +21,9 @@ public class InactiveMovement : MonoBehaviour
     public void MoveToClosestPlayer(List<GameObject> players)
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
+        agent.updatePosition = true;
+        agent.updateRotation = true;
         if (agent.isOnNavMesh)
         {
             agent.ResetPath();
@@ -37,9 +40,9 @@ public class InactiveMovement : MonoBehaviour
                         dest = players[i].transform.position;
                     }
                 }
-                    agent.destination = dest;
-                    destination = dest;
-                            }
+                agent.destination = dest;
+                destination = dest;
+            }
             else
             {
                 Debug.Log("empty target");
@@ -47,13 +50,24 @@ public class InactiveMovement : MonoBehaviour
         }
 
     }
+
+    public void updatePostion()
+    {
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.autoTraverseOffMeshLink = true;
+        agent.Warp(transform.position);
+        agent.nextPosition = transform.position;
+    }
     public void DisableAgent()
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
-        if(agent.isOnNavMesh)
+        if (agent.isOnNavMesh)
         {
             agent.ResetPath();
             agent.isStopped = true;
+            agent.updatePosition = false;
+            agent.updateRotation = false;
+            agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
         }
     }
 

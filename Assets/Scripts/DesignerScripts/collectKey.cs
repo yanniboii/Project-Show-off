@@ -4,24 +4,14 @@ using UnityEngine;
 
 public class collectKey : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+  [SerializeField]  AudioSource audioSource;
   void OnTriggerEnter(Collider other)
     {
     
         if (other.CompareTag("keycollectable"))
         {
-
+            audioSource.Play();
             Destroy(other.gameObject);
 
 
