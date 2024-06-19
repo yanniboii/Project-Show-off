@@ -79,6 +79,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5609145319275647304, guid: 0e0850e9c058a0347902469c7783fecf,
         type: 3}
+    - target: {fileID: 6968367579803955653, guid: 558a75c9ec5d96f47886ee5bced38315,
+        type: 3}
+      propertyPath: audioJump
+      value: 
+      objectReference: {fileID: 8300000, guid: 18ffe11832d4d4745833e2f41ca17997, type: 3}
     - target: {fileID: 8475176340811309955, guid: 558a75c9ec5d96f47886ee5bced38315,
         type: 3}
       propertyPath: monsterData

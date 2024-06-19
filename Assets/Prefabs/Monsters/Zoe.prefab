@@ -98,11 +98,21 @@ PrefabInstance:
       propertyPath: animatedObject
       value: 
       objectReference: {fileID: 7827894828019155895}
+    - target: {fileID: 565135145852832039, guid: f24f83897e4531a4da822f85f3250e8a,
+        type: 3}
+      propertyPath: makeFloatingAnim
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1005627205228453195, guid: f24f83897e4531a4da822f85f3250e8a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 43de95173efc06842bb7c1d3e4ed96bd, type: 2}
+    - target: {fileID: 1368674228499372897, guid: f24f83897e4531a4da822f85f3250e8a,
+        type: 3}
+      propertyPath: audioJump
+      value: 
+      objectReference: {fileID: 8300000, guid: 3749b5c52a7651d4484ace87698dbd6f, type: 3}
     - target: {fileID: 4762280677693418107, guid: f24f83897e4531a4da822f85f3250e8a,
         type: 3}
       propertyPath: m_Name

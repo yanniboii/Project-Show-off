@@ -137,7 +137,7 @@ MonoBehaviour:
   bouncing: 0
   coyoteTime: 0.1
   glide: 0
-  rayLength: 1.5
+  rayLength: 1.4
   canWaterWalk: 0
   animatedObject: {fileID: 0}
   cameraInfo:
@@ -148,6 +148,7 @@ MonoBehaviour:
   player: {fileID: 0}
   extraGravity: 50
   mysounds: {fileID: 6601578507878074251}
+  makeFloatingAnim: 0
 --- !u!54 &2724164410817577437
 Rigidbody:
   m_ObjectHideFlags: 0

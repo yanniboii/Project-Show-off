@@ -29,6 +29,9 @@ public class BasicMovement : MonoBehaviour
     float jumpInput;
     [SerializeField] float extraGravity;
     [SerializeField] PlayerAudio mysounds;
+    [SerializeField] bool makeFloatingAnim;
+
+    float FloatingInitialY;
 
 
 
@@ -38,6 +41,10 @@ public class BasicMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         bouncing = false;
         lastSafeSpot = transform.position;
+
+        if(makeFloatingAnim){
+            FloatingInitialY = animatedObject.localPosition.y;
+        }
     }
 
     // Update is called once per frame
@@ -65,6 +72,7 @@ public class BasicMovement : MonoBehaviour
                 grounded = 0f;
                 
                 mysounds.PlayJump();
+
             }
         } else {
             if (jumpInput <= 0) {
@@ -84,6 +92,9 @@ public class BasicMovement : MonoBehaviour
 
         // lerp size
         animatedObject.localScale = Vector3.Lerp(animatedObject.localScale, animatedObjectTargetScale, 3f*Time.deltaTime);
+        if(makeFloatingAnim){
+            animatedObject.localPosition = new Vector3(animatedObject.localPosition.x,FloatingInitialY+Mathf.Sin(Time.time*2f)*0.5f,animatedObject.localPosition.z);
+        }
 
 
         if (moveInput != Vector2.zero)
