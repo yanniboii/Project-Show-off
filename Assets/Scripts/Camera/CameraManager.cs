@@ -140,9 +140,9 @@ public struct CameraInfo
         {
             virtualCameras[i].LookAt = transform;
             virtualCameras[i].Follow = transform;
-            if (virtualCameras[i].gameObject.GetComponent<RotateAbleCamera>() != null)
+            if (virtualCameras[i].gameObject.GetComponent<CamToRotatorPos>() != null)
             {
-                virtualCameras[i].gameObject.GetComponent<RotateAbleCamera>().player = transform.GetComponent<Player>();
+                virtualCameras[i].gameObject.GetComponent<CamToRotatorPos>().target = transform.GetChild(0);
             }
         }
     }
