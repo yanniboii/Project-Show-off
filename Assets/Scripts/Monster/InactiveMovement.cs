@@ -40,9 +40,9 @@ public class InactiveMovement : MonoBehaviour
                         dest = players[i].transform.position;
                     }
                 }
-                    agent.destination = dest;
-                    destination = dest;
-                            }
+                agent.destination = dest;
+                destination = dest;
+            }
             else
             {
                 Debug.Log("empty target");
@@ -61,7 +61,7 @@ public class InactiveMovement : MonoBehaviour
     public void DisableAgent()
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
-        if(agent.isOnNavMesh)
+        if (agent.isOnNavMesh)
         {
             agent.ResetPath();
             agent.isStopped = true;

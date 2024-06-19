@@ -19,4 +19,19 @@ public class Burning : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.GetComponent<Renderer>() != null)
+        {
+            if (collision.gameObject.GetComponent<Renderer>().material.name == "Woody (Instance)" || collision.gameObject.GetComponent<Renderer>().material.name == "Grassy (Instance)")
+            {
+                Destroy(collision.gameObject);
+                if (this.name == "fireball(Clone)")
+                {
+                    Destroy(this.gameObject);
+                }
+            }
+        }
+    }
 }
