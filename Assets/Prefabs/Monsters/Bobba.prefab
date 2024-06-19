@@ -93,6 +93,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7249556888544060717, guid: b651c1f1ac35b4a4aa976de60dc117d5,
         type: 3}
+    - target: {fileID: 609494244143597585, guid: 6f806ddca78993e43b6a3d2ababa6d63,
+        type: 3}
+      propertyPath: moveType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2797807888776968119, guid: 6f806ddca78993e43b6a3d2ababa6d63,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -179,6 +184,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: fe97035b559a3f9459ccffd31fb2715a, type: 2}
+    - target: {fileID: 6174575195979356507, guid: 6f806ddca78993e43b6a3d2ababa6d63,
+        type: 3}
+      propertyPath: audioJump
+      value: 
+      objectReference: {fileID: 8300000, guid: 9368054ee230380458d4a8fb4543693a, type: 3}
+    - target: {fileID: 6174575195979356507, guid: 6f806ddca78993e43b6a3d2ababa6d63,
+        type: 3}
+      propertyPath: audioShoot
+      value: 
+      objectReference: {fileID: 8300000, guid: a647d494c557d364d8748d9852e991e4, type: 3}
     m_RemovedComponents:
     - {fileID: 5350680399381028510, guid: 6f806ddca78993e43b6a3d2ababa6d63, type: 3}
     - {fileID: 8424912188960696886, guid: 6f806ddca78993e43b6a3d2ababa6d63, type: 3}

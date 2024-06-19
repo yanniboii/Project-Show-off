@@ -28,6 +28,12 @@ public class BasicMovement : MonoBehaviour
     Vector2 moveInput;
     float jumpInput;
     [SerializeField] float extraGravity;
+    [SerializeField] PlayerAudio mysounds;
+    [SerializeField] bool makeFloatingAnim;
+
+    float FloatingInitialY;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +41,10 @@ public class BasicMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         bouncing = false;
         lastSafeSpot = transform.position;
+
+        if(makeFloatingAnim){
+            FloatingInitialY = animatedObject.localPosition.y;
+        }
     }
 
     // Update is called once per frame
@@ -61,6 +71,8 @@ public class BasicMovement : MonoBehaviour
                 
                 animatedObject.localScale = new Vector3(0.6f,1.5f*mx*(monsterData.jumpHeight/30),0.6f);
                 grounded = 0f;
+                
+                mysounds.PlayJump();
 
             }
         } else {
@@ -80,6 +92,9 @@ public class BasicMovement : MonoBehaviour
 
         // lerp size
         animatedObject.localScale = Vector3.Lerp(animatedObject.localScale, animatedObjectTargetScale, 3f*Time.deltaTime);
+        if(makeFloatingAnim){
+            animatedObject.localPosition = new Vector3(animatedObject.localPosition.x,FloatingInitialY+Mathf.Sin(Time.time*2f)*0.5f,animatedObject.localPosition.z);
+        }
 
 
         if (moveInput != Vector2.zero)
@@ -165,7 +180,13 @@ public class BasicMovement : MonoBehaviour
     }
 
     void GoDead () {
+        mysounds.PlayDeath();
         transform.position = lastSafeSpot;
+    }
+
+    public void Shoot(){
+        mysounds.PlayShoot();
+        animatedObject.localScale = new Vector3(1.1f,0.8f,1.1f);
     }
 
 
