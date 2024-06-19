@@ -59,7 +59,6 @@ public class CollectibleCount : MonoBehaviour
         {
             if (gameObj == null)
             {
-                //fadeSpeed = 1;
                 unlockCount++;
                 bridgeCount++;
                 StartCoroutine(DisplayCollectibles());
