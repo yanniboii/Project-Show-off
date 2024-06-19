@@ -189,5 +189,8 @@ public class BasicMovement : MonoBehaviour
         animatedObject.localScale = new Vector3(1.1f,0.8f,1.1f);
     }
 
-
+    public void Talk(){
+        mysounds.PlayTalk();
+        animatedObject.localScale = new Vector3(1.3f,1.3f,1.3f);
+    }
 }

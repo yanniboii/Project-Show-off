@@ -84,6 +84,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 565135145852832039, guid: f24f83897e4531a4da822f85f3250e8a,
         type: 3}
+      propertyPath: glide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 565135145852832039, guid: f24f83897e4531a4da822f85f3250e8a,
+        type: 3}
       propertyPath: monsterData
       value: 
       objectReference: {fileID: 11400000, guid: eeffb8ef7aaded24b9c0d9bcd995c02d,
@@ -113,6 +118,11 @@ PrefabInstance:
       propertyPath: audioJump
       value: 
       objectReference: {fileID: 8300000, guid: 3749b5c52a7651d4484ace87698dbd6f, type: 3}
+    - target: {fileID: 1368674228499372897, guid: f24f83897e4531a4da822f85f3250e8a,
+        type: 3}
+      propertyPath: audioTalk
+      value: 
+      objectReference: {fileID: 8300000, guid: 3ddf49322142fae49adaed7ebe27de8d, type: 3}
     - target: {fileID: 1368674228499372897, guid: f24f83897e4531a4da822f85f3250e8a,
         type: 3}
       propertyPath: audioShoot
