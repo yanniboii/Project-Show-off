@@ -1804,7 +1804,7 @@ GameObject:
   - component: {fileID: 992380249}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Bouncy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4391,6 +4391,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0.29212818
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129079908137406209, guid: b89e7710f074cb2419d796c99e013c7f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 28.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129079908137406209, guid: b89e7710f074cb2419d796c99e013c7f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.7000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129079908137406209, guid: b89e7710f074cb2419d796c99e013c7f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.2204462e-18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129079908137406209, guid: b89e7710f074cb2419d796c99e013c7f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129079908137406209, guid: b89e7710f074cb2419d796c99e013c7f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8865223838701884147, guid: b89e7710f074cb2419d796c99e013c7f,
         type: 3}

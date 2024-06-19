@@ -30,7 +30,7 @@ public class RotateAbleCamera : MonoBehaviour
             //transform.position = transform.parent.position + dir * distToPlayer;
             if(rotation.x != 0)
             {
-                Quaternion rotx = Quaternion.AngleAxis(-rotation.x * speed * Time.deltaTime, Vector3.up);
+                Quaternion rotx = Quaternion.AngleAxis(rotation.x * speed * Time.deltaTime, Vector3.up);
                 offset = rotx * offset;
             }
 
