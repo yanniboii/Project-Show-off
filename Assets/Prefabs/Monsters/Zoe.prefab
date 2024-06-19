@@ -84,6 +84,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 565135145852832039, guid: f24f83897e4531a4da822f85f3250e8a,
         type: 3}
+      propertyPath: glide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 565135145852832039, guid: f24f83897e4531a4da822f85f3250e8a,
+        type: 3}
       propertyPath: monsterData
       value: 
       objectReference: {fileID: 11400000, guid: eeffb8ef7aaded24b9c0d9bcd995c02d,
