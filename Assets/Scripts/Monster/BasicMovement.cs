@@ -93,7 +93,7 @@ public class BasicMovement : MonoBehaviour
         // lerp size
         animatedObject.localScale = Vector3.Lerp(animatedObject.localScale, animatedObjectTargetScale, 3f*Time.deltaTime);
         if(makeFloatingAnim){
-            animatedObject.localPosition = new Vector3(animatedObject.localPosition.x,FloatingInitialY+Mathf.Sin(Time.time*2f)*0.5f,animatedObject.localPosition.z);
+            animatedObject.localPosition = new Vector3(animatedObject.localPosition.x,FloatingInitialY+(Mathf.Sin(Time.time*2f)+1f)*0.25f,animatedObject.localPosition.z);
         }
 
 
