@@ -191,6 +191,11 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 9368054ee230380458d4a8fb4543693a, type: 3}
     - target: {fileID: 6174575195979356507, guid: 6f806ddca78993e43b6a3d2ababa6d63,
         type: 3}
+      propertyPath: audioTalk
+      value: 
+      objectReference: {fileID: 8300000, guid: eb46084495bd49f44b268cfbccd48927, type: 3}
+    - target: {fileID: 6174575195979356507, guid: 6f806ddca78993e43b6a3d2ababa6d63,
+        type: 3}
       propertyPath: audioShoot
       value: 
       objectReference: {fileID: 8300000, guid: a647d494c557d364d8748d9852e991e4, type: 3}
