@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 605536219550648811}
   offset: {x: 0, y: 0, z: 20}
-  speed: 50
+  speed: 100
 --- !u!1 &3830732165239174504
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,8 +17,10 @@ public class CamToRotatorPos : MonoBehaviour
     {
         if(target != null)
         {
-            transform.position = Vector3.Lerp(transform.position,target.position, lerpValue);
-            transform.rotation = Quaternion.Lerp(transform.rotation,target.rotation, lerpValue);
+            //transform.position = Vector3.Lerp(transform.position,target.position, lerpValue);
+            //transform.rotation = Quaternion.Lerp(transform.rotation,target.rotation, lerpValue);
+            transform.position = target.position;
+            transform.rotation = target.rotation;
         }
 
     }
