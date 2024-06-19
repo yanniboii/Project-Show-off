@@ -40,6 +40,7 @@ public class BasicMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        rb.useGravity = true;
         float g = CheckGround();
         if(grounded<=0f && g>=1f){animatedObject.localScale = new Vector3(1.3f,0.7f,1.3f);}
         if(g>grounded){grounded = g;}else{grounded = Mathf.Max(grounded - coyoteTime*Time.fixedDeltaTime, g);}
@@ -65,9 +66,8 @@ public class BasicMovement : MonoBehaviour
         } else {
             if (jumpInput <= 0) {
                 rb.AddForce(new Vector3(0, -extraGravity, 0));
-                rb.useGravity = true;
             }
-            else if(glide)
+            else if(glide && rb.velocity.y <0)
             {
                 rb.useGravity = false;
                 rb.AddForce((Physics.gravity * rb.mass)/20f);
