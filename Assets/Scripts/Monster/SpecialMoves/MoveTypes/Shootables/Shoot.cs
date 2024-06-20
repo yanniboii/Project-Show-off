@@ -35,6 +35,8 @@ public class Shoot : MonoBehaviour
         Vector3 forceDirection = transform.forward.normalized;
         bullet.GetComponent<Rigidbody>().AddForce(forceDirection * bulletSpeed, ForceMode.Impulse);
 
+        bullet.transform.rotation = Quaternion.LookRotation(forceDirection);
+
         movement.Shoot();
     }
 
