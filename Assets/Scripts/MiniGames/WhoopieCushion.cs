@@ -11,8 +11,9 @@ public class WhoopieCushion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startScale = transform.localScale;
+        startScale = transform.parent.localScale;
         audioSource = GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame
@@ -24,17 +25,17 @@ public class WhoopieCushion : MonoBehaviour
             {
                 audioSource.Play();
             }
-            transform.localScale = Vector3.Lerp(transform.localScale,targetScale, 0.03f);
-            if(transform.localScale == targetScale )
+            transform.parent.localScale = Vector3.Lerp(transform.parent.localScale,targetScale, 0.03f);
+            if(transform.parent.localScale == targetScale )
             {
                 deflate = false;
             }
         }
         else
         {
-            if(transform.localScale != startScale)
+            if(transform.parent.localScale != startScale)
             {
-                transform.localScale = Vector3.Lerp(transform.localScale, startScale, 0.03f);
+                transform.parent.localScale = Vector3.Lerp(transform.parent.localScale, startScale, 0.03f);
             }
         }
     }

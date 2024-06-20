@@ -287,6 +287,11 @@ public class PlayerManager : MonoBehaviour
         return gameObject;
     }
 
+
+    public void AddCharacter(Monster monster)
+    {
+        monsterPrefab.Add(monster);
+    }
     #endregion
 
     #region from Unity

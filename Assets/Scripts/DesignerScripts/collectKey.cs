@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class collectKey : MonoBehaviour
 {
-    BasicMovement movementscript;
+   BasicMovement movementscript;
 
   [SerializeField]  AudioSource audioSource;
 
