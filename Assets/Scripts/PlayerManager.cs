@@ -262,7 +262,7 @@ public class PlayerManager : MonoBehaviour
             for (int i = 0; i < monsterPrefab.Count; i++)
             {
                 int index = playerInfo.index + i;
-                if (index >= 4)
+                if (index >= monsterPrefab.Count)
                 {
                     index = 0;
                 }
