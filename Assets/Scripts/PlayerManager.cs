@@ -73,6 +73,7 @@ public class PlayerManager : MonoBehaviour
                 return;
             }
             //Debug.Log(device.ToString());
+            playerPrefab.GetComponent<Player>().followObject = monsterPrefab[joinIndex].gameObject;
 
             PlayerInput playerInput = PlayerInput.Instantiate(playerPrefab, joinIndex, null, -1, device);
             GameObject go = playerInput.gameObject;
