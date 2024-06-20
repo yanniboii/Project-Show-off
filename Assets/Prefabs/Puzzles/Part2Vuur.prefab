@@ -26,7 +26,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5216317006270649180}
@@ -328,6 +328,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Reset
+      objectReference: {fileID: 0}
+    - target: {fileID: 2234696243008716761, guid: cf928c0bc62dd1747a0e2e441a2924dc,
+        type: 3}
+      propertyPath: resetPoint.x
+      value: -350.15503
+      objectReference: {fileID: 0}
+    - target: {fileID: 2234696243008716761, guid: cf928c0bc62dd1747a0e2e441a2924dc,
+        type: 3}
+      propertyPath: resetPoint.y
+      value: 15.023842
+      objectReference: {fileID: 0}
+    - target: {fileID: 2234696243008716761, guid: cf928c0bc62dd1747a0e2e441a2924dc,
+        type: 3}
+      propertyPath: resetPoint.z
+      value: -630.1133
       objectReference: {fileID: 0}
     - target: {fileID: 4484643598591163083, guid: cf928c0bc62dd1747a0e2e441a2924dc,
         type: 3}
