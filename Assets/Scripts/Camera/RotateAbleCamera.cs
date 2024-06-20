@@ -37,7 +37,7 @@ public class RotateAbleCamera : MonoBehaviour
             if (rotation.y != 0)
             {
                 Vector3 rightAxis = Vector3.Cross(Vector3.up, offset).normalized;
-                Quaternion roty = Quaternion.AngleAxis(-rotation.y * speed * Time.deltaTime, rightAxis);
+                Quaternion roty = Quaternion.AngleAxis(rotation.y * speed * Time.deltaTime, rightAxis);
                 offset = roty * offset;
             }
 
