@@ -75,7 +75,6 @@ public class PlayerManager : MonoBehaviour
             //Debug.Log(device.ToString());
 
             PlayerInput playerInput = PlayerInput.Instantiate(playerPrefab, joinIndex, null, -1, device);
-
             GameObject go = playerInput.gameObject;
 
             Player player = go.GetComponent<Player>();

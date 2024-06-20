@@ -33,7 +33,11 @@ public class WhoopieCushion : MonoBehaviour
         }
         else
         {
-            if(transform.parent.localScale != startScale)
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
+            if (transform.parent.localScale != startScale)
             {
                 transform.parent.localScale = Vector3.Lerp(transform.parent.localScale, startScale, 0.03f);
             }
