@@ -16,6 +16,13 @@ public class PlayerManager : MonoBehaviour
 
     #region public vars
     public PlayerInputManager input;
+
+    public delegate void OnCharacterInactive(int player);
+    public OnCharacterInactive onCharacterInactive;
+
+    public delegate void OnCharacterActive(int player);
+    public OnCharacterActive onCharacterActive;
+
     #endregion
 
     #region Serialized vars
@@ -73,9 +80,9 @@ public class PlayerManager : MonoBehaviour
                 return;
             }
             //Debug.Log(device.ToString());
+            playerPrefab.GetComponent<Player>().followObject = monsterPrefab[joinIndex].gameObject;
 
             PlayerInput playerInput = PlayerInput.Instantiate(playerPrefab, joinIndex, null, -1, device);
-
             GameObject go = playerInput.gameObject;
 
             Player player = go.GetComponent<Player>();
@@ -117,6 +124,7 @@ public class PlayerManager : MonoBehaviour
                 playerInfo.previousPlayer.followObject = null;
 
                 playerInfo.isActive = false;
+                onCharacterInactive?.Invoke(i);
                 UnsubscribeMonster(playerInfo);
                 playerInfo.monster = null;
             }
@@ -126,6 +134,7 @@ public class PlayerManager : MonoBehaviour
                 playerInfo.timeUntilInactive = timeUntilInactive;
                 Debug.Log("A-2");
                 playerInfo.isActive = true;
+                onCharacterActive?.Invoke(i);
                 bool canUsePreviousGameObject = true;
                 if (playerInfo.monster == null)
                 {
@@ -185,7 +194,7 @@ public class PlayerManager : MonoBehaviour
             List<GameObject> activeGO = playerInfos.Where(info => info.isActive).Select(info => info.monster.gameObject).ToList();
             monsterPrefab.FindAll(monsterPre => !activeGO.Contains(monsterPre.gameObject)).ForEach(inactiveMonster =>
             {
-                   inactiveMonster.GetInactiveMovement().MoveToClosestPlayer(activeGO);
+                inactiveMonster.GetInactiveMovement().MoveToClosestPlayer(activeGO);
             });
         }
 

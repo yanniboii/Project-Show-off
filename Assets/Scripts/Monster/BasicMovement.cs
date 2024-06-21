@@ -83,6 +83,7 @@ public class BasicMovement : MonoBehaviour
             {
                 rb.useGravity = false;
                 rb.AddForce((Physics.gravity * rb.mass)/20f);
+                rb.velocity += new Vector3(moveInput.x*monsterData.glideSpeed,0,moveInput.y*monsterData.glideSpeed);
             }
         }
     }

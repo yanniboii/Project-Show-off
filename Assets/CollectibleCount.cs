@@ -59,11 +59,11 @@ public class CollectibleCount : MonoBehaviour
         {
             if (gameObj == null)
             {
-                fadeSpeed = 1;
+                //fadeSpeed = 1;
                 unlockCount++;
                 bridgeCount++;
                 StartCoroutine(DisplayCollectibles());
-                //allCollectibles.RemoveAt(allCollectibles.IndexOf(gameObj));
+                allCollectibles.RemoveAt(allCollectibles.IndexOf(gameObj));
                 if (currentLevel < levels.Count)
                 {
                     for (int i = 0; i < 2; i++)
@@ -106,8 +106,9 @@ public class CollectibleCount : MonoBehaviour
 
     IEnumerator DisplayCollectibles()
     {
-        yield return new WaitForSeconds(0.5f);
         score.color = new Color(1, 1, 1, 1);
+        fadeSpeed = 1;
+        yield return new WaitForSeconds(0.5f);
         for (int i = 100; i > 0; i--)
         {
             fadeSpeed -= 0.01f;
