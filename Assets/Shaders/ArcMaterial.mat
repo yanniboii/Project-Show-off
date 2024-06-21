@@ -38,11 +38,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Cells: 38.2
-    - _Power: 4.48
+    - _Cells: 50
+    - _Power: 4.07
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _TimeX: 5.9
+    - _TimeX: 10.5
     - _Twirl: 20
     m_Colors:
     - _Color: {r: 0, g: 4.8770804, b: 7.8993707, a: 0}
