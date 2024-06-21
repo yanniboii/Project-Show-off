@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4028513279842490388}
   - component: {fileID: 4101739704712991580}
   - component: {fileID: 8839913273090682160}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: WaterCollider
   m_TagString: Water
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4988892820604973337}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Water
   m_TagString: Water
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 9208493850233807752}
   - component: {fileID: 2971532831659737837}
   - component: {fileID: 8300808973836786245}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Water Effect
   m_TagString: Water
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 67185e07844545640b017af31bf5d8e0, type: 2}
+  - {fileID: 2100000, guid: 6fc68a762c9bc8a4c93ac8bc6693d8d1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

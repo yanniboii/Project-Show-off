@@ -13,6 +13,14 @@ public class BasicMovement : MonoBehaviour
     [SerializeField] bool glide = false;
     [SerializeField] float rayLength = 1.0f;
 
+    bool isWaterWalking = false;
+    [SerializeField] bool canWaterWalk = false;
+
+    [SerializeField] Transform animatedObject;
+    Vector3 animatedObjectTargetScale = Vector3.one;
+
+    Vector3 lastSafeSpot;
+
     public CameraInfo cameraInfo;
 
     public Player player;
@@ -20,18 +28,31 @@ public class BasicMovement : MonoBehaviour
     Vector2 moveInput;
     float jumpInput;
     [SerializeField] float extraGravity;
+    [SerializeField] PlayerAudio mysounds;
+    [SerializeField] bool makeFloatingAnim;
+
+    float FloatingInitialY;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         bouncing = false;
+        lastSafeSpot = transform.position;
+
+        if(makeFloatingAnim){
+            FloatingInitialY = animatedObject.localPosition.y;
+        }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        rb.useGravity = true;
         float g = CheckGround();
+        if(grounded<=0f && g>=1f){animatedObject.localScale = new Vector3(1.3f,0.7f,1.3f);}
         if(g>grounded){grounded = g;}else{grounded = Mathf.Max(grounded - coyoteTime*Time.fixedDeltaTime, g);}
         rb.velocity = new Vector3(moveInput.x * monsterData.speed, rb.velocity.y, moveInput.y * monsterData.speed);
 
@@ -48,15 +69,17 @@ public class BasicMovement : MonoBehaviour
                 
                 rb.AddForce(new Vector3(0, mx * monsterData.jumpHeight, 0), ForceMode.Impulse);
                 
+                animatedObject.localScale = new Vector3(0.6f,1.5f*mx*(monsterData.jumpHeight/30),0.6f);
                 grounded = 0f;
+                
+                mysounds.PlayJump();
 
             }
         } else {
             if (jumpInput <= 0) {
                 rb.AddForce(new Vector3(0, -extraGravity, 0));
-                rb.useGravity = true;
             }
-            else if(glide)
+            else if(glide && rb.velocity.y <0)
             {
                 rb.useGravity = false;
                 rb.AddForce((Physics.gravity * rb.mass)/20f);
@@ -66,6 +89,14 @@ public class BasicMovement : MonoBehaviour
 
     private void Update()
     {
+
+        // lerp size
+        animatedObject.localScale = Vector3.Lerp(animatedObject.localScale, animatedObjectTargetScale, 3f*Time.deltaTime);
+        if(makeFloatingAnim){
+            animatedObject.localPosition = new Vector3(animatedObject.localPosition.x,FloatingInitialY+(Mathf.Sin(Time.time*2f)+1f)*0.25f,animatedObject.localPosition.z);
+        }
+
+
         if (moveInput != Vector2.zero)
         {
             float angle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg;
@@ -113,17 +144,53 @@ public class BasicMovement : MonoBehaviour
         if (Physics.Raycast(origin, direction, out RaycastHit hit, rayLength))
         {
             if (hit.collider.CompareTag("Ground")){
+                lastSafeSpot = new Vector3(transform.position.x,transform.position.y+1f,transform.position.z);
                 bouncing = false;
+                isWaterWalking = false;
                 return 1f;
             }else
             if (hit.collider.CompareTag("Bouncy")){
                 bouncing = true;
+                isWaterWalking = false;
                 return 1f;
+            }else
+            if(hit.collider.CompareTag("Water")){
+                if(canWaterWalk){
+                    bouncing = false;
+                    isWaterWalking = true;
+                    return 1f;
+                }else{
+                    GoDead();
+                    return 0f;
+                }
             }
         }
         bouncing = false;
+        isWaterWalking = false;
         return (0f);
 
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Depths"))
+        {
+            GoDead();
+        }
+    }
+
+    void GoDead () {
+        mysounds.PlayDeath();
+        transform.position = lastSafeSpot;
+    }
+
+    public void Shoot(){
+        mysounds.PlayShoot();
+        animatedObject.localScale = new Vector3(1.1f,0.8f,1.1f);
+    }
+
+    public void Talk(){
+        mysounds.PlayTalk();
+        animatedObject.localScale = new Vector3(1.3f,1.3f,1.3f);
+    }
 }

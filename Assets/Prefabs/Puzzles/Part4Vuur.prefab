@@ -13187,17 +13187,22 @@ PrefabInstance:
     - target: {fileID: 2234696243008716761, guid: cf928c0bc62dd1747a0e2e441a2924dc,
         type: 3}
       propertyPath: resetPoint.x
-      value: -39.173893
+      value: -231.60397
       objectReference: {fileID: 0}
     - target: {fileID: 2234696243008716761, guid: cf928c0bc62dd1747a0e2e441a2924dc,
         type: 3}
       propertyPath: resetPoint.y
-      value: 15.441082
+      value: 41.21
       objectReference: {fileID: 0}
     - target: {fileID: 2234696243008716761, guid: cf928c0bc62dd1747a0e2e441a2924dc,
         type: 3}
       propertyPath: resetPoint.z
-      value: 164.1246
+      value: -718.8246
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484643598591163083, guid: cf928c0bc62dd1747a0e2e441a2924dc,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 36.72414
       objectReference: {fileID: 0}
     - target: {fileID: 4484643598591163083, guid: cf928c0bc62dd1747a0e2e441a2924dc,
         type: 3}

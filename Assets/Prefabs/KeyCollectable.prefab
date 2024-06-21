@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 8504020672659842846}
   - component: {fileID: 1521363143646547192}
   - component: {fileID: 5324221471021260019}
+  - component: {fileID: 2520672825527730123}
   m_Layer: 0
   m_Name: KeyCollectable
   m_TagString: keycollectable
@@ -339,6 +340,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2520672825527730123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8809793048467595112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5049bd67b735c3408d4c0b9f2726747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectedCount: {fileID: 11400000, guid: 1d007719299c5b543a5d3c579e17cee7, type: 2}
+  unlocks:
+  - {fileID: 0}
 --- !u!1001 &5080958497173965900
 PrefabInstance:
   m_ObjectHideFlags: 0
