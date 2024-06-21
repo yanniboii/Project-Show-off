@@ -30,8 +30,8 @@ MonoBehaviour:
   allowedSegmentsPerBlade: 4
   affectStrength: 1
   topTint: {r: 1, g: 0.7045176, b: 0.19811308, a: 1}
-  bottomTint: {r: 0.8616352, g: 0.7532921, b: 0.11651026, a: 1}
-  drawBounds: 0
+  bottomTint: {r: 0.8627451, g: 0.5926258, b: 0.11764705, a: 1}
+  drawBounds: 1
   minFadeDistance: 40
   maxDrawDistance: 125
   cullingTreeDepth: 1

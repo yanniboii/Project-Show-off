@@ -25,16 +25,16 @@ MonoBehaviour:
   VertexColorSettings: 0
   VertexFade: 0
   sizeWidth: 0.419
-  sizeLength: 0.533
+  sizeLength: 0.371
   adjustWidth: 0
   adjustLength: 0
   adjustWidthMax: 2
   adjustHeightMax: 2
   reprojectOffset: 1
   rangeR: 0.704
-  rangeG: 0.946
+  rangeG: 0.372
   rangeB: 0.202
-  AdjustedColor: {r: 0.72242254, g: 0.9496855, b: 0.27176517, a: 1}
+  AdjustedColor: {r: 0.9490196, g: 0.7905531, b: 0.27058822, a: 1}
   paintBlockMask:
     serializedVersion: 2
     m_Bits: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   paintMask:
     serializedVersion: 2
     m_Bits: 1
-  brushSize: 4.2
+  brushSize: 23.6
   brushFalloffSize: 0.8
   Flow: 0
   density: 3
