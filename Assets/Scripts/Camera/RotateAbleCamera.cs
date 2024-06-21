@@ -5,10 +5,16 @@ using UnityEngine;
 public class RotateAbleCamera : MonoBehaviour
 {
     [SerializeField] public Player player;
-    [SerializeField] Vector3 offset;
-    [SerializeField] float speed;
+
+    [SerializeField] float rotationSpeed = 100f;
+    [SerializeField] float maxVerticalAngle = 85f;
+
+    private float pitch = 0f;
+    private float yaw = 0f;
+
     bool noPlayer = true;
     Vector2 rotation = new Vector2();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,34 +30,21 @@ public class RotateAbleCamera : MonoBehaviour
                 player.beforeRotate += OnCameraRotated;
                 noPlayer = false;
             }
-            //transform.RotateAround(transform.parent.position, Vector3.up, rotation.x);
-            ////transform.RotateAround(transform.parent.position, transform.local, rotation.y);
-            //Vector3 dir = (transform.position - transform.parent.position).normalized;
-            //transform.position = transform.parent.position + dir * distToPlayer;
-            if(rotation.x != 0)
-            {
-                Quaternion rotx = Quaternion.AngleAxis(rotation.x * speed * Time.deltaTime, Vector3.up);
-                offset = rotx * offset;
-            }
 
-            if (rotation.y != 0)
-            {
-                Vector3 rightAxis = Vector3.Cross(Vector3.up, offset).normalized;
-                Quaternion roty = Quaternion.AngleAxis(rotation.y * speed * Time.deltaTime, rightAxis);
-                offset = roty * offset;
-            }
+            float rightStickHorizontal = rotation.x;
+            float rightStickVertical = rotation.y;
 
+            yaw += rightStickHorizontal * rotationSpeed * Time.deltaTime;
+            pitch -= rightStickVertical * rotationSpeed * Time.deltaTime;
 
+            pitch = Mathf.Clamp(pitch, -maxVerticalAngle, maxVerticalAngle);
 
-
-            transform.position = transform.parent.position + offset;
-            transform.LookAt(transform.parent.position);
+            transform.rotation = Quaternion.Euler(-pitch, -yaw, 0f);
         }
     }
 
     void OnCameraRotated(Vector2 vector2)
     {
         rotation = vector2;
-
     }
 }
