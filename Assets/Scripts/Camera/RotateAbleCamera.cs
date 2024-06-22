@@ -23,6 +23,10 @@ public class RotateAbleCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+
+    public void UpdatePosition()
+    {
         if (player != null)
         {
             if (noPlayer)

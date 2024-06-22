@@ -17,13 +17,17 @@ public class BasicMovement : MonoBehaviour
     [SerializeField] bool canWaterWalk = false;
 
     [SerializeField] Transform animatedObject;
+    [SerializeField] Animator animator;
     Vector3 animatedObjectTargetScale = Vector3.one;
 
     Vector3 lastSafeSpot;
 
+    [HideInInspector]
     public CameraInfo cameraInfo;
 
+    [HideInInspector]
     public Player player;
+
     Rigidbody rb;
     Vector2 moveInput;
     float jumpInput;
@@ -103,6 +107,17 @@ public class BasicMovement : MonoBehaviour
             float angle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg;
             Quaternion moveDir = Quaternion.Euler(0, angle, 0);
             transform.rotation = moveDir;
+            if(animator != null)
+            {
+                animator.SetBool("IsWalking", true);
+            }
+        }
+        else
+        {
+            if(animator != null)
+            {
+                animator.SetBool("IsWalking", false);
+            }
         }
     }
 

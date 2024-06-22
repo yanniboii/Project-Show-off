@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8451754562253464669, guid: a9a849816eaa8ff419851ef429eb5a09,
+        type: 3}
+      propertyPath: m_BaseOffset
+      value: 0.92
+      objectReference: {fileID: 0}
     - target: {fileID: 62324662210936981, guid: a9a849816eaa8ff419851ef429eb5a09,
         type: 3}
       propertyPath: m_Height
@@ -39,20 +44,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vuurtje
       objectReference: {fileID: 0}
+    - target: {fileID: 825284992469677713, guid: a9a849816eaa8ff419851ef429eb5a09,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118369783791469045, guid: a9a849816eaa8ff419851ef429eb5a09,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2724164410817577437, guid: a9a849816eaa8ff419851ef429eb5a09,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2953856351789558119, guid: a9a849816eaa8ff419851ef429eb5a09,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 98.62
+      value: 0.1697322
       objectReference: {fileID: 0}
     - target: {fileID: 2953856351789558119, guid: a9a849816eaa8ff419851ef429eb5a09,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5
+      value: 21.98
       objectReference: {fileID: 0}
     - target: {fileID: 2953856351789558119, guid: a9a849816eaa8ff419851ef429eb5a09,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -108.41
+      value: -24.8
       objectReference: {fileID: 0}
     - target: {fileID: 2953856351789558119, guid: a9a849816eaa8ff419851ef429eb5a09,
         type: 3}
@@ -130,6 +150,11 @@ PrefabInstance:
       propertyPath: audioShoot
       value: 
       objectReference: {fileID: 8300000, guid: e39ba56b545f8944385f994458ac8aa8, type: 3}
+    - target: {fileID: 7752884908244892074, guid: a9a849816eaa8ff419851ef429eb5a09,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
