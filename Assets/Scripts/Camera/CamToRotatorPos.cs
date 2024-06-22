@@ -21,6 +21,7 @@ public class CamToRotatorPos : MonoBehaviour
             //transform.rotation = Quaternion.Lerp(transform.rotation,target.rotation, lerpValue);
             transform.position = target.position;
             transform.rotation = target.rotation;
+            target.parent.GetComponent<RotateAbleCamera>().UpdatePosition();
         }
 
     }
