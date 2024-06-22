@@ -6,24 +6,12 @@ public class Pressing : MonoBehaviour
 {
     private Vector3 scaleChange, positionChange;
     Renderer colour;
-    Material Up;
-    Material Down;
+    [SerializeField] Material Up, Down;
     public bool oneTimeTrigger;
     bool notTriggered = true;
     private void Awake()
     {
         colour = this.GetComponent<Renderer>();
-        foreach(var material in Resources.FindObjectsOfTypeAll(typeof(Material)) as Material[])
-        {
-            if (material != null && material.name == "ButtonUp")
-            {
-                Up = material;
-            }
-            if (material != null && material.name == "ButtonDown")
-            {
-                Down = material;
-            }
-        }
     }
     private void Start()
     {
@@ -51,10 +39,11 @@ public class Pressing : MonoBehaviour
             if (!oneTimeTrigger)
             {
                 this.GetComponentInParent<Togetherness>().pressCount--;
+                this.transform.localScale += scaleChange;
+                colour.material = Up;
+                this.transform.position -= positionChange;
+                notTriggered = true;
             }
-            this.transform.localScale += scaleChange;
-            colour.material = Up;
-            this.transform.position -= positionChange;
         }
     }
 }

@@ -120,3 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43908e0126d4f8e43bb11c5b45e19c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Up: {fileID: 2100000, guid: 77f33c598c3795e4482324aa05d3882c, type: 2}
+  Down: {fileID: 2100000, guid: c8d5f5f8b75f2c64b9a23c5bc7b5ed5e, type: 2}
+  oneTimeTrigger: 0
