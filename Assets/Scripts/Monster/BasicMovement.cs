@@ -15,6 +15,7 @@ public class BasicMovement : MonoBehaviour
 
     bool isWaterWalking = false;
     [SerializeField] bool canWaterWalk = false;
+    [SerializeField] ParticleSystem WaterWalkParticleSystem;
 
     [SerializeField] Transform animatedObject;
     [SerializeField] Animator animator;
@@ -56,6 +57,19 @@ public class BasicMovement : MonoBehaviour
     {
         rb.useGravity = true;
         float g = CheckGround();
+
+        // water walking fun
+        if(canWaterWalk){
+            if(WaterWalkParticleSystem.isPlaying != isWaterWalking){
+                if(isWaterWalking){
+                    WaterWalkParticleSystem.Play();
+                }else{
+                    WaterWalkParticleSystem.Stop();
+                }
+            }
+        }
+
+        // grounded
         if(grounded<=0f && g>=1f){animatedObject.localScale = new Vector3(1.3f,0.7f,1.3f);}
         if(g>grounded){grounded = g;}else{grounded = Mathf.Max(grounded - coyoteTime*Time.fixedDeltaTime, g);}
         rb.velocity = new Vector3(moveInput.x * monsterData.speed, rb.velocity.y, moveInput.y * monsterData.speed);
