@@ -25,7 +25,7 @@ public class CharacterInactiveUI : MonoBehaviour
     {
         if(i == text-1)
         {
-            gameObject.GetComponent<TMP_Text>().enabled = false;
+            gameObject.GetComponent<TMP_Text>().enabled = true;
         }
 
     }
@@ -35,7 +35,7 @@ public class CharacterInactiveUI : MonoBehaviour
         if (i == text - 1)
         {
             Debug.Log("A");
-            gameObject.GetComponent<TMP_Text>().enabled = true;
+            gameObject.GetComponent<TMP_Text>().enabled = false;
         }
 
     }
