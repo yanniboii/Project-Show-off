@@ -1320,12 +1320,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Character
+  m_text: 'Speler
 
-    Inactive'
+    Inactief'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 13a6923fa58438b42a9c48a655b03c14, type: 2}
+  m_sharedMaterial: {fileID: -1953481048109088167, guid: 13a6923fa58438b42a9c48a655b03c14,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1471,12 +1472,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Character
+  m_text: 'Speler
 
-    Inactive'
+    Inactief'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 13a6923fa58438b42a9c48a655b03c14, type: 2}
+  m_sharedMaterial: {fileID: -1953481048109088167, guid: 13a6923fa58438b42a9c48a655b03c14,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2171,12 +2173,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Character
+  m_text: 'Speler
 
-    Inactive'
+    Inactief'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 13a6923fa58438b42a9c48a655b03c14, type: 2}
+  m_sharedMaterial: {fileID: -1953481048109088167, guid: 13a6923fa58438b42a9c48a655b03c14,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3018,12 +3021,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Character
+  m_text: 'Speler
 
-    Inactive'
+    Inactief'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 13a6923fa58438b42a9c48a655b03c14, type: 2}
+  m_sharedMaterial: {fileID: -1953481048109088167, guid: 13a6923fa58438b42a9c48a655b03c14,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3700,27 +3704,27 @@ PrefabInstance:
     - target: {fileID: 9104855651242460170, guid: b89e7710f074cb2419d796c99e013c7f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.08
+      value: 28.35
       objectReference: {fileID: 0}
     - target: {fileID: 9104855651242460170, guid: b89e7710f074cb2419d796c99e013c7f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.87
+      value: -6.7000003
       objectReference: {fileID: 0}
     - target: {fileID: 9104855651242460170, guid: b89e7710f074cb2419d796c99e013c7f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.92
+      value: 2.2204462e-18
       objectReference: {fileID: 0}
     - target: {fileID: 9104855651242460170, guid: b89e7710f074cb2419d796c99e013c7f,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9563792
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9104855651242460170, guid: b89e7710f074cb2419d796c99e013c7f,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.29212818
+      value: -0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
