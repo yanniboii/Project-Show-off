@@ -1,5 +1,99 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4100450276529238095
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6500883694774655653}
+    m_Modifications:
+    - target: {fileID: 2335108143620032184, guid: 8be0533ee917e2449b0e8260094ee1c1,
+        type: 3}
+      propertyPath: m_Name
+      value: Stone Platform 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110906318809488386, guid: 8be0533ee917e2449b0e8260094ee1c1,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.38072377
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110906318809488386, guid: 8be0533ee917e2449b0e8260094ee1c1,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5950282
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110906318809488386, guid: 8be0533ee917e2449b0e8260094ee1c1,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5268613
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110906318809488386, guid: 8be0533ee917e2449b0e8260094ee1c1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.0170374
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110906318809488386, guid: 8be0533ee917e2449b0e8260094ee1c1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.09679705
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110906318809488386, guid: 8be0533ee917e2449b0e8260094ee1c1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.21715672
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110906318809488386, guid: 8be0533ee917e2449b0e8260094ee1c1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110906318809488386, guid: 8be0533ee917e2449b0e8260094ee1c1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00000003774895
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110906318809488386, guid: 8be0533ee917e2449b0e8260094ee1c1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.000002712011
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110906318809488386, guid: 8be0533ee917e2449b0e8260094ee1c1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1.01252326e-13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110906318809488386, guid: 8be0533ee917e2449b0e8260094ee1c1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110906318809488386, guid: 8be0533ee917e2449b0e8260094ee1c1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110906318809488386, guid: 8be0533ee917e2449b0e8260094ee1c1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136077814215086783, guid: 8be0533ee917e2449b0e8260094ee1c1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8be0533ee917e2449b0e8260094ee1c1, type: 3}
+--- !u!4 &1426393263577050189 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3110906318809488386, guid: 8be0533ee917e2449b0e8260094ee1c1,
+    type: 3}
+  m_PrefabInstance: {fileID: 4100450276529238095}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4926503068775216992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73,14 +167,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2861577320782817695, guid: 5bfc084acfed00e4cbf88267a9fd0369,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4859267082663623664, guid: 5bfc084acfed00e4cbf88267a9fd0369,
         type: 3}
       propertyPath: m_Name
-      value: Magical Ruinblock Variant
+      value: Electro ruinblock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1242056725510102895, guid: 5bfc084acfed00e4cbf88267a9fd0369, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2191479740586257861, guid: 5bfc084acfed00e4cbf88267a9fd0369,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1426393263577050189}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4859267082663623664, guid: 5bfc084acfed00e4cbf88267a9fd0369,
         type: 3}
@@ -110,3 +214,9 @@ MonoBehaviour:
   Object: {fileID: 518443762802625680}
   ytransform: 10
   lerpSpeed: 1
+--- !u!4 &6500883694774655653 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2191479740586257861, guid: 5bfc084acfed00e4cbf88267a9fd0369,
+    type: 3}
+  m_PrefabInstance: {fileID: 4926503068775216992}
+  m_PrefabAsset: {fileID: 0}
