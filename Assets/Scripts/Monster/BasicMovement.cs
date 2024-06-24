@@ -123,14 +123,16 @@ public class BasicMovement : MonoBehaviour
             transform.rotation = moveDir;
             if(animator != null)
             {
-                animator.SetBool("IsWalking", true);
+                animator.SetFloat("Movement", moveInput.magnitude);
             }
         }
         else
         {
             if(animator != null)
             {
-                animator.SetBool("IsWalking", false);
+                //animator.SetBool("IsWalking", false);
+                animator.SetFloat("Movement", moveInput.magnitude);
+                
             }
         }
     }
