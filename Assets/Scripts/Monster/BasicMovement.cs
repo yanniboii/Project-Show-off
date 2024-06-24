@@ -56,7 +56,7 @@ public class BasicMovement : MonoBehaviour
     void FixedUpdate()
     {
         rb.useGravity = true;
-        if(transform.position.y<-20){GoDead();}
+        if(transform.position.y<-10f){GoDead();}
         float g = CheckGround();
 
         // water walking fun
