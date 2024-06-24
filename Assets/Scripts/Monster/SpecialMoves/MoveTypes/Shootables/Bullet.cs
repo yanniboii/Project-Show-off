@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     IEnumerator WaitToDie()
     {
         yield return new WaitForSeconds(5);
-        Destroy(this);
+        Destroy(gameObject);
        // Debug.Log("I should be dead");
     }
 
