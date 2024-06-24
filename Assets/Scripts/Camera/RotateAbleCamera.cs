@@ -23,6 +23,7 @@ public class RotateAbleCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdatePosition();
     }
 
     public void UpdatePosition()
@@ -35,7 +36,7 @@ public class RotateAbleCamera : MonoBehaviour
                 noPlayer = false;
             }
 
-            float rightStickHorizontal = rotation.x;
+            float rightStickHorizontal = -rotation.x;
             float rightStickVertical = rotation.y;
 
             yaw += rightStickHorizontal * rotationSpeed * Time.deltaTime;
