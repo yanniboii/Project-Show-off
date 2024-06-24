@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class CollectibleCount : MonoBehaviour
 {
-    public float totalCollectible;
+    /*public float totalCollectible;
     //This doesn't need to be serialized, I just do it to check everything's working
     [SerializeField] List<GameObject> allCollectibles = new List<GameObject>();
     [SerializeField] float collected;
@@ -137,7 +137,7 @@ public class CollectibleCount : MonoBehaviour
         }
         bridges.RemoveAt(0);
         bridgeCount = 0;
-    }
+    }*/
 }
 
 //Jinkies! That's a lot of lists Fred! We can't stay here! The for loops will keep us here FOREVER!
