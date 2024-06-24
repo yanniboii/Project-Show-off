@@ -28,6 +28,7 @@ public class PlayerManager : MonoBehaviour
     #region Serialized vars
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private List<Monster> monsterPrefab;
+    [SerializeField] private List<IntValue> playerAuras;
     [SerializeField] private float timeUntilInactive;
     [SerializeField] private List<PlayerInfo> playerInfos = new List<PlayerInfo>();
 
@@ -86,7 +87,9 @@ public class PlayerManager : MonoBehaviour
             GameObject go = playerInput.gameObject;
 
             Player player = go.GetComponent<Player>();
+            player.aura = playerAuras[joinIndex];
             player.followObject = monsterPrefab[joinIndex].gameObject;
+            
 
             players.Add(go);
 

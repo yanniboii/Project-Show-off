@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 
     public GameObject followObject;
     [SerializeField] float SwapCooldown;
+    public IntValue aura;
 
     [HideInInspector]
     public CameraInfo cameraInfo;

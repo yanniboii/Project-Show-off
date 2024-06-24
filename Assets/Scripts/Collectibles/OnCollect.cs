@@ -23,6 +23,7 @@ public class OnCollect : MonoBehaviour
         {
             collectedCount.value++;
             unlocks.ForEach(unlocks => { unlocks.SetActive(true); });
+            collision.gameObject.GetComponent<BasicMovement>().player.aura.value += 1000;
             Destroy(gameObject);
         }
     }
