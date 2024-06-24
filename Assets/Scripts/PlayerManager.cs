@@ -9,6 +9,7 @@ using UnityEngine.InputSystem.Layouts;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.Users;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private List<Monster> monsterPrefab;
     [SerializeField] private List<IntValue> playerAuras;
     [SerializeField] private float timeUntilInactive;
+    [SerializeField] private float timeUntilMenu;
     [SerializeField] private List<PlayerInfo> playerInfos = new List<PlayerInfo>();
 
     [SerializeField] private BoolValue AllCharactersInactive;
@@ -39,6 +41,7 @@ public class PlayerManager : MonoBehaviour
     private List<GameObject> players = new List<GameObject>();
     private int joinIndex = 0;
     private bool stopUpdatingInactive = false;
+    private float intialTimeUntilMenu;
     #endregion
 
     #endregion
@@ -47,6 +50,7 @@ public class PlayerManager : MonoBehaviour
     void Awake()
     {
         InstantiateAllPlayers();
+        intialTimeUntilMenu = timeUntilMenu;
     }
 
     private void OnEnable()
@@ -63,6 +67,18 @@ public class PlayerManager : MonoBehaviour
     {
         UpdateInactive();
         CheckIfAllInactive();
+        if (AllCharactersInactive.value)
+        {
+            timeUntilMenu -= Time.deltaTime;
+        }
+        else
+        {
+            timeUntilMenu = intialTimeUntilMenu;
+        }
+        if(timeUntilMenu < 0)
+        {
+            SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        }
     }
 
     #endregion
