@@ -118,6 +118,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 609494244143597585, guid: 6f806ddca78993e43b6a3d2ababa6d63,
+        type: 3}
+      propertyPath: moveType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2797807888776968119, guid: 6f806ddca78993e43b6a3d2ababa6d63,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -200,6 +205,12 @@ PrefabInstance:
       objectReference: {fileID: 8083094494951381456}
     - target: {fileID: 4654819805814311709, guid: 6f806ddca78993e43b6a3d2ababa6d63,
         type: 3}
+      propertyPath: monsterData
+      value: 
+      objectReference: {fileID: 11400000, guid: e4b7909e996938e4f98d15e56d1f2b5c,
+        type: 2}
+    - target: {fileID: 4654819805814311709, guid: 6f806ddca78993e43b6a3d2ababa6d63,
+        type: 3}
       propertyPath: animatedObject
       value: 
       objectReference: {fileID: 0}
@@ -213,12 +224,18 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7306776905511312155, guid: 6f806ddca78993e43b6a3d2ababa6d63,
+        type: 3}
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7330237861432190842, guid: 6f806ddca78993e43b6a3d2ababa6d63,
         type: 3}
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 583099948254074671, guid: 6f806ddca78993e43b6a3d2ababa6d63, type: 3}
     m_RemovedGameObjects:
     - {fileID: 9152297779434541964, guid: 6f806ddca78993e43b6a3d2ababa6d63, type: 3}
     m_AddedGameObjects:
