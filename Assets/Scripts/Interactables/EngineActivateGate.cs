@@ -55,7 +55,7 @@ public class EngineActivateGate : MonoBehaviour
     
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -66,11 +66,11 @@ public class EngineActivateGate : MonoBehaviour
         }
     }
 
-    /*private void OnCollisionExit(Collision collision)
+    private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.transform.SetParent(null);
         }
-    }*/
+    }
 }
