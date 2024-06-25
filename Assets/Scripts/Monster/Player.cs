@@ -52,7 +52,11 @@ public class Player : MonoBehaviour
     public void OnBeforeMove(InputAction.CallbackContext context)
     {
         Vector2 dir = context.ReadValue<Vector2>();
-
+        Debug.Log(dir.magnitude);
+        if(!(dir.magnitude <= -0.3f || dir.magnitude >= 0.3f))
+        {
+            dir = Vector2.zero;
+        }
         Vector3 forward = cameraInfo.brain.gameObject.transform.forward;
         Vector3 right = cameraInfo.brain.gameObject.transform.right;
 
