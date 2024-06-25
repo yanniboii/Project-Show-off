@@ -140,6 +140,11 @@ PrefabInstance:
       propertyPath: animatedObject
       value: 
       objectReference: {fileID: 3542817676249470248}
+    - target: {fileID: 8475176340811309955, guid: 558a75c9ec5d96f47886ee5bced38315,
+        type: 3}
+      propertyPath: WaterWalkParticleSystem
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 9204979458831005679, guid: 558a75c9ec5d96f47886ee5bced38315,
         type: 3}
       propertyPath: m_Enabled
@@ -153,6 +158,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5954075041057801871, guid: 558a75c9ec5d96f47886ee5bced38315, type: 3}
+    - {fileID: 5487671998226058776, guid: 558a75c9ec5d96f47886ee5bced38315, type: 3}
+    - {fileID: 4726534749256913297, guid: 558a75c9ec5d96f47886ee5bced38315, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1429661410493701929, guid: 558a75c9ec5d96f47886ee5bced38315,
         type: 3}

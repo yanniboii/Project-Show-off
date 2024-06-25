@@ -1,5 +1,85 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &960039937344556933
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1429661410493701929}
+    m_Modifications:
+    - target: {fileID: 5152515859395347630, guid: 61cb59681e677044394be1e7fb20f61d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152515859395347630, guid: 61cb59681e677044394be1e7fb20f61d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152515859395347630, guid: 61cb59681e677044394be1e7fb20f61d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152515859395347630, guid: 61cb59681e677044394be1e7fb20f61d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152515859395347630, guid: 61cb59681e677044394be1e7fb20f61d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152515859395347630, guid: 61cb59681e677044394be1e7fb20f61d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152515859395347630, guid: 61cb59681e677044394be1e7fb20f61d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152515859395347630, guid: 61cb59681e677044394be1e7fb20f61d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152515859395347630, guid: 61cb59681e677044394be1e7fb20f61d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152515859395347630, guid: 61cb59681e677044394be1e7fb20f61d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533438997367610900, guid: 61cb59681e677044394be1e7fb20f61d,
+        type: 3}
+      propertyPath: m_Name
+      value: BobbaFinal
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 61cb59681e677044394be1e7fb20f61d, type: 3}
+--- !u!95 &2032242975101292881 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1252358087074799316, guid: 61cb59681e677044394be1e7fb20f61d,
+    type: 3}
+  m_PrefabInstance: {fileID: 960039937344556933}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5391889451239590699 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5152515859395347630, guid: 61cb59681e677044394be1e7fb20f61d,
+    type: 3}
+  m_PrefabInstance: {fileID: 960039937344556933}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2631782022646035377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12,6 +92,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bobba_NoAnim
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513184808037676350, guid: 8c0b8c9ed0218d440aab067404db5788,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9038505473172975492, guid: 8c0b8c9ed0218d440aab067404db5788,
         type: 3}
@@ -160,6 +245,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4654819805814311709, guid: 6f806ddca78993e43b6a3d2ababa6d63,
         type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 2032242975101292881}
+    - target: {fileID: 4654819805814311709, guid: 6f806ddca78993e43b6a3d2ababa6d63,
+        type: 3}
       propertyPath: monsterData
       value: 
       objectReference: {fileID: 11400000, guid: b4ab1548e2b51d843bbc2c8d46b5755e,
@@ -173,7 +263,7 @@ PrefabInstance:
         type: 3}
       propertyPath: animatedObject
       value: 
-      objectReference: {fileID: 6479218718981577781}
+      objectReference: {fileID: 5391889451239590699}
     - target: {fileID: 4654819805814311709, guid: 6f806ddca78993e43b6a3d2ababa6d63,
         type: 3}
       propertyPath: WaterWalkParticleSystem
@@ -220,6 +310,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5824363150544234230}
+    - targetCorrespondingSourceObject: {fileID: 2797807888776968119, guid: 6f806ddca78993e43b6a3d2ababa6d63,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5391889451239590699}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f806ddca78993e43b6a3d2ababa6d63, type: 3}
 --- !u!4 &1429661410493701929 stripped
