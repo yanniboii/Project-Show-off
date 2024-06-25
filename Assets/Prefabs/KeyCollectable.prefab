@@ -353,8 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectedCount: {fileID: 11400000, guid: 1d007719299c5b543a5d3c579e17cee7, type: 2}
-  unlocks:
-  - {fileID: 0}
+  unlocks: []
 --- !u!1001 &5080958497173965900
 PrefabInstance:
   m_ObjectHideFlags: 0
