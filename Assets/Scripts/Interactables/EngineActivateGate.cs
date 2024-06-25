@@ -54,4 +54,23 @@ public class EngineActivateGate : MonoBehaviour
     
     
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (on || reverse)
+            {
+                collision.gameObject.transform.SetParent(this.transform, true);
+            }
+        }
+    }
+
+    /*private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.transform.SetParent(null);
+        }
+    }*/
 }
