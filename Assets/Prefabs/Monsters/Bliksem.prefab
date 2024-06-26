@@ -121,9 +121,19 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 97b351a21bb4e2d4a84d93a20081e0c6, type: 3}
     - target: {fileID: 6968367579803955653, guid: 558a75c9ec5d96f47886ee5bced38315,
         type: 3}
+      propertyPath: audioDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: c6dad5dc7842e3f45a0fc08c356579dc, type: 3}
+    - target: {fileID: 6968367579803955653, guid: 558a75c9ec5d96f47886ee5bced38315,
+        type: 3}
       propertyPath: audioShoot
       value: 
       objectReference: {fileID: 8300000, guid: 5c4eed6fdc6214a4cb923e7cb9662dc1, type: 3}
+    - target: {fileID: 6968367579803955653, guid: 558a75c9ec5d96f47886ee5bced38315,
+        type: 3}
+      propertyPath: audioWander
+      value: 
+      objectReference: {fileID: 8300000, guid: c6dad5dc7842e3f45a0fc08c356579dc, type: 3}
     - target: {fileID: 8475176340811309955, guid: 558a75c9ec5d96f47886ee5bced38315,
         type: 3}
       propertyPath: animator

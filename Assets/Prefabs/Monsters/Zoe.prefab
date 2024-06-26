@@ -15,6 +15,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 565135145852832039, guid: f24f83897e4531a4da822f85f3250e8a,
         type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 565135145852832039, guid: f24f83897e4531a4da822f85f3250e8a,
+        type: 3}
       propertyPath: monsterData
       value: 
       objectReference: {fileID: 11400000, guid: eeffb8ef7aaded24b9c0d9bcd995c02d,
@@ -56,9 +61,19 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 3ddf49322142fae49adaed7ebe27de8d, type: 3}
     - target: {fileID: 1368674228499372897, guid: f24f83897e4531a4da822f85f3250e8a,
         type: 3}
+      propertyPath: audioDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: 41c4f4d894aa2e24e9b72791c2853ac0, type: 3}
+    - target: {fileID: 1368674228499372897, guid: f24f83897e4531a4da822f85f3250e8a,
+        type: 3}
       propertyPath: audioShoot
       value: 
       objectReference: {fileID: 8300000, guid: 3c7ca0d1defe367448a07f6e5562f33d, type: 3}
+    - target: {fileID: 1368674228499372897, guid: f24f83897e4531a4da822f85f3250e8a,
+        type: 3}
+      propertyPath: audioWander
+      value: 
+      objectReference: {fileID: 8300000, guid: 3ddf49322142fae49adaed7ebe27de8d, type: 3}
     - target: {fileID: 2518852392497096000, guid: f24f83897e4531a4da822f85f3250e8a,
         type: 3}
       propertyPath: m_Layer
